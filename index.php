@@ -39,6 +39,8 @@
 
 <!--        <h3>choose a project below</h3>-->
 
+        <div class="projects_list">
+
         <?php
 
         $projects_array = get_project_list ( ) ;
@@ -52,7 +54,7 @@
             $project_name = $projects_array[$project_index]['PROJECT_NAME'] ;
             $project_description = $projects_array[$project_index]['PROJECT_DESCRIPTION'] ;
 
-            echo '<h4>' . $project_name . '</h4>' ;
+            echo '<h4><a href="?p=' . $project_index. '">' . $project_name . '</a></h4>' ;
             echo '<p>' . $project_description . '</p>' ;
         }
 
@@ -61,7 +63,7 @@
 //        print_r($projects_array ) ;
 
         ?>
-
+        </div>
 
     <?php
 
