@@ -20,11 +20,45 @@ define ( 'DEBUG', $config[DEBUG] ) ;
 
 define ('PROJECT_DIRECTORY', $config[PROJECT_DIRECTORY]) ;
 
-//print_r ( $config ) ;
+if ( DEBUG )
+    print_r ( $config ) ;
 
 // Get program name.
 function get_program_name ( )
 {
     global $config ;
     return $config[PROGRAM_NAME] ;
+}
+
+// Get program name.
+function get_program_version ( )
+{
+    global $config ;
+    return $config[PROGRAM_VERSION] ;
+}
+
+// Get list of projects
+
+function get_project_list() {
+    global $config ;
+
+    $projects = $config['projects'] ;
+
+    foreach ( $projects as $project ) {
+//        echo PROJECT_DIRECTORY . '/' . $project . '/project.ini.php ' . "\n<br />";
+
+        if ( file_exists ( PROJECT_DIRECTORY . '/' . $project . '/project.ini.php' ) )
+        {
+            $project_config[] = parse_ini_file ( PROJECT_DIRECTORY . '/' . $project . '/project.ini.php' ) ;
+        }
+        else
+        {
+            echo 'ERROR: could not parse project ini file.' ;
+            exit ;
+        }
+
+    }
+
+    // returns an array
+    return $project_config ;
 }

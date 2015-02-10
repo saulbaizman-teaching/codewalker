@@ -7,7 +7,7 @@
 
 PROJECT_NAME = project two
 
-PROJECT_DESCRIPTION = This is the description for project two.
+PROJECT_DESCRIPTION = Qui quaerum, sunt labo. Ficto quam, sim ligenimporem conse et oditio entibus porrorro beruntur sinvelia dolore, int parum cus eatur modit exceat es es ne eaquis ma dolestia sequi apienih illiqui asime pa quam.
 
 file[] = 0001
 caption[] = Step one.

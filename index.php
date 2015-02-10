@@ -31,6 +31,7 @@
 <?php
 
     // is the query string ?p=projectname present in the URL?
+    // perhaps the step should be included as well?
     if ( ! isset ( $_GET['p'] ) ) {
 
 
@@ -40,7 +41,24 @@
 
         <?php
 
-        $projects_array = get_project_list();
+        $projects_array = get_project_list ( ) ;
+
+        $project_count = count ( $projects_array ) ;
+
+//        echo 'count: ' . $project_count ;
+
+        for ( $project_index = 0 ; $project_index < $project_count ; $project_index++ ){
+
+            $project_name = $projects_array[$project_index]['PROJECT_NAME'] ;
+            $project_description = $projects_array[$project_index]['PROJECT_DESCRIPTION'] ;
+
+            echo '<h4>' . $project_name . '</h4>' ;
+            echo '<p>' . $project_description . '</p>' ;
+        }
+
+
+
+//        print_r($projects_array ) ;
 
         ?>
 
@@ -67,7 +85,7 @@
 
 
 <footer>
-
+<small>&copy;<?php echo date ('Y') ?> <?php echo get_program_name () ; ?> v<?php echo get_program_version () ; ?>.</small>
 </footer>
 </body>
 </html>
