@@ -13,12 +13,6 @@
     <!-- Oswald typeface via Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
 
-    <!-- local scripts -->
-    <script type="text/javascript" src="js/scripts.js"></script>
-
-    <!-- jQuery courtesy of Google -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
 </head>
 <body>
 <?php
@@ -28,66 +22,52 @@
 <h1><?php echo get_program_name () ; ?></h1>
 </header>
 
-<?php
-
-    // is the query string ?p=projectname present in the URL?
-    // perhaps the step should be included as well?
-    if ( ! isset ( $_GET['p'] ) ) {
-
-
-        ?>
-
-<!--        <h3>choose a project below</h3>-->
-
-        <div class="projects_list">
-
-        <?php
-
-        $projects_array = get_project_list ( ) ;
-
-        $project_count = count ( $projects_array ) ;
-
-//        echo 'count: ' . $project_count ;
-
-        for ( $project_index = 0 ; $project_index < $project_count ; $project_index++ ){
-
-            $project_name = $projects_array[$project_index]['PROJECT_NAME'] ;
-            $project_description = $projects_array[$project_index]['PROJECT_DESCRIPTION'] ;
-
-            echo '<h4><a href="?p=' . $project_index. '">' . $project_name . '</a></h4>' ;
-            echo '<p>' . $project_description . '</p>' ;
-        }
-
-
-
-//        print_r($projects_array ) ;
-
-        ?>
-        </div>
+<div id="projects">
 
     <?php
 
-    }
-    else
-    {
-        echo 'viewing project X' ;
+    // is the query string ?p=projectname present in the URL?
+    // perhaps the step should be included as well?
 
-        // make sure the project is real, and then
-        // display the project.
+    print_projects ( $_GET['p'] ) ;
 
+    ?>
+</div>
 
+<div id="steps">
+    <?php
 
-    }
+//    print_steps ( '1' ) ;
 
-?>
-
-<div class="">
+    ?>
 
 </div>
 
+<div id="code">
+
+</div>
+
+<div id="spacer">
+
+</div>
+
+<div id="preview">
+
+</div>
 
 <footer>
 <small>&copy;<?php echo date ('Y') ?> <?php echo get_program_name () ; ?> v<?php echo get_program_version () ; ?>.</small>
 </footer>
+
+<!-- jQuery courtesy of Google -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<!-- local scripts -->
+<script type="text/javascript" src="js/scripts.js"></script>
+
+<!-- code formatting courtesy of http://craig.is/making/rainbows -->
+
+<!--<script type="text/javascript" src="js/rainbow-custom.min.js"></script>-->
+
 </body>
 </html>
