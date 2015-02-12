@@ -5,7 +5,7 @@
 ; setting = value
 ; Don't change anything to the left of the "=" sign!
 
-PROJECT_NAME = project one
+PROJECT_NAME = demo one
 
 PROJECT_DESCRIPTION = Ehendit ad untotatis sandunt maiorro ritature nusamus, occum int quat quo des quati idest et ullorrum sam nobis nulla et, temped quid quatemporrum quam, con ea ventior modiaectotat que pa vene pore mi, volenduci is est atur?
 

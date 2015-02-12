@@ -15,18 +15,18 @@ PROGRAM_NAME = codewalker
 PROGRAM_VERSION = 0.0.0.1
 
 ; directory where projects are stored
-PROJECT_DIRECTORY = projects
+PROJECT_DIRECTORY = demo
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; Add new project folders below
 
-projects[] = project1
+projects[] = demo1
 
-projects[] = project2
+projects[] = demo2
 
-projects[] = project3
+projects[] = demo3
 
-projects[] = project4
+projects[] = demo4
 
-projects[] = project5
+projects[] = demo5

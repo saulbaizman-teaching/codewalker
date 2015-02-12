@@ -5,7 +5,7 @@
 ; setting = value
 ; Don't change anything to the left of the "=" sign!
 
-PROJECT_NAME = project two
+PROJECT_NAME = demo two
 
 PROJECT_DESCRIPTION = Qui quaerum, sunt labo. Ficto quam, sim ligenimporem conse et oditio entibus porrorro beruntur sinvelia dolore, int parum cus eatur modit exceat es es ne eaquis ma dolestia sequi apienih illiqui asime pa quam.
 
