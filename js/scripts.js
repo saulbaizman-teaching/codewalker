@@ -10,7 +10,9 @@ function loadSteps ( project ) {
     xhr.onload = function () {
         if (xhr.status == 200) {
             // do stuff; populate div
-            document.getElementById('steps').innerHTML = xhr.responseText ;
+            // can use jquery here: see 314-318 in j+j
+            // eventually, fade the code in
+            $('#steps').html(xhr.responseText) ;
         }
     } ;
 
@@ -26,7 +28,7 @@ function loadFile ( project, file ) {
     xhr.onload = function () {
         if (xhr.status == 200) {
             // do stuff; populate div
-            document.getElementById('code').innerHTML = xhr.responseText ;
+            $('#code').html ( xhr.responseText ) ;
         }
     } ;
 

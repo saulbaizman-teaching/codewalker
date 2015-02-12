@@ -83,8 +83,12 @@ function print_projects ( $project = false ) {
         $project_name = $projects_array[$project_index]['PROJECT_NAME'] ;
         $project_description = $projects_array[$project_index]['PROJECT_DESCRIPTION'] ;
 
+        $div_id = 'project-' . $project_index ;
+        echo '<div id="' . $div_id . '">' ;
         echo '<h4><a href="javascript:loadSteps(' . $project_index. ');">' . $project_name . '</a></h4>' ;
-        echo '<p id="project' . $project_index . '"><a href="javascript:loadSteps(' . $project_index . ');">' . $project_description . '</a></p>' ;
+//        echo '<p id="project' . $project_index . '"><a href="javascript:loadSteps(' . $project_index . ');">' . $project_description . '</a></p>' ;
+        echo '<p><a href="javascript:loadSteps(' . $project_index . ');">' . $project_description . '</a></p>' ;
+        echo '</div>' ;
     }
 
 
@@ -102,7 +106,8 @@ function print_steps ( $project ) {
 
     echo '<ol>' ;
     for ( $step = 0 ; $step < count ( $one_project['file'] ) ; $step++ ) {
-        echo '<li><a href="javascript:loadFile(\'' . $project . '\',\'' . $one_project['file'][$step] . '\');">' . $one_project['caption'][$step] . '</a></li>' ;
+        $li_id = 'li-' . $project . '-' . str_replace ( '.','-', $one_project['file'][$step] ) ;
+        echo '<li id="' . $li_id . '"><a href="javascript:loadFile(\'' . $project . '\',\'' . $one_project['file'][$step] . '\');">' . $one_project['caption'][$step] . '</a></li>' ;
     }
     echo '</ol>' ;
 
