@@ -76,8 +76,22 @@ h4 a:hover {
     color: #dd0000;
 }
 
+/*.project {*/
+    /*margin-left: 5px ;*/
+    /*padding-left: 5px ;*/
+    /*border-left: 4px solid #ffffff;*/
+/*}*/
+
 /*.project_selected {*/
     /*color: #dd0000;*/
+/*}*/
+
+/*.project_white_bg {*/
+    /*background: #ffffff ;*/
+/*}*/
+
+/*.project_gray_bg {*/
+    /*background: #eeeeee ;*/
 /*}*/
 
 #steps {
@@ -117,6 +131,12 @@ h4 a:hover {
 #steps ol li a:hover {
     color: #dd0000;
 }
+
+/*.step {*/
+    /*margin-left: 5px ;*/
+    /*padding-left: 5px ;*/
+    /*border-left: 4px solid #ffffff;*/
+/*}*/
 
 #code {
     float: left;
