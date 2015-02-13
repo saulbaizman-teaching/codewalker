@@ -22,14 +22,14 @@
 <h1><?php echo get_program_name () ; ?></h1>
 </header>
 
-<div id="projects">
+<div id="demos">
 
     <?php
 
     // is the query string ?p=projectname present in the URL?
     // perhaps the step should be included as well?
 
-    print_projects ( $_GET['p'] ) ;
+    print_demos ( $_GET['p'] ) ;
 
     ?>
 </div>

@@ -43,7 +43,7 @@ h4 a:hover {
     color: #dd0000 ;
 }
 
-#projects {
+#demos {
     margin-left: 30px ;
     width: 20% ;
     height: 800px ;
@@ -52,11 +52,11 @@ h4 a:hover {
     /*border: 1px dotted red ;*/
 }
 
-#projects p {
+#demos p {
     color: #777;
 }
 
-#projects p a {
+#demos p a {
     -webkit-transition-property: color ;
     -webkit-transition-duration: .3s ;
     -webkit-transition-timing-function: ease ;
@@ -66,33 +66,28 @@ h4 a:hover {
     color: #777;
 }
 
-#projects p a:link, .projects p a:visited {
+#demos p a:link, .projects p a:visited {
     text-decoration: none;
     color: #777;
 }
 
-#projects p a:hover {
+#demos p a:hover {
     text-decoration: none;
     color: #dd0000;
 }
 
-/*.project {*/
-    /*margin-left: 5px ;*/
-    /*padding-left: 5px ;*/
-    /*border-left: 4px solid #ffffff;*/
-/*}*/
+.demo_selected {
+/*empty placeholder; we really just want the link styles below!*/
+}
 
-/*.project_selected {*/
-    /*color: #dd0000;*/
-/*}*/
+.demo_selected a, .demo_selected a:link {
+    color: #dd0000;
+}
 
-/*.project_white_bg {*/
-    /*background: #ffffff ;*/
-/*}*/
+.demo_selected p a, .demo_selected p a:link {
+    color: #dd0000;
+}
 
-/*.project_gray_bg {*/
-    /*background: #eeeeee ;*/
-/*}*/
 
 #steps {
     width: 20% ;

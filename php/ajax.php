@@ -13,12 +13,12 @@ if ( $_GET['callback'] == 'steps' ) {
 //    echo 'hello' ;
 //    echo $_GET['project_id'] ;
 
-    print_steps ( $_GET['project'] ) ;
+    print_steps ( $_GET['demo'] ) ;
 }
 
-elseif ( $_GET['callback'] == 'file' ) {
+elseif ( $_GET['callback'] == 'step_details' ) {
     // return file for the given step
-    print_file ( $_GET['project'], $_GET['file'] ) ;
+    print_step_details ( $_GET['demo'], $_GET['step_details'] ) ;
 
 }
 

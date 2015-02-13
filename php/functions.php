@@ -39,25 +39,18 @@ function get_program_version ( )
 
 // Get list of projects
 
-function get_projects ( $parent_folder = '' ) {
+function get_demos ( $parent_folder = '' ) {
 
     global $config ;
 
-    $projects = $config['projects'] ;
-//print_r ( $projects ) ;
-//    exit ;
+    $demos = $config['demos'] ;
 
-    foreach ( $projects as $project ) {
-        // echo PROJECT_DIRECTORY . '/' . $project . '/project.ini.php ' . "\n<br />";
+    foreach ( $demos as $demo ) {
 
-        if ( file_exists ( $parent_folder . PROJECT_DIRECTORY . '/' . $project . '/project.ini.php' ) )
+        if ( file_exists ( $parent_folder . PROJECT_DIRECTORY . '/' . $demo . '/project.ini.php' ) )
         {
-            $project_config[] = parse_ini_file ( $parent_folder . PROJECT_DIRECTORY . '/' . $project . '/project.ini.php' ) ;
+            $project_config[] = parse_ini_file ( $parent_folder . PROJECT_DIRECTORY . '/' . $demo . '/project.ini.php' ) ;
         }
-//        elseif ( file_exists ( '../' . PROJECT_DIRECTORY . '/' . $project . '/project.ini.php' ) ) {
-//            $project_config[] = parse_ini_file ( '../' . PROJECT_DIRECTORY . '/' . $project . '/project.ini.php' ) ;
-//
-//        }
         else
         {
             echo 'ERROR: could not parse project ini file.' ;
@@ -70,24 +63,21 @@ function get_projects ( $parent_folder = '' ) {
     return $project_config ;
 }
 
-function print_projects ( $project = false ) {
+function print_demos ( $project = false ) {
 
-    $projects_array = get_projects ( ) ;
+    $demos_array = get_demos ( ) ;
 
-    $project_count = count ( $projects_array ) ;
+    $demo_count = count ( $demos_array ) ;
 
-//        echo 'count: ' . $project_count ;
+    for ( $demo_index = 0 ; $demo_index < $demo_count ; $demo_index++ ){
 
-    for ( $project_index = 0 ; $project_index < $project_count ; $project_index++ ){
+        $demo_name = $demos_array[$demo_index]['PROJECT_NAME'] ;
+        $demo_description = $demos_array[$demo_index]['PROJECT_DESCRIPTION'] ;
 
-        $project_name = $projects_array[$project_index]['PROJECT_NAME'] ;
-        $project_description = $projects_array[$project_index]['PROJECT_DESCRIPTION'] ;
-
-        $div_id = 'project-' . $project_index ;
-        echo '<div id="' . $div_id . '" class="project">' ;
-        echo '<h4><a href="javascript:loadSteps(' . $project_index. ');">' . $project_name . '</a></h4>' ;
-//        echo '<p id="project' . $project_index . '"><a href="javascript:loadSteps(' . $project_index . ');">' . $project_description . '</a></p>' ;
-        echo '<p><a href="javascript:loadSteps(' . $project_index . ');">' . $project_description . '</a></p>' ;
+        $div_id = 'demo-' . $demo_index ;
+        echo '<div id="' . $div_id . '">' ;
+        echo '<h4><a href="javascript:loadSteps(' . $demo_index. ');">' . $demo_name . '</a></h4>' ;
+        echo '<p><a href="javascript:loadSteps(' . $demo_index . ');">' . $demo_description . '</a></p>' ;
         echo '</div>' ;
     }
 
@@ -95,29 +85,26 @@ function print_projects ( $project = false ) {
 }
 
 //function print_steps ( $project = false ) {
-function print_steps ( $project ) {
+function print_steps ( $demo ) {
 
-    $project_details = get_projects ( '../' ) ;
+    $project_details = get_demos ( '../' ) ;
 
-//    if ( ! $project_id === false )
-//    {
-        $one_project = $project_details[$project] ;
-//    }
+    $one_demo = $project_details[$demo] ;
 
-    echo '<ol>' ;
-    for ( $step = 0 ; $step < count ( $one_project['file'] ) ; $step++ ) {
-        $li_id = 'li-' . $project . '-' . str_replace ( '.','-', $one_project['file'][$step] ) ;
-        echo '<li id="' . $li_id . '" class="step"><a href="javascript:loadFile(\'' . $project . '\',\'' . $one_project['file'][$step] . '\');">' . $one_project['caption'][$step] . '</a></li>' ;
+    echo '<ol>' . "\n" ;
+    for ( $step = 0 ; $step < count ( $one_demo['file'] ) ; $step++ ) {
+        $li_id = 'li-' . $demo . '-' . str_replace ( '.','-', $one_demo['file'][$step] ) ;
+        echo '<li id="' . $li_id . '" class="step"><a href="javascript:loadFile(\'' . $demo . '\',\'' . $one_demo['file'][$step] . '\');">' . $one_demo['caption'][$step] . '</a></li>' . "\n" ;
     }
     echo '</ol>' ;
 
 }
 
-function print_file ( $project, $file ){
+function print_step_details ( $demo, $step ) {
 
     global $config ;
 
-    $projects = $config['projects'] ;
+    $demos = $config['demos'] ;
 
 //    $project_details = get_projects ( '../' ) ;
 
@@ -126,11 +113,11 @@ function print_file ( $project, $file ){
 
 //    echo 'project: ' . $project . '   file: ' . $file ;
 
-    $parent_folder = $projects[$project] ;
+    $parent_folder = $demos[$demo] ;
 
 //    $requested_file = $project_details[$project]['file'][$file];
 
-    $file_path = '../' . PROJECT_DIRECTORY . '/' . $parent_folder . '/' . $file ;
+    $file_path = '../' . PROJECT_DIRECTORY . '/' . $parent_folder . '/' . $step ;
 //echo 'path: ' . $file_path ;
     readfile ( $file_path ) ;
 
