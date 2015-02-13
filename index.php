@@ -13,6 +13,7 @@
 
     <!-- Oswald typeface via Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
 
     <!--syntax color highlighter styles-->
     <link rel="stylesheet" href="css/rainbow-theme.css" type="text/css">
@@ -74,6 +75,7 @@
 <script type="text/javascript" src="js/rainbow.js"></script>
 <script type="text/javascript" src="js/generic.js"></script>
 <script type="text/javascript" src="js/javascript.js"></script>
+<!-- line numbers courtesy of https://github.com/Sjeiti/rainbow.linenumbers -->
 <script type="text/javascript" src="js/rainbow.linenumbers.js"></script>
 
 </body>

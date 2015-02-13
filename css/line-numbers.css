@@ -20,18 +20,20 @@ pre {
   background-clip: padding-box;
   margin-bottom: 20px;
   /*font: 12px / 15px Inconsolata, courier, monospace;*/
-  font-size: 1.3em ;
+    font-size: 1.3em ;
     letter-spacing: 1px ;
 }
 pre code.rainbow {
   display: block;
   min-width: 100%;
   position: static;
-  color: #000000;
+  color: salmon;
   word-wrap: break-word;
 }
 pre code.rainbow .line {
-  color: #666;
+    font-family: 'PT Mono', monospace !important;
+    font-size: 0.7em;
+  color: #aaa;
 }
 pre code.rainbow .line:after {
   /*border-bottom: 1px solid #333;*/

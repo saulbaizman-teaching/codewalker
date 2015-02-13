@@ -62,5 +62,5 @@ function loadStepDetails ( demo, step ) {
     xhr.send ( null ) ;
 
     $('#source_code').fadeTo(250,1) ;
-    
+
 }
