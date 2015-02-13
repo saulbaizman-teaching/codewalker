@@ -10,14 +10,16 @@ pre {
     border-collapse: collapse;
 }
 .rainbow .line:hover {
-    background-color: #171b1c;
+    background-color: #dddddd;
 }
 .rainbow .line:hover .line-number {
-    background-color: #101313;
+    /*background-color: #101313;*/
 }
 .rainbow .line .line-number {
     text-align: right;
-    background-color: #1b2022;
+    /*background-color: #1b2022;*/
+    background-color: #dddddd ;
+    color: white ;
     padding-left: 0.8em;
     padding-right: 0.8em;
 }
