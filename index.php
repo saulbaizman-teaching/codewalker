@@ -16,7 +16,7 @@
 
     <!--syntax color highlighter styles-->
     <link rel="stylesheet" href="css/rainbow-theme.css" type="text/css">
-<!--    <link rel="stylesheet" href="css/line-numbers.css" type="text/css">-->
+    <link rel="stylesheet" href="css/line-numbers.css" type="text/css">
 
 </head>
 <body>
@@ -74,9 +74,7 @@
 <script type="text/javascript" src="js/rainbow.js"></script>
 <script type="text/javascript" src="js/generic.js"></script>
 <script type="text/javascript" src="js/javascript.js"></script>
-
-<!--    <script type="text/javascript" src="js/rainbow.linenumbers.js"></script>-->
-
+<script type="text/javascript" src="js/rainbow.linenumbers.js"></script>
 
 </body>
 </html>

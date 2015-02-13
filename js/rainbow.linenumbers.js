@@ -1,120 +1,127 @@
-/*
- * Copyright 2013 Nikita Nikishin
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+/**
+ * Adds lines and numbers to the code element by adding a span.line at each newline.
+ * Set the starting line number by adding data-line="234" attribute to code element.
+ * Disable line numbering by setting data-line="-1"
+ * Each span.line has an id so you can easily jump to a specific line using and anchor href like #rb1ln30 (meaning rainbow block 1 line 30)
+ * @summary Line numbering for Rainbow.js
+ * @version 1.1.2
+ * @author Ron Valstar (http://www.sjeiti.com/)
+ * @namespace Rainbow.linenumbers
+ * @license http://www.apache.org/licenses/LICENSE-2.0
+ * @requires Rainbow.js
  */
+if (window.Rainbow&&!window.Rainbow.linenumbers) window.Rainbow.linenumbers = (function(Rainbow){
+	var iCodeElement = 0
+		,mGenericLineStyle = document.createElement('style')
+	;
+	// add generic .line style
+	mGenericLineStyle.appendChild(document.createTextNode('pre code.rainbow .line { position: relative; padding-right: 10px; }'
+		+'pre code.rainbow .line:before{ content: attr(data-line); display: inline-block; text-align: right; white-space: nowrap; }'
+		+'pre code.rainbow .line:after{ content:\'\'; position: absolute; left: 0; bottom: 0; }'));
+	document.head.appendChild(mGenericLineStyle);
+	//
+	// handle each code block
+	Rainbow.onHighlight(addLines);
 
-// Only install the plugin if Rainbow is present and has been loaded
-if (window.Rainbow) window.Rainbow.linenumbers = (function(Rainbow) {
-    /*
-     * Splits up the DOM element containing
-     * highlighted source code into an array of lines
-     *
-     * @param {block} Rainbow source element
-     * @returns {Array}
-     */
-    this.splitLines = function(block) {
-        // Each line is represented as an array
-        var lines = [[]];
-        
-        // Caches the child nodes of the block
-        var childNodes = block.childNodes;
-        
-        // For every child node
-        for (var i = 0; i < childNodes.length; i++) {
-            var elem = childNodes[i];
-            
-            // Array of lines in each element or text node
-            var chunks = [];
-            var lastLine = lines[lines.length - 1];
-            
-            // If the element is a text node
-            if (elem.nodeType === 3) {
-                // Just split up its node value
-                chunks = elem.nodeValue.split('\n');
-            } else {
-                // Otherwise, we need to split up the HTML
-                var stringChunks = elem.innerHTML.split('\n');
-                
-                // Wraps each chunk in the parent element. For example:
-                // <b>foo\nbar</b> -> [<b>foo</b>, <b>bar</b>]
-                for (var j = 0; j < stringChunks.length; j++) {
-                    var wrapper = elem.cloneNode();
-                    wrapper.innerHTML = stringChunks[j];
-                    
-                    chunks.push(wrapper.outerHTML);
-                }
-            }
-            
-            // The first chunk is a continuation of the last line
-            // &#8203; is a zero-width space, which allows
-            // empty lines to be copied
-            lastLine.push(chunks[0] || '&#8203;');
-            
-            // Each subsequent chunk is its own line
-            for (var k = 0; k < chunks.length - 1; k++) {
-                lines.push([chunks[k + 1] || '&#8203;']);
-            }
-        }
-        
-        // Returns the array of lines
-        return lines;
-    };
-    
-    // Callback is called when Rainbow has highlighted a block
-    Rainbow.onHighlight(function(block) {
-        // This addresses an issue when Rainbow.color() is called multiple times.
-        // Since code element is replaced with table element below,
-        // second pass of Rainbow.color() will result in block.parentNode being null.
-        if (!block || !block.parentNode) {
-            return;
-        }
+	/**
+	 * Add lines to a <code> element
+	 * @param {HTMLElement} codeElement
+	 */
+	function addLines(codeElement){
+		iCodeElement++;
+		var rxLineMatch = /\r\n|\r|\n/g
+			,iLines = codeElement.innerHTML.replace(rxLineMatch,"\n").split("\n").length
+			,iLineStart = codeElement.getAttribute('data-line')<<0||1
+			,bAddLineNumbering = iLineStart>=0
+			,sBlockId = 'rb'+iCodeElement
+			,mParent = codeElement.parentNode // pre
+			//
+			,iCharWidth = calculateCharacterWidth(codeElement)
+			,iLineBlockWidth = 1 + String(iLineStart+iLines-1).length*iCharWidth
+			//
+			,iLine
+			,sBlock
+			//
+			,mStyle
+		;
+		if (bAddLineNumbering) {
+			iLine = iLineStart;
+			sBlock = getLine(sBlockId,iLineStart)+codeElement.innerHTML.replace(rxLineMatch,function(match){
+				return match+getLine(sBlockId,++iLine);
+			});
+			//
+			// add class to block
+			codeElement.classList.add(sBlockId);
+			if (getStyle(codeElement).display==='block') {
+				window.addEventListener('resize', handleResize, false);
+			}
+			//
+			// add style element
+			mStyle = document.createElement('style');
+			handleResize();
+			mParent.parentNode.insertBefore(mStyle, mParent);
+			//
+			// set block html
+			codeElement.innerHTML = sBlock;
+		}
+		function handleResize(){
+			setBlockStyle(mStyle,sBlockId,iLineBlockWidth,codeElement.offsetWidth);
+		}
+	}
 
-        // Create a table wrapper
-        var table = document.createElement('table');
-        table.className = 'rainbow';
-        table.setAttribute('data-language', block.getAttribute('data-language'));
-        
-        // Split up the lines of the block
-        var lines = this.splitLines(block);
-        
-        // For each line
-        for (var i = 0; i < lines.length; i++) {
-            var line = lines[i],
-                index = i + 1;
-            
-            // Create a row
-            var row = table.insertRow(-1);
-            row.className = 'line line-' + index;
-            
-            // Create a cell which displays the line number with CSS
-            var lineNumber = row.insertCell(-1);
-            lineNumber.className = 'line-number';
-            lineNumber.setAttribute('data-line-number', index);
-            
-            // Add in the actual line of source code
-            var code = row.insertCell(-1);
-            code.className = 'line-code';
-            code.innerHTML = line.join('');
-        }
-        
-        // This addresses an issue where pre element is being used.
-        // Rainbow allows using either pre element directly, or a nested code element.
-        // In the case of pre element, don't use parentNode as it may not be okay to clear it's content (e.g., <body>).
-        var parent = block.nodeName === 'PRE' ? block : block.parentNode;
+	/**
+	 * Add line numbers as <span id="rb1ln32"></span> to be able to link to a specific line.
+	 * @param {string} blockID
+	 * @param {number} nr
+	 * @returns {string}
+	 */
+	function getLine(blockID,nr){
+		var sId = blockID+'ln'+nr;
+		return '<span id="'+sId+'" class="line" data-line="'+nr+'"></span>';
+	}
 
-        // Clear the parent element and use the table in place of the <code> block
-        parent.innerHTML = '';
-        parent.appendChild(table);
-    });
+	/**
+	 *
+	 * @param {HTMLElement} elm
+	 * @param {string} blockID
+	 * @param {number} lineBlockWidth
+	 * @param {number} lineWidth
+	 */
+	function setBlockStyle(elm,blockID,lineBlockWidth,lineWidth) {
+		elm.textContent = 'pre code.rainbow.'+blockID+' .line:before{ width: '+lineBlockWidth+'px; }'
+			+'pre code.rainbow.'+blockID+' .line:after{ width:'+(lineWidth||0)+'px }';
+	}
+
+	/**
+	 * Calculate character width to determine the size of the .line element.
+	 * @param {HTMLElement} elm
+	 * @returns {number}
+	 */
+	function calculateCharacterWidth(elm){
+		var iTestExp = 5
+			,mTestDiv = document.createElement('div')
+			,oTestStyle = mTestDiv.style
+			,oCodeStyle = getStyle(elm)
+			,oTestCSS = {font:oCodeStyle.font,width:'auto',display:'inline-block'}
+			,iReturnWidth
+		;
+		mTestDiv.appendChild(document.createTextNode(new Array(1<<iTestExp).join('a')+'a'));
+		for (var s in oTestCSS) oTestStyle[s] = oTestCSS[s];
+		document.body.appendChild(mTestDiv);
+		iReturnWidth = mTestDiv.offsetWidth>>iTestExp;
+		document.body.removeChild(mTestDiv);
+		return iReturnWidth;
+	}
+
+	/**
+	 * Get the style of an element.
+	 * @param {HTMLElement} elm
+	 * @returns {IEElementStyle|DocumentView|CssStyle|CSSStyleDeclaration}
+	 */
+	function getStyle(elm){
+		return elm.currentStyle||(document.defaultView&&document.defaultView.getComputedStyle(elm,null))||elm.style;
+	}
+
+	// expose main method te be able to be called manually
+	return addLines;
 })(window.Rainbow);

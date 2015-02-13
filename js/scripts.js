@@ -41,12 +41,9 @@ function loadStepDetails ( demo, step ) {
             // NOTE: this will need to be more complicated if it is to return the
             // language format automatically.
             $('#source_code').html ( xhr.responseText ) ;
+
+            //because we are loading rainbow'd content after the DOM has loaded, we need to manually invoke it here to style the content correctly
             Rainbow.color();
-            //document.onreadystatechange = function () {
-            //    if ( document.readyState === "complete" ) {
-            //        Rainbow.color();
-            //    }
-            //}
         }
     } ;
 
@@ -65,8 +62,5 @@ function loadStepDetails ( demo, step ) {
     xhr.send ( null ) ;
 
     $('#source_code').fadeTo(250,1) ;
-
-    // call syntax highlighter
-    //Rainbow.color();
-
+    
 }
