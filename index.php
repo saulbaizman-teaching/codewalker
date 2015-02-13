@@ -8,10 +8,22 @@
     <title><?php echo get_program_name () ; ?></title>
 
     <!-- local styles -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+
 
     <!-- Oswald typeface via Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+
+    <!-- code formatting courtesy of http://craig.is/making/rainbows -->
+    <script type="text/javascript" src="js/rainbow.js"></script>
+    <script type="text/javascript" src="js/generic.js"></script>
+    <script type="text/javascript" src="js/javascript.js"></script>
+
+    <script type="text/javascript" src="js/rainbow.linenumbers.js"></script>
+
+    <!--syntax color highlighter styles-->
+    <link rel="stylesheet" href="css/rainbow-theme.css" type="text/css">
+    <link rel="stylesheet" href="css/line-numbers.css" type="text/css">
 
 </head>
 <body>
@@ -43,7 +55,7 @@
 
 </div>
 
-<div id="code">
+<div id="source_code">
 
 </div>
 
@@ -65,9 +77,6 @@
 <!-- local scripts -->
 <script type="text/javascript" src="js/scripts.js"></script>
 
-<!-- code formatting courtesy of http://craig.is/making/rainbows -->
-
-<!--<script type="text/javascript" src="js/rainbow-custom.min.js"></script>-->
 
 </body>
 </html>

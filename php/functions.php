@@ -118,7 +118,9 @@ function print_step_details ( $demo, $step ) {
     $file_path = '../' . PROJECT_DIRECTORY . '/' . $parent_folder . '/' . $step ;
 //echo 'path: ' . $file_path ;
     if ( file_exists ( $file_path ) ) {
+        echo '<pre><code data-language="javascript">' ;
         readfile ( $file_path ) ;
+        echo '</code></pre>' ;
     }
     else
     {

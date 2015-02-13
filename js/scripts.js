@@ -1,9 +1,4 @@
 function loadSteps ( demo ) {
-    //alert ('loading steps') ;
-
-    //make the clicked item red
-    //var el = document.getElementById('project' + project).className = "project_selected" ;
-    // loop through other projects to de-select them.
 
     var xhr = new XMLHttpRequest() ;
 
@@ -43,7 +38,10 @@ function loadStepDetails ( demo, step ) {
     xhr.onload = function () {
         if (xhr.status == 200) {
             // do stuff; populate div
-            $('#code').html ( xhr.responseText ) ;
+            // NOTE: this will need to be more complicated if it is to return the
+            // language format automatically.
+            $('#source_code').html ( xhr.responseText ) ;
+            Rainbow.color();
         }
     } ;
 
@@ -54,22 +52,16 @@ function loadStepDetails ( demo, step ) {
     var selected_step = 'li#li-' + demo + '-' + step.replace('.' ,'-') ;
     $(selected_step).addClass ( 'step_selected' ) ;
 
-    // make all steps white
-    //var $steps = $('li.step a') ;
-    //$steps.css ( {'color': '#777' } ) ;
-    //
-    //// make selected step orange
-    //var selected = 'li#li-' + demo + '-' + step.replace('.' ,'-') ;
-    //var $selected_step = $(selected + ' a') ;
-    //$selected_step.css ( {'color': 'orange' } ) ;
-
     //set opacity to 0
-    $('#code').css ({'opacity':'0'}) ;
+    $('#source_code').css ({'opacity':'0'}) ;
 
     xhr.open ( 'GET', '/php/ajax.php?demo=' + demo + '&step_details=' + step + '&callback=step_details', true ) ;
 
     xhr.send ( null ) ;
 
-    $('#code').fadeTo(250,1) ;
+    $('#source_code').fadeTo(250,1) ;
+
+    // call syntax highlighter
+    //Rainbow.color();
 
 }
