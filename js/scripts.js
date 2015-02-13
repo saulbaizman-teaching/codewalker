@@ -16,7 +16,6 @@ function loadSteps ( demo ) {
         }
     } ;
 
-
     // set the previously selected project to not be selected
     $('.demo_selected').removeClass ('demo_selected') ;
 
@@ -24,10 +23,17 @@ function loadSteps ( demo ) {
     var selected_demo = '#demo-' + demo ;
     $(selected_demo).addClass ( 'demo_selected' ) ;
 
+    //set opacity to 0
+    $('#steps').css ({'opacity':'0'}) ;
 
+    //request steps
     xhr.open ( 'GET', '/php/ajax.php?demo=' + demo + '&callback=steps', true ) ;
 
     xhr.send ( null ) ;
+
+    //fade the content in
+    $('#steps').fadeTo(250,1) ;
+
 }
 
 function loadStepDetails ( demo, step ) {
@@ -57,8 +63,13 @@ function loadStepDetails ( demo, step ) {
     //var $selected_step = $(selected + ' a') ;
     //$selected_step.css ( {'color': 'orange' } ) ;
 
+    //set opacity to 0
+    $('#code').css ({'opacity':'0'}) ;
+
     xhr.open ( 'GET', '/php/ajax.php?demo=' + demo + '&step_details=' + step + '&callback=step_details', true ) ;
 
     xhr.send ( null ) ;
+
+    $('#code').fadeTo(250,1) ;
 
 }

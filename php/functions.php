@@ -123,7 +123,7 @@ function print_step_details ( $demo, $step ) {
     else
     {
 //        wrap in a class and style?
-        echo 'Our apologies. The requested file doesn\'t exist!' ;
+        echo 'Our apologies. The requested step doesn\'t seem to exist!' ;
     }
 
 }
