@@ -42,6 +42,11 @@ function loadStepDetails ( demo, step ) {
             // language format automatically.
             $('#source_code').html ( xhr.responseText ) ;
             Rainbow.color();
+            //document.onreadystatechange = function () {
+            //    if ( document.readyState === "complete" ) {
+            //        Rainbow.color();
+            //    }
+            //}
         }
     } ;
 
