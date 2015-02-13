@@ -30,7 +30,7 @@ function loadSteps ( demo ) {
     xhr.send ( null ) ;
 }
 
-function loadFile ( demo, step ) {
+function loadStepDetails ( demo, step ) {
 
     var xhr = new XMLHttpRequest() ;
 
@@ -41,14 +41,21 @@ function loadFile ( demo, step ) {
         }
     } ;
 
-    // make all steps white
-    var $steps = $('li.step a') ;
-    $steps.css ( {'color': '#777' } ) ;
+    // set the previously selected project to not be selected
+    $('.step_selected').removeClass ('step_selected') ;
 
-    // make selected step orange
-    var selected = 'li#li-' + demo + '-' + step.replace('.' ,'-') ;
-    var $selected_step = $(selected + ' a') ;
-    $selected_step.css ( {'color': 'orange' } ) ;
+    // set the selected project to have a new class
+    var selected_step = 'li#li-' + demo + '-' + step.replace('.' ,'-') ;
+    $(selected_step).addClass ( 'step_selected' ) ;
+
+    // make all steps white
+    //var $steps = $('li.step a') ;
+    //$steps.css ( {'color': '#777' } ) ;
+    //
+    //// make selected step orange
+    //var selected = 'li#li-' + demo + '-' + step.replace('.' ,'-') ;
+    //var $selected_step = $(selected + ' a') ;
+    //$selected_step.css ( {'color': 'orange' } ) ;
 
     xhr.open ( 'GET', '/php/ajax.php?demo=' + demo + '&step_details=' + step + '&callback=step_details', true ) ;
 

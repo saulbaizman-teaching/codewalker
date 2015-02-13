@@ -40,7 +40,7 @@ h4 a:link, h4 a:visited {
 
 h4 a:hover {
     text-decoration: none;
-    color: #dd0000 ;
+    /*color: #dd0000 ;*/
 }
 
 #demos {
@@ -49,7 +49,6 @@ h4 a:hover {
     height: 800px ;
     float: left ;
     overflow: scroll;
-    /*border: 1px dotted red ;*/
 }
 
 #demos p {
@@ -66,28 +65,24 @@ h4 a:hover {
     color: #777;
 }
 
-#demos p a:link, .projects p a:visited {
+#demos p a:link, #demos p a:visited {
     text-decoration: none;
     color: #777;
 }
 
 #demos p a:hover {
     text-decoration: none;
+    color: #000000;
+}
+
+/* turn the 'h4' and 'a' elements red */
+#demos .demo_selected h4 a, #demos .demo_selected p a {
     color: #dd0000;
 }
 
-.demo_selected {
-/*empty placeholder; we really just want the link styles below!*/
-}
-
-.demo_selected a, .demo_selected a:link {
-    color: #dd0000;
-}
-
-.demo_selected p a, .demo_selected p a:link {
-    color: #dd0000;
-}
-
+/*
+STEPS
+*/
 
 #steps {
     width: 20% ;
@@ -115,7 +110,6 @@ h4 a:hover {
     transition-property: color;
     transition-duration: 0.3s;
     transition-timing-function: ease ;
-    color: #777;
     text-decoration: none;
 }
 
@@ -124,14 +118,13 @@ h4 a:hover {
 }
 
 #steps ol li a:hover {
-    color: #dd0000;
+    color: #000000;
 }
 
-/*.step {*/
-    /*margin-left: 5px ;*/
-    /*padding-left: 5px ;*/
-    /*border-left: 4px solid #ffffff;*/
-/*}*/
+/* turn the selected li item orange */
+#steps li.step_selected a, #steps li.step_selected a:link {
+    color: orange;
+}
 
 #code {
     float: left;

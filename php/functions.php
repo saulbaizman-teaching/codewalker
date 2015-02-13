@@ -94,7 +94,7 @@ function print_steps ( $demo ) {
     echo '<ol>' . "\n" ;
     for ( $step = 0 ; $step < count ( $one_demo['file'] ) ; $step++ ) {
         $li_id = 'li-' . $demo . '-' . str_replace ( '.','-', $one_demo['file'][$step] ) ;
-        echo '<li id="' . $li_id . '" class="step"><a href="javascript:loadFile(\'' . $demo . '\',\'' . $one_demo['file'][$step] . '\');">' . $one_demo['caption'][$step] . '</a></li>' . "\n" ;
+        echo '<li id="' . $li_id . '"><a href="javascript:loadStepDetails(\'' . $demo . '\',\'' . $one_demo['file'][$step] . '\');">' . $one_demo['caption'][$step] . '</a></li>' . "\n" ;
     }
     echo '</ol>' ;
 
@@ -115,10 +115,15 @@ function print_step_details ( $demo, $step ) {
 
     $parent_folder = $demos[$demo] ;
 
-//    $requested_file = $project_details[$project]['file'][$file];
-
     $file_path = '../' . PROJECT_DIRECTORY . '/' . $parent_folder . '/' . $step ;
 //echo 'path: ' . $file_path ;
-    readfile ( $file_path ) ;
+    if ( file_exists ( $file_path ) ) {
+        readfile ( $file_path ) ;
+    }
+    else
+    {
+//        wrap in a class and style?
+        echo 'Our apologies. The requested file doesn\'t exist!' ;
+    }
 
 }
