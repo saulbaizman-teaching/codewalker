@@ -21,12 +21,10 @@ PROJECT_DIRECTORY = demo
 
 ; Add new project folders below
 
-demos[] = demo1
-
 demos[] = demo2
 
-demos[] = demo3
+;demos[] = demo3
 
-demos[] = demo4
+;demos[] = demo4
 
-demos[] = demo5
+;demos[] = demo5

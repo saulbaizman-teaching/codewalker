@@ -20,18 +20,21 @@ pre {
   background-clip: padding-box;
   margin-bottom: 20px;
   /*font: 12px / 15px Inconsolata, courier, monospace;*/
-    font-size: 1.3em ;
+
+    font-size: 1.1em ;
     letter-spacing: 1px ;
 }
 pre code.rainbow {
+  font-family: 'PT Mono', monospace ;
   display: block;
   min-width: 100%;
   position: static;
   color: salmon;
   word-wrap: break-word;
+    line-height: 1.5em ;
 }
 pre code.rainbow .line {
-    font-family: 'PT Mono', monospace !important;
+    /*font-family: 'PT Mono', monospace !important;*/
     font-size: 0.7em;
   color: #aaa;
 }
@@ -68,7 +71,8 @@ pre code.rainbow #rb4ln1233:after {
   border-bottom: 1px solid rgba(255, 255, 0, 0.5);
 }
 pre code.rainbow .comment {
-  color: #FC2;
+    /*color: #FC2;*/
+    color: #aaaaaa;
 }
 pre code.rainbow .string,
 pre code.rainbow .comment.docstring {
