@@ -49,7 +49,14 @@ function get_demos ( $parent_folder = '' ) {
 
         if ( file_exists ( $parent_folder . DEMO_DIRECTORY . '/' . $demo . '/demo.ini.php' ) )
         {
-            $demo_config[] = parse_ini_file ( $parent_folder . DEMO_DIRECTORY . '/' . $demo . '/demo.ini.php' ) ;
+            if ( ! parse_ini_file ( $parent_folder . DEMO_DIRECTORY . '/' . $demo . '/demo.ini.php' ) )
+            {
+                echo 'Error parsing INI file.' ;
+            }
+            else {
+                $demo_config[] = parse_ini_file ( $parent_folder . DEMO_DIRECTORY . '/' . $demo . '/demo.ini.php' ) ;
+            }
+
         }
         else
         {
@@ -66,7 +73,7 @@ function get_demos ( $parent_folder = '' ) {
 function print_demos ( $demo = false ) {
 
     $demos_array = get_demos ( ) ;
-
+//print_r ( $demos_array ) ;
     $demo_count = count ( $demos_array ) ;
 
     for ( $demo_index = 0 ; $demo_index < $demo_count ; $demo_index++ ){
@@ -114,8 +121,9 @@ function print_step_details ( $demo, $step, $print_pre = true ) {
     if ( file_exists ( $file_path ) ) {
 
         if ( $print_pre )
-            echo '<pre><code data-language="javascript">' ;
+            echo '<pre><code data-language="html">' ;
 
+//        readfile ( htmlentities ( $file_path ) ) ;
         readfile ( $file_path ) ;
 
         if ( $print_pre )
@@ -124,7 +132,7 @@ function print_step_details ( $demo, $step, $print_pre = true ) {
     else
     {
 //        FIXME: wrap in a class and style
-        echo 'Our apologies. The requested step doesn\'t seem to exist!' ;
+        echo 'Our apologies. The requested file doesn\'t seem to exist!' ;
     }
 
 }

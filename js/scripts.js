@@ -1,3 +1,5 @@
+//$(''). on ( )
+
 function loadSteps ( demo ) {
 
     var xhr = new XMLHttpRequest() ;
@@ -63,4 +65,22 @@ function loadStepDetails ( demo, step ) {
 
     $('#source_code').fadeTo(250,1) ;
 
+}
+
+
+//http://stackoverflow.com/questions/24816/escaping-html-strings-with-jquery
+
+function escapeHtml(string) {
+    var entityMap = {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': '&quot;',
+        "'": '&#39;',
+        "/": '&#x2F;'
+    };
+
+    return String(string).replace(/[&<>"'\/]/g, function (s) {
+        return entityMap[s];
+    });
 }
