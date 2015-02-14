@@ -5,9 +5,9 @@
 ; setting = value
 ; Don't change anything to the left of the "=" sign!
 
-PROJECT_NAME = demo two
+DEMO_NAME = demo two
 
-PROJECT_DESCRIPTION = Qui quaerum, sunt labo. Ficto quam, sim ligenimporem conse et oditio entibus porrorro beruntur sinvelia dolore, int parum cus eatur modit exceat es es ne eaquis ma dolestia sequi apienih illiqui asime pa quam.
+DEMO_DESCRIPTION = Qui quaerum, sunt labo. Ficto quam, sim ligenimporem conse et oditio entibus porrorro beruntur sinvelia dolore, int parum cus eatur modit exceat es es ne eaquis ma dolestia sequi apienih illiqui asime pa quam.
 
 file[] = 0001.js
 caption[] = Aliquam luctus justo non urna elementum, sed volutpat odio lacinia.

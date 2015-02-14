@@ -15,7 +15,7 @@ PROGRAM_NAME = codewalker
 PROGRAM_VERSION = 0.0.0.2
 
 ; directory where projects are stored
-PROJECT_DIRECTORY = demo
+DEMO_DIRECTORY = demo
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

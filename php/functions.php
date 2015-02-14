@@ -18,7 +18,7 @@ else
 // declare debugging state as a constant
 define ( 'DEBUG', $config[DEBUG] ) ;
 
-define ('PROJECT_DIRECTORY', $config[PROJECT_DIRECTORY]) ;
+define ('DEMO_DIRECTORY', $config[DEMO_DIRECTORY]) ;
 
 if ( DEBUG )
     print_r ( $config ) ;
@@ -37,7 +37,7 @@ function get_program_version ( )
     return $config[PROGRAM_VERSION] ;
 }
 
-// Get list of projects
+// Get list of demos
 
 function get_demos ( $parent_folder = '' ) {
 
@@ -47,23 +47,23 @@ function get_demos ( $parent_folder = '' ) {
 
     foreach ( $demos as $demo ) {
 
-        if ( file_exists ( $parent_folder . PROJECT_DIRECTORY . '/' . $demo . '/project.ini.php' ) )
+        if ( file_exists ( $parent_folder . DEMO_DIRECTORY . '/' . $demo . '/demo.ini.php' ) )
         {
-            $project_config[] = parse_ini_file ( $parent_folder . PROJECT_DIRECTORY . '/' . $demo . '/project.ini.php' ) ;
+            $demo_config[] = parse_ini_file ( $parent_folder . DEMO_DIRECTORY . '/' . $demo . '/demo.ini.php' ) ;
         }
         else
         {
-            echo 'ERROR: could not parse project ini file.' ;
+            echo 'ERROR: could not parse demo ini file.' ;
             exit ;
         }
 
     }
 
     // returns an array
-    return $project_config ;
+    return $demo_config ;
 }
 
-function print_demos ( $project = false ) {
+function print_demos ( $demo = false ) {
 
     $demos_array = get_demos ( ) ;
 
@@ -71,8 +71,8 @@ function print_demos ( $project = false ) {
 
     for ( $demo_index = 0 ; $demo_index < $demo_count ; $demo_index++ ){
 
-        $demo_name = $demos_array[$demo_index]['PROJECT_NAME'] ;
-        $demo_description = $demos_array[$demo_index]['PROJECT_DESCRIPTION'] ;
+        $demo_name = $demos_array[$demo_index]['DEMO_NAME'] ;
+        $demo_description = $demos_array[$demo_index]['DEMO_DESCRIPTION'] ;
 
         $div_id = 'demo-' . $demo_index ;
         echo '<div id="' . $div_id . '">' ;
@@ -84,12 +84,12 @@ function print_demos ( $project = false ) {
 
 }
 
-//function print_steps ( $project = false ) {
+//function print_steps ( $demo = false ) {
 function print_steps ( $demo ) {
 
-    $project_details = get_demos ( '../' ) ;
+    $demo_details = get_demos ( '../' ) ;
 
-    $one_demo = $project_details[$demo] ;
+    $one_demo = $demo_details[$demo] ;
 
     echo '<ol>' . "\n" ;
     for ( $step = 0 ; $step < count ( $one_demo['file'] ) ; $step++ ) {
@@ -106,28 +106,24 @@ function print_step_details ( $demo, $step, $print_pre = true ) {
 
     $demos = $config['demos'] ;
 
-//    $project_details = get_projects ( '../' ) ;
-
-//    print_r ( $projects ) ;
-//    print_r ( $project_details ) ;
-
-//    echo 'project: ' . $project . '   file: ' . $file ;
 
     $parent_folder = $demos[$demo] ;
 
-    $file_path = '../' . PROJECT_DIRECTORY . '/' . $parent_folder . '/' . $step ;
-//echo 'path: ' . $file_path ;
+    $file_path = '../' . DEMO_DIRECTORY . '/' . $parent_folder . '/' . $step ;
+
     if ( file_exists ( $file_path ) ) {
 
         if ( $print_pre )
             echo '<pre><code data-language="javascript">' ;
+
         readfile ( $file_path ) ;
+
         if ( $print_pre )
             echo '</code></pre>' ;
     }
     else
     {
-//        wrap in a class and style?
+//        FIXME: wrap in a class and style
         echo 'Our apologies. The requested step doesn\'t seem to exist!' ;
     }
 
