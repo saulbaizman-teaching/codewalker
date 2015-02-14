@@ -11,19 +11,17 @@
     <link rel="stylesheet" href="css/styles.css" type="text/css">
 
 
-    <!-- Oswald typeface via Google Fonts -->
+    <!-- Oswald and PT Mono typeface via Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
 
-    <!--syntax color highlighter styles-->
+    <!-- syntax color highlighter styles -->
     <link rel="stylesheet" href="css/rainbow-theme.css" type="text/css">
     <link rel="stylesheet" href="css/line-numbers.css" type="text/css">
 
 </head>
 <body>
-<?php
 
-?>
 <header>
 <h1><?php echo get_program_name () ; ?></h1>
 </header>
@@ -41,11 +39,6 @@
 </div>
 
 <div id="steps">
-    <?php
-
-//    print_steps ( '1' ) ;
-
-    ?>
 
 </div>
 
@@ -58,11 +51,11 @@
 </div>
 
 <!--<div id="preview">-->
-<!---->
+
 <!--</div>-->
 
 <footer>
-<small>&copy;<?php echo date ('Y') ?> <?php echo get_program_name () ; ?> v<?php echo get_program_version () ; ?>.</small>
+<small>&copy;<?php echo date ('Y') ; ?> <?php echo get_program_name () ; ?> v<?php echo get_program_version () ; ?>.</small>
 </footer>
 
 <!-- jQuery courtesy of Google -->
