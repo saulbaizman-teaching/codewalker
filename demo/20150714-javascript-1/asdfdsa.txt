@@ -1,6 +1,0 @@
-doc.write()
-doc.write() w/ var
-3
-4
-
-
