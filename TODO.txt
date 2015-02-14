@@ -1,4 +1,11 @@
 TO DO
 --
 + bookmarks to jump to a particular project and step (via query string)
++ how dto handle demos with multiple files? One (bad) solution: just put everything in a single file. This is bad because there are lots of extraneous bits in the HTML that we don't care about.
++ Autodetect syntax highlighting based on filename extension.
 
++ Add code editability and preview / execution window.
+
+FIXME
+--
+no parentheses or single quotes in the PROJECT_DESCRIPTION in demo.ini.php
