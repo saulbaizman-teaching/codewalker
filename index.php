@@ -57,9 +57,9 @@
 
 </div>
 
-<div id="preview">
-
-</div>
+<!--<div id="preview">-->
+<!---->
+<!--</div>-->
 
 <footer>
 <small>&copy;<?php echo date ('Y') ?> <?php echo get_program_name () ; ?> v<?php echo get_program_version () ; ?>.</small>
