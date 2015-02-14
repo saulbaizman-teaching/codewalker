@@ -16,7 +16,6 @@ elseif ( $_GET['callback'] == 'step_details' ) {
     print_step_details ( $_GET['demo'], $_GET['step_details'] ) ;
 
 }
-
 else {
 
     echo 'ERROR: unrecognized callback.' ;
