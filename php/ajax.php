@@ -13,7 +13,7 @@ if ( $_GET['callback'] == 'steps' ) {
 elseif ( $_GET['callback'] == 'step_details' ) {
 
     // return file for the given step
-    print_step_details ( $_GET['demo'], $_GET['step_details'] ) ;
+    print_source_code ( $_GET['demo'], $_GET['step_details'] ) ;
 
 }
 else {
