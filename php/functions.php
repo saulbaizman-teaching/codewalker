@@ -107,12 +107,11 @@ function print_steps ( $demo ) {
 
 }
 
-function print_source_code ( $demo, $step, $print_pre = true ) {
+function print_source_code ( $demo, $step, $display_via_ajax = true ) {
 
     global $config ;
 
     $demos = $config['demos'] ;
-
 
     $parent_folder = $demos[$demo] ;
 
@@ -133,23 +132,43 @@ function print_source_code ( $demo, $step, $print_pre = true ) {
     {
         $print_code_tag = false ;
     }
-    else{
+    else {
         $print_code_tag = true ;
     }
 
     if ( file_exists ( $file_path ) ) {
 
-        if ( $print_pre ) {
+        if ( $display_via_ajax ) {
             echo '<pre>' ;
             if ( $print_code_tag )
                 echo '<code data-language="' . $supported_languages[$extension] . '">' ;
 
         }
 
-        $file = file_get_contents( $file_path) ;
-        echo htmlentities ($file ) ;
+        if ( ! $display_via_ajax ) {
+            // prepend comment to downloaded file.
 
-        if ( $print_pre ) {
+            // FIXME: consolidate this code a little; it's repeated in print_steps ();
+            // there should be a function called get_steps()
+            $demo_details = get_demos ( '../' ) ;
+
+            $one_demo = $demo_details[$demo] ;
+
+            $step_index = array_search ( $step, $one_demo['file'] ) ;
+            echo '<!-- ' . "\n\n" . $step . ': ' . $one_demo['caption'][$step_index] . "\n\n" . ' -->' ;
+
+        }
+
+        $file = file_get_contents( $file_path ) ;
+        // convert entities if shown via ajax, otherwise don't touch special characters
+        if ( $display_via_ajax ) {
+            echo htmlentities ($file ) ;
+        }
+        else{
+            echo $file ;
+        }
+
+        if ( $display_via_ajax ) {
             if ( $print_code_tag )
                 echo '</code>' ;
             echo '</pre>' ;
