@@ -155,7 +155,7 @@ function print_source_code ( $demo, $step, $display_via_ajax = true ) {
             $one_demo = $demo_details[$demo] ;
 
             $step_index = array_search ( $step, $one_demo['file'] ) ;
-            echo '<!-- ' . "\n\n" . $step . ': ' . $one_demo['caption'][$step_index] . "\n\n" . ' -->' ;
+            echo '<!-- ' . "\n\n" . $step . ': ' . $one_demo['caption'][$step_index] . "\n\n" . ' -->' . "\n\n" ;
 
         }
 
