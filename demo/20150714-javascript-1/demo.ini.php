@@ -43,4 +43,4 @@ file[] = 0011.html
 caption[] = "Return a value from a function."
 
 file[] = 0012.html
-caption[] = "The HTML file links to an external CSS file. In this demo, the link is in the HEAD section. Usually, the link is just above the closing body tag for performance reasons. Note: this demo won't run because it references an exernal file."
+caption[] = "The HTML file links to an external JavaScript file. In this demo, the link is in the HEAD section. Usually, the link is just above the closing body tag for performance reasons. Note: this demo won't run because it references an exernal file."
