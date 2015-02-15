@@ -128,22 +128,33 @@ function print_source_code ( $demo, $step, $print_pre = true ) {
         'php' => 'php',
         'css' => 'css',
     ) ;
-// FIXME: this is an issue for SCSS files
+
     if ( ! in_array ( $extension, $supported_languages ) )
     {
-        $data_language = 'unknown' ;
+        $print_code_tag = false ;
+    }
+    else{
+        $print_code_tag = true ;
     }
 
     if ( file_exists ( $file_path ) ) {
 
-        if ( $print_pre )
-            echo '<pre><code data-language="' . $supported_languages[$extension] . '">' ;
+        if ( $print_pre ) {
+            echo '<pre>' ;
+            if ( $print_code_tag )
+                echo '<code data-language="' . $supported_languages[$extension] . '">' ;
+
+        }
 
         $file = file_get_contents( $file_path) ;
         echo htmlentities ($file ) ;
 
-        if ( $print_pre )
-            echo '</code></pre>' ;
+        if ( $print_pre ) {
+            if ( $print_code_tag )
+                echo '</code>' ;
+            echo '</pre>' ;
+
+        }
     }
     else
     {

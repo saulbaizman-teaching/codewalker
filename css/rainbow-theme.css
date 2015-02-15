@@ -18,7 +18,7 @@ pre {
 }
 
 pre, code {
-    font-family: 'Oswald', 'Monaco', courier, monospace;
+    font-family: 'PT Mono', 'Monaco', courier, monospace;
 }
 
 pre .comment {
