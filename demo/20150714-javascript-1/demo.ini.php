@@ -10,10 +10,10 @@ DEMO_NAME = JavaScript 1
 DEMO_DESCRIPTION = "These demos are related to chapters 1 - 3 in Jon Duckett's <em>JavaScript and jQuery</em>."
 
 file[] = 0001.html
-caption[] = "Use the write method of the document object to output a couple of words on screen."
+caption[] = "Use the write() method of the document object to output a couple of words on screen."
 
 file[] = 0002.html
-caption[] = "Define a variable whose contents are output on screen via document write."
+caption[] = "Define a variable whose contents are output on screen via document.write()."
 
 file[] = 0003.html
 caption[] = "Add two numbers together and output the result."
