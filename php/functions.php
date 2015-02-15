@@ -123,8 +123,8 @@ function print_step_details ( $demo, $step, $print_pre = true ) {
         if ( $print_pre )
             echo '<pre><code data-language="html">' ;
 
-//        readfile ( htmlentities ( $file_path ) ) ;
-        readfile ( $file_path ) ;
+        $file = file_get_contents( $file_path) ;
+        echo htmlentities ($file ) ;
 
         if ( $print_pre )
             echo '</code></pre>' ;
