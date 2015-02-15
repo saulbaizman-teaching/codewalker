@@ -69,6 +69,7 @@
 <script type="text/javascript" src="js/generic.js"></script>
 <script type="text/javascript" src="js/html.js"></script>
 <script type="text/javascript" src="js/php.js"></script>
+<script type="text/javascript" src="js/css.js"></script>
 <script type="text/javascript" src="js/javascript.js"></script>
 <!-- line numbers courtesy of https://github.com/Sjeiti/rainbow.linenumbers -->
 <script type="text/javascript" src="js/rainbow.linenumbers.js"></script>
