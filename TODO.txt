@@ -4,8 +4,6 @@ TO DO
 
 + how to handle demos with multiple files? One (bad) solution: just put everything in a single file. This is bad because there are lots of extraneous bits in the HTML that we don't care about.
 
-+ Autodetect syntax highlighting based on filename extension.
-
 + Add code editability and preview / execution window.
 
 FIXME

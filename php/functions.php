@@ -107,7 +107,7 @@ function print_steps ( $demo ) {
 
 }
 
-function print_step_details ( $demo, $step, $print_pre = true ) {
+function print_source_code ( $demo, $step, $print_pre = true ) {
 
     global $config ;
 
@@ -118,10 +118,26 @@ function print_step_details ( $demo, $step, $print_pre = true ) {
 
     $file_path = '../' . DEMO_DIRECTORY . '/' . $parent_folder . '/' . $step ;
 
+    $pathinfo = pathinfo ( $file_path ) ;
+
+    $extension = $pathinfo['extension'] ;
+
+    $supported_languages = array (
+        'js' => 'js',
+        'html' => 'html',
+        'php' => 'php',
+        'css' => 'css',
+    ) ;
+// FIXME: this is an issue for SCSS files
+    if ( ! in_array ( $extension, $supported_languages ) )
+    {
+        $data_language = 'unknown' ;
+    }
+
     if ( file_exists ( $file_path ) ) {
 
         if ( $print_pre )
-            echo '<pre><code data-language="html">' ;
+            echo '<pre><code data-language="' . $supported_languages[$extension] . '">' ;
 
         $file = file_get_contents( $file_path) ;
         echo htmlentities ($file ) ;
