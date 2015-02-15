@@ -101,7 +101,7 @@ function print_steps ( $demo ) {
     echo '<ol>' . "\n" ;
     for ( $step = 0 ; $step < count ( $one_demo['file'] ) ; $step++ ) {
         $li_id = 'li-' . $demo . '-' . str_replace ( '.','-', $one_demo['file'][$step] ) ;
-        echo '<li id="' . $li_id . '"><a href="javascript:loadStepDetails(\'' . $demo . '\',\'' . $one_demo['file'][$step] . '\');">' . $one_demo['caption'][$step] . '</a> <a href="/php/download.php?demo=' . $demo . '&step=' . $one_demo['file'][$step] . '">&ogt;</a></li>' . "\n" ;
+        echo '<li id="' . $li_id . '"><a href="javascript:loadStepDetails(\'' . $demo . '\',\'' . $one_demo['file'][$step] . '\');">' . $one_demo['caption'][$step] . '</a> <a href="/php/download.php?demo=' . $demo . '&step=' . $one_demo['file'][$step] . '" title="Download ' . $one_demo['file'][$step] . '" >&ogt;</a></li>' . "\n" ;
     }
     echo '</ol>' ;
 

@@ -114,7 +114,7 @@ STEPS
     text-decoration: none;
 }
 
-#steps ol li a:link {
+#steps ol li a:link, #steps ol li a:visited {
     color: #777;
 }
 
