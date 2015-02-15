@@ -1,1 +1,0 @@
-Vestibulum iaculis urna vel ligula tincidunt, ac tincidunt purus sollicitudin. Fusce pulvinar mi eros. Suspendisse feugiat orci ac dui finibus accumsan. Aliquam sodales odio a lacus aliquet, cursus tempor libero efficitur. Proin dignissim fringilla efficitur. Donec porttitor, nisi nec luctus pharetra, est eros varius odio, sed cursus urna orci non est. Proin vel nisi orci.
