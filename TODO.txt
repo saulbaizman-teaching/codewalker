@@ -8,7 +8,6 @@ TO DO
 
 FIXME
 --
-+ In download.php, prepend in a comment the description from the ini file.
 
 --
 
