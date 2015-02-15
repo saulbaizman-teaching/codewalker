@@ -7,7 +7,7 @@
 
 DEMO_NAME = JavaScript 1
 
-DEMO_DESCRIPTION = These demos are related to chapters 1 - 3 in <em>JavaScript and jQuery</em> by Jon Duckett.
+DEMO_DESCRIPTION = "These demos are related to chapters 1 - 3 in Jon Duckett's <em>JavaScript and jQuery</em>."
 
 file[] = 0001.html
 caption[] = "Use the write method of the document object to output a couple of words on screen."
