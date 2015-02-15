@@ -10,12 +10,11 @@ TO DO
 
 FIXME
 --
-+ no parentheses or single quotes in the DEMO_DESCRIPTION in demo.ini.php, or just quote it
-
-+ escape code from executing in the browser [HIGH PRIORITY]
 
 
 --
+
+Instructions for embedding languages within other languages:
 
 Match using another language
 
