@@ -1,8 +1,10 @@
 # codewalker
 
-## about
+## screenshot
 
 ![With](https://github.com/saulbaizman/codewalker/raw/master/screenshot.png)
+
+## about
 
 This is a simple file viewer for viewing the demos used in Intermediate Web Design (CMP 3011) at the School of the Museum of Fine Arts, Spring 2015.
 
