@@ -8,6 +8,9 @@ TO DO
 
 FIXME
 --
++ In download.php, prepend in a comment the description from the ini file.
+
++ For unrecognized languages, don't echo the full rainbox js <pre>...; in other words, disable syntax color highlighting
 
 
 --
