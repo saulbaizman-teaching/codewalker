@@ -15,9 +15,10 @@ h3 {
     font-weight: 400 ;
 }
 h4 {
-    margin-top: 35px ;
+    margin-top: 55px ;
 }
 
+/* FIXME: this targets the first h4 in every block, not the first h4 on the page */
 /* first h4 should not have space above it */
 h4:first-child{
     margin-top: 0px ;
