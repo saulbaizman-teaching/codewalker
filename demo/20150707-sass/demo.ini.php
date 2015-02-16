@@ -5,7 +5,7 @@
 ; setting = value
 ; Don't change anything to the left of the "=" sign!
 
-DEMO_NAME = "Sass (Syntacically Awesome Stylesheets)"
+DEMO_NAME = "Sass (Syntactically Awesome Stylesheets)"
 
 DEMO_DESCRIPTION = "These demos are related to chapters 1 - 3 in Jon Duckett's <em>JavaScript and jQuery</em>."
 
