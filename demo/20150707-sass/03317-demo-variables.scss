@@ -1,0 +1,25 @@
+
+$h1_color: #CCCCCC ;
+
+
+#main { 
+	background: blue ;
+	h1 {
+		color: $h1_color ;
+	}
+
+	h2 {
+		font-size: 1.2em ;
+	}
+
+}
+
+//////////////////////////// THE ABOVE COMPILES TO /////////////////////////////
+/*
+#main {
+  background: blue; }
+  #main h1 {
+    color: #CCCCCC; }
+  #main h2 {
+    font-size: 1.2em; }
+*/

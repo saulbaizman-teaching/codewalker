@@ -1,0 +1,21 @@
+
+#main {
+	background: url('default.png');
+
+	&.section1 {
+		background: url('white.png');
+	}
+	&.section2 {
+		background: url('blue.png');
+	}
+}
+
+//////////////////////////// THE ABOVE COMPILES TO /////////////////////////////
+/*
+#main {
+  background: url("default.png"); }
+  #main.section1 {
+    background: url("white.png"); }
+  #main.section2 {
+    background: url("blue.png"); }
+*/

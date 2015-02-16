@@ -1,0 +1,30 @@
+
+.article {
+	font-size: 0.9em ;
+	color: #000000 ;
+	line-height: 1.1em ;
+}
+
+.article-feature {
+	@extend .article ;
+	background-color: #ffffff ;
+}
+
+.article-related {
+	@extend .article ;
+	background-color: #cccccc ;
+}
+
+//////////////////////////// THE ABOVE COMPILES TO /////////////////////////////
+/*
+.article, .article-feature, .article-related {
+  font-size: 0.9em;
+  color: #000000;
+  line-height: 1.1em; }
+
+.article-feature {
+  background-color: #ffffff; }
+
+.article-related {
+  background-color: #cccccc; }
+*/

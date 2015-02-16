@@ -1,0 +1,112 @@
+/* use variables to define breakpoints */
+
+$small: 600px ;
+
+$medium: 800px ;
+
+$large: 1200px ;
+
+body {
+
+    @media screen and (max-width: $small){
+
+      font-size: 18px ;
+    }
+
+    @media screen and (max-width: $medium){
+      font-size: 22px ;
+
+    } 
+
+    @media screen and (max-width: $large){
+      font-size: 26px ;
+
+    } 
+
+    /* Nesting media queries avoids rewriting the selector. */
+    
+}
+
+
+h2 {
+
+  @media screen and (max-width: $small){
+
+    font-size: 18px ;
+  }
+
+  @media screen and (max-width: $medium){
+    font-size: 22px ;
+
+  }
+
+  @media screen and (max-width: $large){
+    font-size: 26px ;
+
+  }
+
+  /* Nesting media queries avoids rewriting the selector. */
+
+}
+
+
+h3 {
+
+  @media screen and (max-width: $small){
+    font-size: 18px ;
+  }
+
+  @media screen and (max-width: $medium){
+    font-size: 22px ;
+
+  }
+
+  @media screen and (max-width: $large){
+    font-size: 26px ;
+
+  }
+
+  /* Nesting media queries avoids rewriting the selector. */
+
+}
+
+//////////////////////////// THE ABOVE COMPILES TO /////////////////////////////
+/*
+
+body {
+   }
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 18px; } }
+@media screen and (max-width: 800px) {
+  body {
+    font-size: 22px; } }
+@media screen and (max-width: 1200px) {
+  body {
+    font-size: 26px; } }
+
+h2 {
+   }
+@media screen and (max-width: 600px) {
+  h2 {
+    font-size: 18px; } }
+@media screen and (max-width: 800px) {
+  h2 {
+    font-size: 22px; } }
+@media screen and (max-width: 1200px) {
+  h2 {
+    font-size: 26px; } }
+
+h3 {
+   }
+@media screen and (max-width: 600px) {
+  h3 {
+    font-size: 18px; } }
+@media screen and (max-width: 800px) {
+  h3 {
+    font-size: 22px; } }
+@media screen and (max-width: 1200px) {
+  h3 {
+    font-size: 26px; } }
+*/
+

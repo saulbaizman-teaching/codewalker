@@ -1,0 +1,31 @@
+
+@mixin subheader {
+	padding-left: 5px ;
+	font-size: 1.2em ;
+	line-height: 1.3em ;
+}
+
+h1.blue {
+	@include subheader ;
+	color: blue ;
+}
+
+h1.green {
+	@include subheader ;
+	color: green ;
+}
+
+//////////////////////////// THE ABOVE COMPILES TO /////////////////////////////
+/*
+h1.blue {
+  padding-left: 5px;
+  font-size: 1.2em;
+  line-height: 1.3em;
+  color: blue; }
+
+h1.green {
+  padding-left: 5px;
+  font-size: 1.2em;
+  line-height: 1.3em;
+  color: green; }
+*/

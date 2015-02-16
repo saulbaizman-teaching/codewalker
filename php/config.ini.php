@@ -23,7 +23,7 @@ DEMO_DIRECTORY = demo
 
 demos[] = 20150714-javascript-1
 
-; demos[] = demo2
+demos[] = 20150707-sass
 
 ;demos[] = demo3
 
