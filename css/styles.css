@@ -48,6 +48,7 @@ h4 a:hover {
 #demos {
     margin-left: 30px ;
     padding-right: 15px ;
+    border-right: 1px dotted #ccc ;
     width: 20% ;
     height: 800px ;
     float: left ;
@@ -89,6 +90,7 @@ STEPS
 
 #steps {
     width: 20% ;
+    border-right: 1px dotted #ccc ;
     height: 800px ;
     float: left ;
     overflow: scroll;
