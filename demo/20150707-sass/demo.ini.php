@@ -25,7 +25,7 @@ file[] = 03315-demo-parent-selector.scss
 caption[] = "In nested rules, it may be necessary to reference the name of the parent selector. Useful for link styles and other situations."
 
 file[] = 03316-demo-mixins-simple.scss
-caption[] = "Mixins allow you to reuse a block of styles. Very helpful for CSS3 and its bevy of vendor preffixes."
+caption[] = "Mixins allow you to reuse a block of styles. Very helpful for CSS3 and its bevy of vendor prefixes."
 
 file[] = 03317-demo-variables.scss
 caption[] = "Variables let you use the same value in multiple places. Imagine choosing a color and then applying it to several properties in several rules (h1 foreground color, #main background color, etc.). See also the brighten() and darken() SCSS methods."
