@@ -6,6 +6,28 @@ function loadSteps ( demo ) {
         if (xhr.status == 200) {
             // populate #steps div
             $('#steps').html(xhr.responseText) ;
+
+            //$('a.download').hide ( ) ;
+            var $steps = $('#steps ol li') ;
+            $steps.on ( 'mouseover', function () {
+                //console.log ( 'moused over') ;
+                //console.log ( this.id ) ;
+                //$steps.next().css( {'visibility':'visible' } ) ;
+                //console.log (this.id) ;
+                var dl_link = '#' + this.id + '-download' ;
+                $(dl_link).css( {'visibility':'visible' }) ;
+                // $(dl_link).fadeTo( 1 ) ;
+                //$(dl_link).fadeIn(500) ;
+            }) ;
+            $steps.on ( 'mouseout', function () {
+                // console.log ( 'moused over') ;
+                //$steps.next().css( {'visibility':'visible' } ) ;
+                //console.log (this.id) ;
+                var dl_link = '#' + this.id + '-download' ;
+                $(dl_link).css( {'visibility':'hidden' }) ;
+                // $(dl_link).fadeTo( 1 ) ;
+                //$(dl_link).fadeOut(500) ;
+            }) ;
         }
     } ;
 
@@ -29,6 +51,7 @@ function loadSteps ( demo ) {
 
     //fade the content in
     $('#steps').fadeTo(250,1) ;
+
 
 }
 

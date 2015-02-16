@@ -122,9 +122,18 @@ STEPS
     color: #000000;
 }
 
+/*buggy: when the li is active, mousing off the link turns it orange; mousing over turns it gray*/
+/*#steps ol li a.download:hover {*/
+    /*color: orange;*/
+/*}*/
+
 /* turn the selected li item orange */
 #steps li.step_selected a, #steps li.step_selected a:link {
     color: orange;
+}
+#steps ol li a.download {
+    /*opacity: 0;*/
+    visibility: hidden;
 }
 
 #source_code {
