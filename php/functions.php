@@ -155,7 +155,11 @@ function print_source_code ( $demo, $step, $display_via_ajax = true ) {
             $one_demo = $demo_details[$demo] ;
 
             $step_index = array_search ( $step, $one_demo['file'] ) ;
-            echo '<!-- ' . "\n\n" . $step . ': ' . $one_demo['caption'][$step_index] . "\n\n" . ' -->' . "\n\n" ;
+
+
+
+
+            echo comment ( $step . ': ' . $one_demo['caption'][$step_index], $extension ) ;
 
         }
 
@@ -180,5 +184,29 @@ function print_source_code ( $demo, $step, $display_via_ajax = true ) {
 //        FIXME: wrap in a class and style
         echo 'Our apologies. The requested file doesn\'t seem to exist!' ;
     }
+
+}
+
+function comment ( $string, $language ) {
+
+    $supported_languages = array (
+        'js' => array ( 'start' => '/*', 'end' => '*/'),
+        'html' => array ( 'start' => '<!--', 'end' => '-->'),
+        'php' => array ( 'start' => '/* ', 'end' => '*/'),
+        'css' => array ( 'start' => '/*', 'end' => '*/'),
+        'scss' => array ( 'start' => '/*', 'end' => '*/'),
+    ) ;
+
+    if ( array_key_exists ( $language, $supported_languages ) ) {
+        $start_tag = $supported_languages[$language]['start'] ;
+        $end_tag = $supported_languages[$language]['end'] ;
+    }
+    // if the language is there, it's not supported, and start and end tags are empty.
+
+    return "\n\n" . $start_tag . "\n\n" . $string . "\n\n" . $end_tag . "\n\n" ;
+
+
+
+
 
 }
