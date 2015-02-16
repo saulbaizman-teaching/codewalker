@@ -23,6 +23,6 @@ files = os.listdir('.')
 for myfile in files:
 	print '''\
 file[] = %s
-demo[] = ""
+caption[] = ""
 	''' % (myfile)
 
