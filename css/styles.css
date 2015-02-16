@@ -14,13 +14,14 @@ h1 {
 h3 {
     font-weight: 400 ;
 }
+
 h4 {
-    margin-top: 55px ;
+    margin-top: 35px ;
+    margin-bottom: -10px ;
 }
 
-/* FIXME: this targets the first h4 in every block, not the first h4 on the page */
-/* first h4 should not have space above it */
-h4:first-child{
+/* first h4 in #demo should not have space above it */
+#demo-0 h4 {
     margin-top: 0px ;
 }
 
