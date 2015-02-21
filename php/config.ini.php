@@ -21,9 +21,9 @@ DEMO_DIRECTORY = demo
 
 ; Add new project folders below
 
-demos[] = 20150714-javascript-1
+demos[] = 20150214-javascript-1
 
-demos[] = 20150707-sass
+demos[] = 20150207-sass
 
 ;demos[] = demo3
 
