@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>
+        JavaScript 2 | in-class demo
+    </title>
+
+</head>
+<style type="text/css">
+    .blue{
+        background-color: blue ;
+    }
+    .red {
+        background-color: red;
+
+    }
+
+</style>
+<body>
+<h1>JavaScript 2 | in-class demo</h1>
+<hr />
+
+<ul id="list">
+    <li>eggs</li>
+    <li>milk</li>
+    <li>apples</li>
+    <li>bread</li>
+    <li>yogurt</li>
+    <li>ice cream</li>
+    <li>carrots</li>
+    <li>beets</li>
+    <li>grapefruit</li>
+    <li>mushrooms</li>
+    <li>tomatoes</li>
+</ul>
+
+<p id="para" class="blue">this is a paragraph.</p>
+
+<script type="text/javascript">
+
+    function change_class_background ( ) {
+        var paragraph_node = document.getElementById ( 'para' ) ;
+        paragraph_node.setAttribute('class', 'red' ) ;
+
+    }
+
+    function mouseoutalert ( ) {
+        alert ( 'you moused out!') ;
+    }
+    var paragraph_node = document.getElementById ( 'para' ) ;
+    paragraph_node.addEventListener ( 'dblclick', change_class_background ) ;
+    paragraph_node.addEventListener ( 'mouseout', mouseoutalert ) ;
+
+//EVENT LISTENER FORMAT:
+
+//element.addEventListener ( 'event' , functionName ) ;
+
+
+
+</script>
+
+</body>
+</html>

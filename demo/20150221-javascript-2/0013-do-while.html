@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>
+        JavaScript 2 | in-class demo
+    </title>
+
+</head>
+<body>
+<h1>JavaScript 2 | in-class demo</h1>
+<hr />
+
+<script type="text/javascript">
+
+    /*
+     LOOPS
+     -----
+     + for
+     + while
+     + do ... while
+
+     */
+
+//    while ( condition ) {
+//        ...
+//    }
+
+    // CAUTION: avoid infinite loops!
+
+    var colors = ['green','brown','orange','red','blue','magenta','cyan'] ;
+    var color_index = 0 ;
+//     var has_not_found_red = true ;
+
+    while ( color_index < colors.length ) {
+
+        if ( colors[color_index] != 'red' ) {
+            document.write ( colors[color_index] + ' ' ) ;
+        }
+
+        color_index++ ;
+
+    }
+
+//    HOW A WHILE LOOP WORKS
+//    evaluate condition.
+//       + if true, it turns the code block.
+//       + if false, it stops running the loop
+
+
+
+</script>
+
+</body>
+</html>

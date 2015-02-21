@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>
+        JavaScript 2 | in-class demo
+    </title>
+
+</head>
+<body>
+<h1>JavaScript 2 | in-class demo</h1>
+<hr />
+
+<script type="text/javascript">
+
+    var my_age = 25 ;
+    var drinking_age = 21 ;
+    var smoking_age = 18 ;
+
+    var is_cool = 'no' ;
+
+// LOGICAL OPERATOR: ||
+
+    /* With the OR logical operator, conditions are evaluated left to right.
+    When a conditional expression evaluates to true, it stops evaluating the conditional expressions and executes the appropriate code block.
+     */
+
+    // changed OR to AND logical operator
+    if ( is_cool == 'yes' && my_age > drinking_age ) {
+            // false               // true
+            // no dice! both must be true with the logical AND operator
+        document.write ( 'You can drink.' ) ;
+    }
+    else
+    {
+        document.write ( 'You cannot drink.' ) ;
+    }
+
+</script>
+
+</body>
+</html>

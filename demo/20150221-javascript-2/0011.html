@@ -1,0 +1,111 @@
+<html>
+<head>
+    <title>
+        JavaScript 2 | in-class demo
+    </title>
+
+</head>
+<body>
+<h1>JavaScript 2 | in-class demo</h1>
+<hr />
+
+<script type="text/javascript">
+
+    /*
+     LOOPS
+     -----
+     + for
+     + while
+     + do ... while
+
+     */
+
+    //    for ( initialization ; conditional expression ; update expression  ) {
+    //        ...
+    //    }
+    //
+    //    1. initialization is executed (only on first run!)
+    //    2. code block is executed
+    //    3. update expression is executed
+    //    4. conditional expression is executed
+
+    var people_array = [
+        'Elione', //0
+        'Louie', //1
+        'River', //2
+        'Lauren', //3
+        'Stephanie', //4
+        'Esther', //5
+        'Yamilah', //6
+        'Saul' // 7
+    ] ;
+    // length: 8
+
+//    document.write ( people[0] + ' ') ;
+//    document.write ( people[1] + ' ') ;
+//    document.write ( people[2] + ' ') ;
+//    document.write ( people[3] + ' ') ;
+//    document.write ( people[4] + ' ') ;
+//    document.write ( people[5] + ' ') ;
+
+
+    for ( people_array_index = 0 ; people_array_index < people_array.length ; people_array_index++ ) {
+
+        document.write (  people_array_index+1 + '. ' + people_array[people_array_index] + ' <br />') ;
+
+    }
+
+    /*
+     Create an array of ten items.
+     Print only the event items.
+
+     */
+
+    
+    // FIRST LOOP ITERATION
+    //    1. people_array_index = 0
+    //    2. print Elione
+    //    3. people_array_index = 1
+    //    4. 1 < 8 --> true, run second iteration
+
+    // SECOND LOOP ITERATION
+    //    1. [IRRELEVANT, but people_array_index = 1]
+    //    2. print Louie
+    //    3. people_array_index = 2
+    //    4. 2 < 8 --> true, run third iteration
+
+//...
+
+    // EIGHTH LOOP ITERATION
+    //    1. [IRRELEVANT, but people_array_index = 7 ]
+    //    2. print Saul
+    //    3. people_array_index = 8
+    //    4. 8 < 8 --> false, stop running the loop
+
+
+    /*
+     assignment operators:
+
+     = assignment
+     += add
+     var num = 10 ;
+     num += 5 --> 15
+     var color = 'red' ;
+     color += 'dish' --> 'reddish', same as 'red' + 'dish'
+
+
+     -=
+     /=
+     *=
+
+    incremental operators:
+    -- (subtract one to current value)
+    ++ (add one to current value)
+
+     */
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title>
+        JavaScript 2 | in-class demo
+    </title>
+
+</head>
+<body>
+<h1>JavaScript 2 | in-class demo</h1>
+<hr />
+
+<script type="text/javascript">
+
+
+
+    /*
+
+       In-class exercise.
+     if the age is over 21, and the person went to the gym, and the person did all of their homework,
+     print a statement that the person can go to a bar.
+     if the person is younger than 21,
+     print a statement that the person can go to the movies.
+     */
+
+    var age, went_to_the_gym, did_homework ;
+
+    age = 21 ;
+    went_to_the_gym = false ;
+    did_homework = true ;
+    //    is_printed = true ;
+
+    if ( ( age >= 21 ) && ( ( went_to_the_gym ) || ( did_homework ) ) ) {
+        document.write ( 'You can go to a bar!' ) ;
+    }
+    else if ( age < 21 ) {
+        document.write ( 'You can go to the movies!' ) ;
+    }
+    else {
+        document.write ( 'Bupkes!' ) ;
+    }
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
