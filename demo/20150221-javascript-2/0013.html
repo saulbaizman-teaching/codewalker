@@ -25,27 +25,18 @@
 //    }
 //    while ( condition )
 
-    // CAUTION: avoid infinite loops!
+    // DO-WHILE loops always run the code block at least once.
+    // Even though the condition evaluates to false, the first color, green, is still printed.
 
     var colors = ['green','brown','orange','red','blue','magenta','cyan'] ;
     var color_index = 0 ;
-    //     var has_not_found_red = true ;
 
-    while ( color_index < colors.length ) {
 
-        if ( colors[color_index] != 'red' ) {
-            document.write ( colors[color_index] + ' ' ) ;
-        }
-
+    do {
+        document.write ( colors[color_index] + ' ' ) ;
         color_index++ ;
 
-    }
-
-    //    HOW A WHILE LOOP WORKS
-    //    evaluate condition.
-    //       + if true, it turns the code block.
-    //       + if false, it stops running the loop
-
+    } while ( false ) ;
 
 
 </script>
