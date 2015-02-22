@@ -24,5 +24,5 @@ for myfile in files:
 	print '''\
 file[] = %s
 caption[] = ""
-	''' % (myfile)
+''' % (myfile)
 
