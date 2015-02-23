@@ -89,7 +89,23 @@ function loadStepDetails ( demo, step ) {
 }
 
 function previewStep () {
-alert ('previewing stuff') ;
+    // grab content of the #steps area, and load it into the preview div, but as an inline frame?
+
+    //var preview = document.getElementById ('preview') ;
+    //var iframe = document.createElement('iframe') ;
+    //
+    //var source_code = document.getElementById('source_code') ;
+    //iframe.innerHTML = source_code ;
+    //
+    //preview.appendChild(iframe) ;
+
+    // this doesn't work because the html has been marked up
+    var preview = document.getElementById ('preview') ;
+    var source_code = document.getElementById('source_code') ;
+    preview.innerHTML = source_code.textContent ;
+
+    // note: need to load it from the server, than eval it?
+
 
 }
 
