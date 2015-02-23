@@ -155,6 +155,12 @@ STEPS
     height: 30px ;
 }
 
+#preview_button_div {
+    text-align: right ;
+    margin-right: 30px ;
+    margin-bottom: 20px ;
+}
+
 #preview {
     clear: both ;
     width: 96% ;

@@ -52,7 +52,6 @@ function loadSteps ( demo ) {
     //fade the content in
     $('#steps').fadeTo(250,1) ;
 
-
 }
 
 function loadStepDetails ( demo, step ) {
@@ -88,3 +87,12 @@ function loadStepDetails ( demo, step ) {
     $('#source_code').fadeTo(250,1) ;
 
 }
+
+function previewStep () {
+alert ('previewing stuff') ;
+
+}
+
+// add event listener to preview button
+var p_button = document.getElementById('preview_button') ;
+p_button.addEventListener('click', previewStep ) ;

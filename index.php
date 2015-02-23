@@ -50,9 +50,13 @@
 
 </div>
 
-<!--<div id="preview">-->
+<div id="preview_button_div">
+    <input type="button" name="preview_button" id="preview_button" value="Preview" />
+</div>
 
-<!--</div>-->
+<div id="preview">
+
+</div>
 
 <footer>
 <small>&copy;<?php echo date ('Y') ; ?> <?php echo get_program_name () ; ?> v<?php echo get_program_version () ; ?>.</small>
