@@ -8,6 +8,7 @@ TO DO
 
 FIXME
 --
+There's a flicker issue when this is on a network since it takes a few moments for the steps to load, and the fade ends *before* the new content has loaded.
 
 --
 
