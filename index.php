@@ -43,6 +43,7 @@
 </div>
 
 <div id="source_code">
+<!--<textarea id="source_code_textarea" name="source_code_textarea"></textarea>-->
 
 </div>
 
@@ -69,14 +70,14 @@
 <script type="text/javascript" src="js/scripts.js"></script>
 
 <!-- code formatting courtesy of http://craig.is/making/rainbows -->
-<script type="text/javascript" src="js/rainbow.js"></script>
-<script type="text/javascript" src="js/generic.js"></script>
-<script type="text/javascript" src="js/html.js"></script>
-<script type="text/javascript" src="js/php.js"></script>
-<script type="text/javascript" src="js/css.js"></script>
-<script type="text/javascript" src="js/javascript.js"></script>
+<!--<script type="text/javascript" src="js/rainbow.js"></script>-->
+<!--<script type="text/javascript" src="js/generic.js"></script>-->
+<!--<script type="text/javascript" src="js/html.js"></script>-->
+<!--<script type="text/javascript" src="js/php.js"></script>-->
+<!--<script type="text/javascript" src="js/css.js"></script>-->
+<!--<script type="text/javascript" src="js/javascript.js"></script>-->
 <!-- line numbers courtesy of https://github.com/Sjeiti/rainbow.linenumbers -->
-<script type="text/javascript" src="js/rainbow.linenumbers.js"></script>
+<!--<script type="text/javascript" src="js/rainbow.linenumbers.js"></script>-->
 
 </body>
 </html>

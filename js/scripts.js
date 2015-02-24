@@ -66,7 +66,7 @@ function loadStepDetails ( demo, step ) {
             $('#source_code').html ( xhr.responseText ) ;
 
             //because we are loading rainbow'd content after the DOM has loaded, we need to manually invoke it here to style the content correctly
-            Rainbow.color();
+            //Rainbow.color();
         }
     } ;
 

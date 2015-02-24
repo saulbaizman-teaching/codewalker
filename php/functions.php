@@ -139,9 +139,10 @@ function print_source_code ( $demo, $step, $display_via_ajax = true ) {
     if ( file_exists ( $file_path ) ) {
 
         if ( $display_via_ajax ) {
-            echo '<pre>' ;
-            if ( $print_code_tag )
-                echo '<code data-language="' . $supported_languages[$extension] . '">' ;
+            echo '<textarea id="source_code_textarea" name="source_code_textarea">' ;
+//            echo '<pre>' ;
+//            if ( $print_code_tag )
+//                echo '<code data-language="' . $supported_languages[$extension] . '">' ;
 
         }
 
@@ -155,9 +156,6 @@ function print_source_code ( $demo, $step, $display_via_ajax = true ) {
             $one_demo = $demo_details[$demo] ;
 
             $step_index = array_search ( $step, $one_demo['file'] ) ;
-
-
-
 
             echo comment ( $step . ': ' . $one_demo['caption'][$step_index], $extension ) ;
 
@@ -175,7 +173,8 @@ function print_source_code ( $demo, $step, $display_via_ajax = true ) {
         if ( $display_via_ajax ) {
             if ( $print_code_tag )
                 echo '</code>' ;
-            echo '</pre>' ;
+//            echo '</pre>' ;
+            echo '</textarea>' ;
 
         }
     }
