@@ -21,12 +21,12 @@ DEMO_DIRECTORY = demo
 
 ; Add new project folders below
 
+demos[] = 20150228-jquery-1
+
 demos[] = 20150221-javascript-2
 
 demos[] = 20150214-javascript-1
 
 demos[] = 20150207-sass
-
-;demos[] = demo4
 
 ;demos[] = demo5

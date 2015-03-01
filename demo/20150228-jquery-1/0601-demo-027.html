@@ -232,9 +232,8 @@
 <script type="text/javascript">
 
     var $all_paragraphs = jQuery('p') ;
-
+    // this is an example of chaining methods: delay().fadeOut()
     jQuery('p').on ('mouseover', function () {
-//        jQuery(this).css('border','2px dotted red') ;
         jQuery(this).delay(1000).fadeOut( 400 );
     }) ;
 
