@@ -24,6 +24,7 @@
 
 <h1>GETTING STARTED WITH BRACKETS</h1>
 <h2>Get involved</h2>
+<p><a href="http://www.google.com" id="reveal_h1">increase size of h1</a></p>
 <p>
     Brackets is an open-source project. Web developers from around the world are contributing to build
     a better code editor. Many more are building extensions that expand the capabilities of Brackets.
@@ -40,18 +41,12 @@
     <li>Chat with Brackets developers on IRC in <a class="link" href="http://webchat.freenode.net/?channels=brackets&uio=d4">#brackets on Freenode</a></li>
 </ul>
 
-<p><em>(Look in the Dev Console for the output.)</em></p>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 <script type="text/javascript">
 
-    // select the first li element
-    console.log ( jQuery('li').eq(0) ) ;
-
-    // select li elements greater than the 4th list item
-    console.log ( jQuery('li:gt(3)') ) ;
-
+    // offset sets the 'top' and 'left' properties, and takes the element out of the flow.
+    jQuery( 'h1').offset( { 'top': 100, 'left':100 }) ;
 
 </script>
 

@@ -17,6 +17,11 @@
             background: green ;
             color: white ;
         }
+        h1 {
+            padding: 10px ;
+            margin: 10px ;
+            border: 10px solid red ;
+        }
     </style>
 
 </head>
@@ -24,6 +29,7 @@
 
 <h1>GETTING STARTED WITH BRACKETS</h1>
 <h2>Get involved</h2>
+<p><a href="http://www.google.com" id="reveal_h1">increase size of h1</a></p>
 <p>
     Brackets is an open-source project. Web developers from around the world are contributing to build
     a better code editor. Many more are building extensions that expand the capabilities of Brackets.
@@ -219,12 +225,43 @@
     </p>
 </form>
 
+<p><em>(Look in the Dev Console for the output.)</em></p>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 <script type="text/javascript">
 
-    $('h1').hide( ) ;
+    console.group( 'h1 spacing properties' ) ;
+    console.log ( 'h1 padding: ' + jQuery('h1').css('padding') ) ;
+    console.log ( 'h1 border-width: ' + jQuery('h1').css('border-width') ) ;
+    console.log ( 'h1 margin: ' + jQuery('h1').css('margin') ) ;
+    console.groupEnd()
 
+    console.group( 'h1 dimensions' ) ;
+    // the width of the h1 element, in pixels
+    console.log ( "width of the h1: " + jQuery('h1').width() ) ;
+
+    // the height of the h1 element, in pixels
+    console.log ( "height of the h1: " + jQuery('h1').height() ) ;
+
+    // the inner width of the h1 element, in pixels
+    console.log ( "inner width of the h1: " + jQuery('h1').innerWidth() ) ;
+
+    // the inner height of the h1 element, in pixels
+    console.log ( "inner height of the h1: " + jQuery('h1').innerHeight() ) ;
+
+    // the outer width of the h1 element, in pixels
+    console.log ( "outer width of the h1: " + jQuery('h1').outerWidth( ) ) ;
+
+    // the outer height of the h1 element, in pixels
+    console.log ( "outer height of the h1: " + jQuery('h1').outerHeight( ) ) ;
+
+    // the outer width of the h1 element, in pixels
+    console.log ( "outer width of the h1 (true): " + jQuery('h1').outerWidth( true ) ) ;
+
+    // the outer height of the h1 element, in pixels
+    console.log ( "outer height of the h1 (true): " + jQuery('h1').outerHeight( true ) ) ;
+    console.groupEnd()
 
 </script>
 

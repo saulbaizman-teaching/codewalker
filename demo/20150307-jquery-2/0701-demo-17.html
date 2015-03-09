@@ -24,6 +24,7 @@
 
 <h1>GETTING STARTED WITH BRACKETS</h1>
 <h2>Get involved</h2>
+<p><a href="http://www.google.com" id="reveal_h1">increase size of h1</a></p>
 <p>
     Brackets is an open-source project. Web developers from around the world are contributing to build
     a better code editor. Many more are building extensions that expand the capabilities of Brackets.
@@ -223,8 +224,10 @@
 
 <script type="text/javascript">
 
-    $('h1').hide( ) ;
+    var $my_own_name_for_jQuery = jQuery.noConflict ( ) ;
 
+    // hide the h1 element, like we did for the first demo in this group
+    $my_own_name_for_jQuery('h1').hide() ;
 
 </script>
 

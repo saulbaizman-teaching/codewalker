@@ -220,18 +220,17 @@
     </p>
 </form>
 
+<p><em>(Look in the Dev Console for the output.)</em></p>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 <script type="text/javascript">
 
+    // the height of the document, including content outside the viewport, in pixels
+    console.log ( "height of the document: " + jQuery(document).height() ) ;
 
-//    console.log ( jQuery('h1').offset ( ) ) ;
-
-    var $magic = jQuery.noConflict ( ) ;
-
-    $magic('h1').hide() ;
-
-
+    // the height of the browser window, in pixels
+    console.log ( "height of the browser window: " + jQuery(window).height() ) ;
 
 </script>
 
