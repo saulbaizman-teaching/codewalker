@@ -7,7 +7,7 @@
 
 DEMO_NAME = "Sass (Syntactically Awesome Stylesheets)"
 
-DEMO_DESCRIPTION = "These demos are related to chapters 1 - 3 in Jon Duckett's <em>JavaScript and jQuery</em>."
+DEMO_DESCRIPTION = "These demos are related to Dan Cederholm's <em>Sass for Web Designers</em>."
 
 file[] = 03311-demo-regular-css.scss
 caption[] = "SCSS is a superset of CSS, meaning that any valid CSS is also valid SCSS. This demo shows that compiling regular CSS will output CSS."
