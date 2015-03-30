@@ -56,7 +56,6 @@ function get_demos ( $parent_folder = '' ) {
             else {
                 $demo_config[] = parse_ini_file ( $parent_folder . DEMO_DIRECTORY . '/' . $demo . '/demo.ini.php' ) ;
             }
-
         }
         else
         {
@@ -73,7 +72,7 @@ function get_demos ( $parent_folder = '' ) {
 function print_demos ( $demo = false ) {
 
     $demos_array = get_demos ( ) ;
-//print_r ( $demos_array ) ;
+    // print_r ( $demos_array ) ;
     $demo_count = count ( $demos_array ) ;
 
     for ( $demo_index = 0 ; $demo_index < $demo_count ; $demo_index++ ){
@@ -88,10 +87,8 @@ function print_demos ( $demo = false ) {
         echo '</div>' ;
     }
 
-
 }
 
-//function print_steps ( $demo = false ) {
 function print_steps ( $demo ) {
 
     $demo_details = get_demos ( '../' ) ;
@@ -101,18 +98,29 @@ function print_steps ( $demo ) {
     echo '<ol>' . "\n" ;
     for ( $step = 0 ; $step < count ( $one_demo['file'] ) ; $step++ ) {
         $li_id = 'li-' . $demo . '-' . str_replace ( '.','-', $one_demo['file'][$step] ) ;
-        echo '<li id="' . $li_id . '"><a id="step' . $step . '" class="step" href="javascript:loadStepDetails(\'' . $demo . '\',\'' . $one_demo['file'][$step] . '\');">' . $one_demo['caption'][$step] . '</a>&nbsp;<a id="' . $li_id . '-download" class="download" href="/php/download.php?demo=' . $demo . '&step=' . $one_demo['file'][$step] . '" title="Download ' . $one_demo['file'][$step] . '" >&ogt;</a></li>' . "\n" ;
+
+        // Is a download link specified in the ini file? If so, use that. Otherwise, just use the filename that's being displayed.
+        if ( isset ( $one_demo['download'][$step] ) && ( $one_demo['download'][$step] != '' ) ) {
+            $download_link = $one_demo['download'][$step]  ;
+        }
+        else {
+            $download_link = $one_demo['file'][$step] ;
+        }
+
+        echo '<li id="' . $li_id . '"><a id="step' . $step . '" class="step" href="javascript:loadStepDetails(\'' . $demo . '\',\'' . $one_demo['file'][$step] . '\');">' . $one_demo['caption'][$step] . '</a>&nbsp;<a id="' . $li_id . '-download" class="download" href="/php/download.php?demo=' . $demo . '&file=' . $download_link . '" title="Download ' . $download_link . '" >&ogt;</a></li>' . "\n" ;
     }
     echo '</ol>' ;
 
 }
 
-function print_source_code ( $demo, $step, $display_via_ajax = true ) {
+function print_source_code ( $demo, $step ) {
 
     global $config ;
 
+    // Get array of demos.
     $demos = $config['demos'] ;
 
+    // Get the parent folder for the current demo.
     $parent_folder = $demos[$demo] ;
 
     $file_path = '../' . DEMO_DIRECTORY . '/' . $parent_folder . '/' . $step ;
@@ -136,53 +144,63 @@ function print_source_code ( $demo, $step, $display_via_ajax = true ) {
         $print_code_tag = true ;
     }
 
+    // Does the requested file exist?
     if ( file_exists ( $file_path ) ) {
 
-        if ( $display_via_ajax ) {
-            echo '<pre>' ;
-            if ( $print_code_tag )
-                echo '<code data-language="' . $supported_languages[$extension] . '">' ;
-
+        echo '<pre>' ;
+        if ( $print_code_tag ) {
+            echo '<code data-language="' . $supported_languages[$extension] . '">';
         }
 
-        if ( ! $display_via_ajax ) {
-            // prepend comment to downloaded file.
-
-            // FIXME: consolidate this code a little; it's repeated in print_steps ();
-            // there should be a function called get_steps()
-            $demo_details = get_demos ( '../' ) ;
-
-            $one_demo = $demo_details[$demo] ;
-
-            $step_index = array_search ( $step, $one_demo['file'] ) ;
-
-
-
-
-            echo comment ( $step . ': ' . $one_demo['caption'][$step_index], $extension ) ;
-
-        }
-
+        // Load the file into the $file variable.
         $file = file_get_contents( $file_path ) ;
-        // convert entities if shown via ajax, otherwise don't touch special characters
-        if ( $display_via_ajax ) {
-            echo htmlentities ($file ) ;
-        }
-        else{
-            echo $file ;
-        }
 
-        if ( $display_via_ajax ) {
-            if ( $print_code_tag )
-                echo '</code>' ;
-            echo '</pre>' ;
+        // convert entities
+        echo htmlentities ($file ) ;
 
+        if ( $print_code_tag ) {
+            echo '</code>';
         }
+        echo '</pre>' ;
+
     }
     else
     {
-//        FIXME: wrap in a class and style
-        echo 'Our apologies. The requested file doesn\'t seem to exist!' ;
+        // FIXME: wrap in a CSS class and style the output below.
+        echo "Our apologies. The requested file doesn't seem to exist!" ;
+    }
+
+}
+
+function output_download_file ( $demo, $file ) {
+
+    global $config ;
+
+    // Get array of demos.
+    $demos = $config['demos'] ;
+
+    // Get the parent folder for the current demo.
+    $parent_folder = $demos[$demo] ;
+
+    $file_path = '../' . DEMO_DIRECTORY . '/' . $parent_folder . '/' . $file ;
+
+    if ( file_exists ( $file_path ) ) {
+
+        // Immediately output the file.
+        header ( 'Content-Type: application/octet-stream' );
+        header ( 'Content-Disposition: attachment; filename="' . $demo . '-' . $file . '"' );
+        // header ( 'Content-Length: " . $content_length );
+        readfile ( $file_path ) ;
+        // Prepend comment to downloaded file. FIXME: this is a clever little trick that gets lost!
+        // Maybe check to see if the download link is empty, and if so, insert the comments into the downloaded file.
+        // ... file_get_contents ( ) ...
+        // echo comment ( $step . ': ' . $one_demo['caption'][$step_index], $extension ) ;
+
+    }
+    else
+    {
+        // FIXME: wrap in a CSS class and style the output below.
+        echo "Our apologies. The requested file doesn't seem to exist!" ;
     }
 
 }
@@ -201,12 +219,9 @@ function comment ( $string, $language ) {
         $start_tag = $supported_languages[$language]['start'] ;
         $end_tag = $supported_languages[$language]['end'] ;
     }
-    // if the language is there, it's not supported, and start and end tags are empty.
+
+    // If the language isn't there, it's not supported, and the start and end tags will be empty.
 
     return "\n\n" . $start_tag . "\n\n" . $string . "\n\n" . $end_tag . "\n\n" ;
-
-
-
-
 
 }

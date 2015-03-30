@@ -3,11 +3,8 @@
 require 'functions.php' ;
 
 $demo = $_GET['demo'] ;
-$step = $_GET['step'] ;
+$file = $_GET['file'] ;
 
-header( 'Content-Type: application/octet-stream' );
-header( 'Content-disposition: attachment; filename="' . $demo . '-' . $step . '"' );
-
-print_source_code ( $demo, $step, false ) ;
+output_download_file ( $demo, $file ) ;
 
 exit ;

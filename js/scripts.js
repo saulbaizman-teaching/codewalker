@@ -1,3 +1,6 @@
+/*
+TODO: replace native JS with jQuery methods in Ajax calls.
+ */
 function loadSteps ( demo ) {
 
     var xhr = new XMLHttpRequest() ;
@@ -51,7 +54,6 @@ function loadSteps ( demo ) {
 
     //fade the content in
     $('#steps').fadeTo(250,1) ;
-
 
 }
 

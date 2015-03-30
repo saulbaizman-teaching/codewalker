@@ -12,7 +12,7 @@ DEBUG = false
 PROGRAM_NAME = codewalker
 
 ; program version
-PROGRAM_VERSION = 0.0.0.2
+PROGRAM_VERSION = 0.0.0.3
 
 ; directory where projects are stored
 DEMO_DIRECTORY = demo

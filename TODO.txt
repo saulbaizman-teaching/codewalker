@@ -10,6 +10,7 @@ FIXME
 --
 There's a flicker issue when this is on a network since it takes a few moments for the steps to load, and the fade ends *before* the new content has loaded.
 The flicker issue may actually be due to larger files and the Rainbox() method taking a moment to reformat the code.
+"Failed to load resource: Frame load interrupted" - Console error. See http://stackoverflow.com/questions/12359600/failed-to-load-resource-frame-load-interrupted-agian for possible solutions.
 
 --
 
