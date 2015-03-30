@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Error handling | in-class demo</title>
+    <style type="text/css">
+        body {
+            font-family: Helvetica ;
+            line-height: 1.5em ;
+        }
+    </style>
+
+</head>
+<body>
+
+<h2>Error handling</h2>
+
+<script type="text/javascript">
+
+try {
+    var number1, number2, number3 ;
+
+    number1 = 10 ;
+    number2 = 20 ;
+    number3 = number1/number4 ;
+
+} catch ( error ) {
+    // Graceful recovery: let's assign it a default value
+    number3 = 50 ;
+} finally {
+    console.log ( 'number3: ' + number3 ) ;
+}
+
+// code to continue executing in our script...
+// alert ( 'number3: ' + number3 ) ;
+
+</script>
+
+</body>
+</html>

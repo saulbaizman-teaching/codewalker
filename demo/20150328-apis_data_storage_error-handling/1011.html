@@ -1,0 +1,97 @@
+<!--
+
+This demo is related to pages 420-423 in Duckett.
+
+There are two kinds of storage on the client-side (inside the web browser):
+
++ Session Storage. Data stored in session storage is retained only for the lifetime of the given tab/window.
+
++ Local Storage (via the localStorage object). Data stored in local storage is retained more or less permanently.
+  __Good for information that should be stored outside of the browsing session or reuse at a later time.
+
+Note: web browsers typically only store up to 5MB of data per domain.
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>data storage | in-class demo</title>
+    <style type="text/css">
+        body { font-family: Helvetica ; line-height: 1.5em ; }
+        .label { width: 100px ; float: left ; text-transform: uppercase; font-size: 0.7em ; font-weight: 700; letter-spacing: 1px; }
+        .field { width: 800px ;height: 45px ;}
+        input { font-size: 1.1em ; padding:3px;}
+    </style>
+
+</head>
+<body>
+
+<h2>local storage</h2>
+
+<form id="persisent_form" name="persisent_form" method="post" action="">
+
+    <div class="label">
+        <label for="fullname">Full name:</label>
+    </div>
+    <div class="field">
+        <input type="text" name="fullname" id="fullname" size="40" />
+    </div>
+
+    <div class="label">
+        <label for="email">Email:</label>
+    </div>
+    <div class="field">
+        <input type="text" name="email" id="email" size="40" />
+    </div>
+
+    <div class="label">&nbsp;
+    </div>
+    <div class="field">
+        <input type="submit" name="save" id="save" value="Save" />
+    </div>
+</form>
+
+<!--
+
+Page 421 in Duckett lists all of the methods and properties of the localStorage object.
+
+-->
+
+<!-- jQuery library via Google CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready ( function ( ) {
+        var local_stored_name, local_stored_mail ;
+
+        // Check if localStorage has the goods when the webpage loads.
+        if ( localStorage.length > 0 ) {
+            local_stored_name = localStorage.name ;
+            local_stored_mail = localStorage.mail ;
+            $('#fullname').val( local_stored_name ) ;
+            $('#email').val( local_stored_mail ) ;
+        }
+
+    }) ;
+
+    $('#persisent_form').on( 'submit', function (event) {
+        event.preventDefault(); // Stop form submission.
+
+        var name = $('#fullname').val() ;
+        var mail = $('#email').val() ;
+
+        if ( name != '' && mail != '' ) {
+            localStorage.name = name ;
+            localStorage.mail = mail ;
+            alert ( 'Your info has been saved persistently in localStorage!' );
+        }
+
+    });
+
+</script>
+
+
+</body>
+</html>

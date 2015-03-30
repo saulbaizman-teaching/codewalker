@@ -21,11 +21,11 @@ DEMO_DIRECTORY = demo
 
 ; Add new project folders below
 
-; demos[] = 20150328-apis_data_storage_error-handling
+demos[] = 20150328-apis_data_storage_error-handling
 
-; demos[] = 20150321-ajax
+demos[] = 20150321-ajax
 
-; demos[] = 20150314-jquery-3
+demos[] = 20150314-jquery-3
 
 demos[] = 20150307-jquery-2
 

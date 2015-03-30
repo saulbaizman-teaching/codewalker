@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Error handling | in-class demo</title>
+    <style type="text/css">
+        body {
+            font-family: Helvetica ;
+            line-height: 1.5em ;
+        }
+    </style>
+
+</head>
+<body>
+
+<h2>Error handling</h2>
+
+<script type="text/javascript">
+
+try {
+    var number1, number2, number3 ;
+
+    number1 = 10 ;
+    number2 = 0 ; // maybe a value from a form field
+
+    if ( number2 == 0 ) {
+        throw new Error ( 'Division by zero yields an undefined value.' ) ;
+    }
+
+    number3 = number1/number2 ;
+    alert ( 'number3: ' + number3 ) ;
+
+} catch ( error ) {
+    // let's assign it a default value
+    alert ( 'There was an attempt to divide by zero.') ;
+    console.warn ( 'There was an attempt to divide by zero.' ) ;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>data storage | in-class demo</title>
+    <style type="text/css">
+        body {
+            font-family: Helvetica ;
+            line-height: 1.5em ;
+        }
+    </style>
+
+</head>
+<body>
+
+<h2>server-side storage</h2>
+
+<h3>teams</h3>
+<div id="teams">
+    <p>soccer: <span id="soccer"></span></p>
+    <p>basketball: <span id="basketball"></span></p>
+    <p>hockey: <span id="hockey"></span></p>
+    <p>football: <span id="football"></span></p>
+</div>
+
+<!-- install firebase -->
+
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+<script type="text/javascript">
+
+    // DEMO 1: writing information to the database.
+    // Ways of saving data:
+    // https://www.firebase.com/docs/web/guide/saving-data.html
+
+    // Basic configuration.
+    var fb_url = 'https://[DATABASE].firebaseio.com/' ;
+    var myFirebase = new Firebase(fb_url) ;
+
+    // Creating a variable using object literal notation ("{ }").
+    boston_sports_teams = {
+        soccer: "Revolution",
+        basketball: "Celtics",
+        hockey: "Bruins",
+        football: "Patriots"
+    } ;
+
+    // Use the set() method of the Firebase object to write the data to the server.
+    myFirebase.set ( boston_sports_teams ) ;
+
+    // Limit who can read and write data to your Firebase app by editing your security rules:
+    // https://<database>.firebaseio.com/?page=Security
+
+</script>
+
+<!-- jQuery library via Google CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+</body>
+</html>

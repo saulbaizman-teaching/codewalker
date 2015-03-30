@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>data storage | in-class demo</title>
+    <style type="text/css">
+        body {
+            font-family: Helvetica ;
+            line-height: 1.5em ;
+        }
+    </style>
+
+</head>
+<body>
+
+<h2>server-side storage</h2>
+
+<h3>teams</h3>
+<div id="teams">
+    <p>soccer: <span id="soccer"></span></p>
+    <p>basketball: <span id="basketball"></span></p>
+    <p>hockey: <span id="hockey"></span></p>
+    <p>football: <span id="football"></span></p>
+</div>
+
+<!-- install firebase -->
+
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+<script type="text/javascript">
+
+    // DEMO 2: reading information from the database.
+
+    // Basic configuration.
+    var fb_url = 'https://[DATABASE].firebaseio.com/'
+    var myFirebase = new Firebase(fb_url);
+
+    // Use the child() method to select the key's value
+    // and the on() method to get the value of the key (and update it dynamically).
+    // We use jQuery to set the text in the HTML document.
+
+    myFirebase.child("soccer").on("value", function( teams ) {
+        console.log ( teams.val() ) ;
+        $('#soccer').text ( teams.val() );
+    });
+
+    myFirebase.child("football").on("value", function(teams) {
+        console.log ( teams.val() ) ;
+        $('#football').text ( teams.val() );
+    });
+
+    myFirebase.child("basketball").on("value", function(teams) {
+        console.log ( teams.val() ) ;
+        $('#basketball').text ( teams.val() );
+    });
+
+    myFirebase.child("hockey").on("value", function(teams) {
+        console.log ( teams.val() ) ;
+        $('#hockey').text ( teams.val() );
+    });
+
+
+</script>
+
+<!-- jQuery library via Google CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+</body>
+</html>

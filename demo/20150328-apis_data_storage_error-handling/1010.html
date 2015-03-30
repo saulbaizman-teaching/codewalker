@@ -1,0 +1,96 @@
+<!--
+
+This demo is related to pages 420-423 in Duckett.
+
+There are two kinds of storage on the client-side (inside the web browser):
+
++ Session Storage (via the sessionStorage object). Data stored in session storage is retained only for the lifetime of the given tab/window.
+  __Good for info that changes frequently and is personal and should not be used by other users of the device.
+
++ Local Storage. Data stored in local storage is retained more or less permanently.
+
+Note: web browsers typically only store up to 5MB of data per domain.
+
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>data storage | in-class demo</title>
+    <style type="text/css">
+        body { font-family: Helvetica ; line-height: 1.5em ; }
+        .label { width: 100px ; float: left ; text-transform: uppercase; font-size: 0.7em ; font-weight: 700; letter-spacing: 1px; }
+        .field { width: 800px ;height: 45px ;}
+        input { font-size: 1.1em ; padding:3px;}
+    </style>
+
+</head>
+<body>
+
+<h2>session storage</h2>
+
+<form id="temporary_form" name="temporary_form" method="post" action="">
+
+    <div class="label">
+        <label for="fullname">Full name:</label>
+    </div>
+    <div class="field">
+        <input type="text" name="fullname" id="fullname" size="40" />
+    </div>
+
+    <div class="label">
+        <label for="email">Email:</label>
+    </div>
+    <div class="field">
+        <input type="text" name="email" id="email" size="40" />
+    </div>
+
+    <div class="label">&nbsp;
+    </div>
+    <div class="field">
+        <input type="submit" name="save" id="save" value="Save" />
+    </div>
+</form>
+
+<!--
+
+Page 421 in Duckett lists all of the methods and properties of the sessionStorage object.
+
+-->
+
+<!-- jQuery library via Google CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready ( function ( ) {
+        var session_stored_name, session_stored_mail ;
+
+        // Check if sessionStorage has the goods when the webpage loads.
+        if ( sessionStorage.length > 0 ) {
+            session_stored_name = sessionStorage.name ;
+            session_stored_mail = sessionStorage.mail ;
+            $('#fullname').val( session_stored_name ) ;
+            $('#email').val( session_stored_mail ) ;
+        }
+
+    }) ;
+
+    $('#temporary_form').on( 'submit', function (event) {
+        event.preventDefault(); // Stop form submission.
+
+        var name = $('#fullname').val() ;
+        var mail = $('#email').val() ;
+
+        if ( name != '' && mail != '' ) {
+            sessionStorage.name = name ;
+            sessionStorage.mail = mail ;
+            alert ( 'Your info has been saved temporarily in sessionStorage!' );
+        }
+
+    });
+
+</script>
+
+
+</body>
+</html>

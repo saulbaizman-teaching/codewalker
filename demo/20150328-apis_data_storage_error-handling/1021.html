@@ -1,0 +1,115 @@
+<!--
+
+The Google Maps API lets you add maps to a webpage.
+
+Homepage: https://developers.google.com/maps/
+Getting Started: https://developers.google.com/maps/documentation/javascript/tutorial
+API Reference: https://developers.google.com/maps/documentation/javascript/reference
+Additional libraries: https://developers.google.com/maps/documentation/javascript/libraries
+--
+
+Regarding an API key, "The Google Maps JavaScript API v3 does not require an API key to function correctly. However, we strongly encourage you to load the Maps API using an APIs Console key which allows you to monitor your application's Maps API usage. Learn how to use an APIs Console key. [https://developers.google.com/maps/documentation/javascript/tutorial#api_key]"
+Google now has a Developer Console Service at https://console.developers.google.com where you create a key.
+
+For the demo, we'll use my key: AIzaSyBWGGRDXpIAWYDNcPbNh8xadOslEuiaYu0.
+
+--
+
+There are a number of related APIs that may be of interest:
++ Embed API | https://developers.google.com/maps/documentation/embed
++ Web Services | https://developers.google.com/maps/documentation/webservices/
++ Places API | https://developers.google.com/places/
++ Maps Image API | https://developers.google.com/maps/documentation/imageapis/
++ Google Maps API for Work | https://developers.google.com/maps/documentation/business
++ Don't know which one you need? | https://developers.google.com/maps/documentation/api-picker
+--
+
+*******************************************************************************
+NOTE: this demo requires internet connectivity and must be viewed through http and not the file protocol.
+*******************************************************************************
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Google APIs | in-class demo</title>
+    <style type="text/css">
+        body { font-family: Helvetica ; line-height: 1.5em ; }
+        html, body, #map-canvas { height: 100%; margin: 10px; padding: 0;}
+        h2 { color: #666; }
+        span.pipe { color: orange ; }
+    </style>
+    <!-- Link to the Google maps JavaScript API. Include the drawing library via the query string. -->
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWGGRDXpIAWYDNcPbNh8xadOslEuiaYu0">
+    </script>
+
+    <script type="text/javascript">
+    /*
+    Accessing the Geocoding service is asynchronous, since the Google Maps API needs to make a call to an external server. For that reason, you need to pass a callback method to execute upon completion of the request. This callback method processes the result(s). Note that the geocoder may return more than one result.
+    */
+
+        function initialize() {
+
+            // create a geocoder object.
+            geocoder = new google.maps.Geocoder();
+
+            var center_point = '230 The Fenway, Boston, MA 02115' ; // still the SMFA
+            // Ajax call to the Google server to geocode the given address
+            // It will return the results in 'results' and a status code in 'status'
+            geocoder.geocode( { 'address': center_point }, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    console.log ( results ) ;
+
+                    var lat_lng_position = results[0].geometry.location ;
+
+                    // Our map options consisting of two required properties.
+                    var mapOptions = {
+                        center: lat_lng_position,
+                        zoom: 18 //
+                    };
+
+                    // Create a new Google Map object, setting the element that will hold it
+                    // and passing a list of key-value pairs to configure the map.
+                    var map = new google.maps.Map(document.getElementById('map-canvas'),
+                            mapOptions);
+
+                    var window_content = "<h2>Info Window</h2><p>Lat + Long: " + lat_lng_position.toString() + ".</p><img src='smfa-thumb.jpg' width='150' height='113' />" ;
+                    var infowindow = new google.maps.InfoWindow({
+                        content: window_content
+                    });
+
+                    // Let's also draw a marker.
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: lat_lng_position,
+                        icon: "marker.png"
+                    });
+
+                    // Add event listener for click event on marker.
+                    google.maps.event.addListener(marker, 'click', function() {
+                        infowindow.open(map,marker);
+                    });
+
+                } else {
+                    alert ( "Geocode could not determine a latitude and longitude of the given address because " + status );
+                }
+            });
+
+
+        }
+        // Load the map when the webpage loads.
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</head>
+<body>
+
+<h2>Google APIs <span class="pipe">//</span> Google Maps JavaScript API</h2>
+
+<!-- Empty placeholder for the map. -->
+<div id="map-canvas"></div>
+
+</body>
+</html>

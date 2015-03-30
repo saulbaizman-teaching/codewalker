@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>data storage | in-class demo</title>
+    <style type="text/css">
+        body {
+            font-family: Helvetica ;
+            line-height: 1.5em ;
+        }
+    </style>
+
+</head>
+<body>
+
+<h2>server-side storage</h2>
+
+<h3>teams</h3>
+<div id="teams">
+    <p>soccer: <span id="soccer"></span></p>
+    <p>basketball: <span id="basketball"></span></p>
+    <p>hockey: <span id="hockey"></span></p>
+    <p>football: <span id="football"></span></p>
+</div>
+
+<!-- install firebase -->
+
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+<script type="text/javascript">
+
+    // DEMO 3: updating information from the database.
+
+    // Basic configuration.
+    var fb_url = 'https://[DATABASE].firebaseio.com/'
+    var myFirebase = new Firebase(fb_url);
+
+    // Change these to something else.
+    boston_sports_teams = {
+        soccer: "Red Bull",
+        basketball: "Barcelona",
+        hockey: "Maple Leafs",
+        football: "49ers"
+    } ;
+
+    // The update() method updates the values of the given keys.
+
+    myFirebase.update ( boston_sports_teams ) ;
+
+    // Learn more here:
+    // https://www.firebase.com/docs/web/quickstart.html
+
+
+</script>
+
+<!-- jQuery library via Google CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+</body>
+</html>
