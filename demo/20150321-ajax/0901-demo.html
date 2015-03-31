@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>jQuery 3 // plugins | in-class demo</title>
+    <title>Ajax + JSON | in-class demo</title>
     <style type="text/css">
         body {
             font-family: Helvetica ;
@@ -16,10 +16,9 @@
 <h2>jQuery / <a href="http://en.wikipedia.org/wiki/Ajax_(programming)" target="_blank">AJAX</a> demo</h2>
 
 
-<a href="" id="trigger">run me</a>
+<a href="#" id="trigger">run me</a>
 
 <div id="content">sdsdsdsds sd sd dsd sd sd</div>
-
 
 <!-- jQuery library via Google CDN -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -32,9 +31,6 @@ $('#trigger').on('click', function(event){
     $.get('data.html', '', function(response) {
         $('#content').html (response);
     });
-    console.info('Finished the AJAX request');
-
-
 
 });
 

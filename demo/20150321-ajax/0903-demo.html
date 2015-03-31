@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>jQuery 3 // plugins | in-class demo</title>
+    <title>Ajax + JSON | in-class demo</title>
     <style type="text/css">
         body {
             font-family: Helvetica ;
@@ -16,25 +16,30 @@
 <h2>jQuery / <a href="http://en.wikipedia.org/wiki/Ajax_(programming)" target="_blank">AJAX</a> demo</h2>
 
 
-<a href="" id="trigger">run me</a>
+<a href="#" id="trigger">run me</a>
 
 <div id="content">sdsdsdsds sd sd dsd sd sd</div>
-
 
 <!-- jQuery library via Google CDN -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 <script type="text/javascript" >
 
-$('#trigger').on('click', function(event){
-    event.preventDefault() ;
+$('#trigger').on( 'click', function ( event ) {
+    event.preventDefault( ) ;
 
-    $.get('data.html', '', function(response) {
-        $('#content').html (response);
+    $.getJSON( 'data.json', "", function ( response ) {
+        var items = '' ;
+
+        // Loop through the set of elements in the JSON file.
+        $.each ( response, function( type, name ) {
+            // Add each element to the items string, and add some HTML formatting along the way.
+            items += '<p>' + '<strong>' + type + '</strong>: ' + name + '<p>' ;
+        });
+
+        // Set the content of the #content div to the items.
+        $('#content').html ( items ) ;
     });
-    console.info('Finished the AJAX request');
-
-
 
 });
 

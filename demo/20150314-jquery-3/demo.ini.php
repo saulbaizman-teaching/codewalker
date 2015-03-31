@@ -7,17 +7,17 @@
 
 DEMO_NAME = "jQuery 3"
 
-DEMO_DESCRIPTION = "These demos focus on jQuery plugins and extending jQuery through its API."
+DEMO_DESCRIPTION = "These demos focus on jQuery plugins and extending jQuery through its built-in API."
 
 file[] = 0801-demo.html
-download[] = ""
-caption[] = ""
+caption[] = "We're using the Cycle2 plugin to create a simple slideshow of images that cross-dissolve between each other. By default Cycle2 binds to an element with the class named 'cycle-slideshow.'"
+download[] = "0801-demo.zip"
 
 file[] = 0802-demo.html
-download[] = ""
-caption[] = ""
+caption[] = "The fancyBox2 plugin creates image galleries in a modal window. This is often referred to as a 'lightbox' effect."
+download[] = "0802-demo.zip"
 
 file[] = 0803-demo.html
-download[] = ""
-caption[] = ""
+caption[] = "jQuery UI is a set of widgets and other user interface elements. This demo shows how to create a simple tabbed interface. The look of the interface can be customized via the jQuery UI ThemeRoller website: http://jqueryui.com/themeroller/. "
+download[] = "0803-demo.zip"
 

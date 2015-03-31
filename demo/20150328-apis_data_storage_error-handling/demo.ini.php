@@ -12,7 +12,7 @@ DEMO_DESCRIPTION = "In these examples we look at the Google Maps API, data stora
 
 file[] = 1010.html
 download[] = ""
-caption[] = "[Client-side Databases] Sessions storage via the sessionStorage object. Data stored in session storage is retained only for the lifetime of the given tab/window. It's good for info that changes frequently and is personal and should not be used by other users of the device."
+caption[] = "[Client-side databases] Sessions storage via the sessionStorage object. Data stored in session storage is retained only for the lifetime of the given tab/window. It's good for info that changes frequently and is personal and should not be used by other users of the device."
 
 file[] = 1011.html
 download[] = ""

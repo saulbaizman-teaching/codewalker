@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ajax + JSON | in-class demo</title>
+    <style type="text/css">
+        body {
+            font-family: Helvetica ;
+            line-height: 1.5em ;
+        }
+    </style>
+
+</head>
+<body>
+
+<h2>jQuery / <a href="http://en.wikipedia.org/wiki/Ajax_(programming)" target="_blank">AJAX</a> demo</h2>
+
+
+<a href="#" id="trigger">run me</a>
+
+<div id="content">sdsdsdsds sd sd dsd sd sd</div>
+
+<!-- jQuery library via Google CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script type="text/javascript" >
+
+$('#trigger').on('click', function(event){
+    event.preventDefault() ;
+
+    // Just get the elements that are bold-faced from data.html.
+    $('#content').load ( 'data.html strong' );
+
+});
+
+</script>
+
+</body>
+</html>
