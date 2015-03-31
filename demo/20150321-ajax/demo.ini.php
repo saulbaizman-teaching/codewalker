@@ -7,7 +7,7 @@
 
 DEMO_NAME = "Ajax + JSON"
 
-DEMO_DESCRIPTION = "These demos focus on using jQuery's Ajax methods to process HTML, XML, and JSON. <em>Note: to make the demos work, they must be run on a web server.</em>"
+DEMO_DESCRIPTION = "These demos focus on using jQuery's Ajax methods to process HTML, XML, and JSON. Please refer to chapter 8 in Jon Duckett's <em>JavaScript and jQuery</em>.</p><p><small><em>Note: for the demo files to work properly, they must be run on a web server.</em></small>"
 
 file[] = 0901-demo.html
 download[] = "0901-demo.zip"
@@ -27,4 +27,4 @@ caption[] = "This demo uses the $.ajax( ) method to request an HTML file from th
 
 file[] = 0905-demo.html
 download[] = "0905-demo.zip"
-caption[] = "This demo uses the .load( ) method to request an HTML file from the server and display some of its contents on a webpage, based on a selector."
+caption[] = "This demo uses the .load( ) method to request an HTML file from the server and display a fragment its contents on a webpage, based on a selector."
