@@ -3,90 +3,91 @@ TODO: replace native JS with jQuery methods in Ajax calls.
  */
 function loadSteps ( demo ) {
 
-    var xhr = new XMLHttpRequest() ;
+    //console.log ( 'demo: ' + demo ) ;
 
-    xhr.onload = function () {
-        if (xhr.status == 200) {
-            // populate #steps div
-            $('#steps').html(xhr.responseText) ;
+    $.ajax({
+        type: "GET",
+        url: "/php/ajax.php",
+        data: { demo: demo, callback: "steps" },
+        success: processData,
+        fail: recover
+    });
 
-            //$('a.download').hide ( ) ;
-            var $steps = $('#steps ol li') ;
-            $steps.on ( 'mouseover', function () {
-                //console.log ( 'moused over') ;
-                //console.log ( this.id ) ;
-                //$steps.next().css( {'visibility':'visible' } ) ;
-                //console.log (this.id) ;
-                var dl_link = '#' + this.id + '-download' ;
-                $(dl_link).css( {'visibility':'visible' }) ;
-                // $(dl_link).fadeTo( 1 ) ;
-                //$(dl_link).fadeIn(500) ;
-            }) ;
-            $steps.on ( 'mouseout', function () {
-                // console.log ( 'moused over') ;
-                //$steps.next().css( {'visibility':'visible' } ) ;
-                //console.log (this.id) ;
-                var dl_link = '#' + this.id + '-download' ;
-                $(dl_link).css( {'visibility':'hidden' }) ;
-                // $(dl_link).fadeTo( 1 ) ;
-                //$(dl_link).fadeOut(500) ;
-            }) ;
-        }
-    } ;
+    function processData ( data ) {
 
-    // set the previously selected demo to not be selected
-    $('.demo_selected').removeClass ('demo_selected') ;
+        // set opacity to 0 for steps
+        $('#steps').css ({'opacity':'0'}) ;
 
-    // set the selected demo to have a new class
-    var selected_demo = '#demo-' + demo ;
-    $(selected_demo).addClass ( 'demo_selected' ) ;
+        // if we are switching demos, blank out the source code
+        $('#source_code').css ({'opacity':'0'}) ;
 
-    // set opacity to 0 for steps
-    $('#steps').css ({'opacity':'0'}) ;
+        // populate #steps div, fade it in ;
+        $('#steps').html(data).fadeTo(250,1) ;
 
-    // if we are switching demos, blank out the source code
-    $('#source_code').css ({'opacity':'0'}) ;
+        // Add download link styles for steps.
+        var $steps = $('#steps ol li') ;
+        $steps.on ( 'mouseover', function () {
+            var dl_link = '#' + this.id + '-download' ;
+            $(dl_link).css( {'visibility':'visible' }) ;
+        }) ;
+        $steps.on ( 'mouseout', function () {
+            var dl_link = '#' + this.id + '-download' ;
+            $(dl_link).css( {'visibility':'hidden' }) ;
+        }) ;
 
-    //request steps
-    xhr.open ( 'GET', '/php/ajax.php?demo=' + demo + '&callback=steps', true ) ;
+        // set the previously selected demo to not be selected
+        $('.demo_selected').removeClass ('demo_selected') ;
 
-    xhr.send ( null ) ;
+        // set the selected demo to have a new class
+        var selected_demo = '#demo-' + demo ;
+        $(selected_demo).addClass ( 'demo_selected' ) ;
 
-    //fade the content in
-    $('#steps').fadeTo(250,1) ;
+    }
+
+    function recover ( ) {
+        console.warn ( 'No data was returned from the server!' ) ;
+        $('#steps').html( '<strong>There was an error retrieving data from the server.</strong>' ) ;
+    }
 
 }
 
 function loadStepDetails ( demo, step ) {
 
-    var xhr = new XMLHttpRequest() ;
+    $.ajax({
+        type: "GET",
+        url: "/php/ajax.php",
+        data: { demo: demo, step_details: step, callback: "step_details" },
+        success: processData,
+        fail: recover
+    });
 
-    xhr.onload = function () {
-        if (xhr.status == 200) {
-            // populate #source_code div
-            // NOTE: this will need to be more complicated if it is to return the
-            // language format automatically.
-            $('#source_code').html ( xhr.responseText ) ;
+    function processData ( data ) {
+        // populate #source_code div
+        // NOTE: this will need to be more complicated if it is to return the
+        // language format automatically.
+        var source_code = $('#source_code') ;
 
-            //because we are loading rainbow'd content after the DOM has loaded, we need to manually invoke it here to style the content correctly
-            Rainbow.color();
-        }
-    } ;
+        // set opacity to 0
+        source_code.css ({'opacity':'0'}) ;
 
-    // set the previously selected demo to not be selected
-    $('.step_selected').removeClass ('step_selected') ;
+        // populate the #source_code div content, then fade it in
+        source_code.html(data).fadeTo(250,1) ;
 
-    // set the selected demo to have a new class
-    var selected_step = 'li#li-' + demo + '-' + step.replace('.' ,'-') ;
-    $(selected_step).addClass ( 'step_selected' ) ;
+        // Because we are loading rainbow'd content after the DOM has loaded, we need to manually invoke it here to style the content correctly
+        Rainbow.color();
 
-    // set opacity to 0
-    $('#source_code').css ({'opacity':'0'}) ;
+        // set the previously selected demo to not be selected
+        $('.step_selected').removeClass ('step_selected') ;
 
-    xhr.open ( 'GET', '/php/ajax.php?demo=' + demo + '&step_details=' + step + '&callback=step_details', true ) ;
+        // set the selected demo to have a new class
+        var selected_step = 'li#li-' + demo + '-' + step.replace('.' ,'-') ;
+        $(selected_step).addClass ( 'step_selected' ) ;
 
-    xhr.send ( null ) ;
+    }
 
-    $('#source_code').fadeTo(250,1) ;
+    function recover ( ) {
+        console.warn ( 'No data was returned from the server!' ) ;
+        $('#source_code').html( '<strong>There was an error retrieving data from the server.</strong>' ) ;
+    }
 
 }
