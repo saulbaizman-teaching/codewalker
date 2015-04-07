@@ -51,7 +51,8 @@ function get_demos ( $parent_folder = '' ) {
         {
             if ( ! parse_ini_file ( $parent_folder . DEMO_DIRECTORY . '/' . $demo . '/demo.ini.php' ) )
             {
-                echo 'Error parsing INI file.' ;
+                echo 'Error parsing INI file: ' . DEMO_DIRECTORY . '/' . $demo . '/demo.ini.php' ;
+                return ;
             }
             else {
                 $demo_config[] = parse_ini_file ( $parent_folder . DEMO_DIRECTORY . '/' . $demo . '/demo.ini.php' ) ;
@@ -79,11 +80,15 @@ function print_demos ( $demo = false ) {
 
         $demo_name = $demos_array[$demo_index]['DEMO_NAME'] ;
         $demo_description = $demos_array[$demo_index]['DEMO_DESCRIPTION'] ;
+        $demo_note = $demos_array[$demo_index]['DEMO_NOTE'] ;
 
         $div_id = 'demo-' . $demo_index ;
         echo '<div id="' . $div_id . '">' ;
         echo '<h4><a href="javascript:loadSteps(' . $demo_index. ');">' . $demo_name . '</a></h4>' ;
         echo '<p><a href="javascript:loadSteps(' . $demo_index . ');">' . $demo_description . '</a></p>' ;
+        if ( $demo_note ) {
+            echo '<p><small><em>' . $demo_note . '</em></small></p>' ;
+        }
         echo '</div>' ;
     }
 

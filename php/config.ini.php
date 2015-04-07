@@ -21,6 +21,8 @@ DEMO_DIRECTORY = demo
 
 ; Add new project folders below
 
+demos[] = 20150404-php
+
 demos[] = 20150328-apis_data_storage_error-handling
 
 demos[] = 20150321-ajax

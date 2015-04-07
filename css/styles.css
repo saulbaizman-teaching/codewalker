@@ -83,6 +83,12 @@ h4 a:hover {
 #demos .demo_selected h4 a, #demos .demo_selected p a {
     color: #dd0000;
 }
+/*
+#demos .demo_selected {
+    background-color: #cccccc ;
+    border-left: 1px solid red ;
+}
+*/
 
 /*
 STEPS

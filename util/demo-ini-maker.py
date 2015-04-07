@@ -16,6 +16,8 @@ print '''
 DEMO_NAME = ""
 
 DEMO_DESCRIPTION = ""
+
+DEMO_NOTE = ""
 '''
 
 files = os.listdir('.')

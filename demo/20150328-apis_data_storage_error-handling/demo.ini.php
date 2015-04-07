@@ -8,11 +8,13 @@
 
 DEMO_NAME = "APIs, Data Storage, and Error Handling"
 
-DEMO_DESCRIPTION = "In these examples we look at the Google Maps API (440-447), data storage through HTML5 APIs (420-423) and Firebase, and advanced error handling with exceptions (480-483).</p><p><small><em>Note: for the demo files to work properly, they must be run on a web server. Additionally, the Firebase examples require a free firebase.com account.</em></small>"
+DEMO_DESCRIPTION = "In these examples we look at the Google Maps API (440-447), data storage through HTML5 APIs (420-423) and Firebase, and advanced error handling with exceptions (480-483)."
+
+DEMO_NOTE = "Note: for the demo files to work properly, they must be run on a web server. Additionally, the Firebase examples require a free firebase.com account."
 
 file[] = 1010.html
 download[] = ""
-caption[] = "[Client-side databases] Sessions storage via the sessionStorage object. Data stored in session storage is retained only for the lifetime of the given tab/window. It's good for info that changes frequently and is personal and should not be used by other users of the device."
+caption[] = "[Client-side databases] Session storage via the sessionStorage object. Data stored in session storage is retained only for the lifetime of the given tab/window. It's good for info that changes frequently and is personal and should not be used by other users of the device."
 
 file[] = 1011.html
 download[] = ""

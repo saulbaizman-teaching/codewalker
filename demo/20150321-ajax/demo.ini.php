@@ -7,7 +7,9 @@
 
 DEMO_NAME = "Ajax + JSON"
 
-DEMO_DESCRIPTION = "These demos focus on using jQuery's Ajax methods to process HTML, XML, and JSON. Please refer to chapter 8 in Jon Duckett's <em>JavaScript and jQuery</em>.</p><p><small><em>Note: for the demo files to work properly, they must be run on a web server.</em></small>"
+DEMO_DESCRIPTION = "These demos focus on using jQuery's Ajax methods to process HTML, XML, and JSON. Please refer to chapter 8 in Jon Duckett's <em>JavaScript and jQuery</em>."
+
+DEMO_NOTE = "Note: for the demo files to work properly, they must be run on a web server."
 
 file[] = 0901-demo.html
 download[] = "0901-demo.zip"
