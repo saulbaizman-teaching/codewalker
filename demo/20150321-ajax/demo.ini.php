@@ -29,4 +29,4 @@ caption[] = "This demo uses the $.ajax( ) method to request an HTML file from th
 
 file[] = 0905-demo.html
 download[] = "0905-demo.zip"
-caption[] = "This demo uses the .load( ) method to request an HTML file from the server and display a fragment its contents on a webpage, based on a selector."
+caption[] = "This demo uses the .load( ) method to request an HTML file from the server and display a portion of that webpage's content based on a jQuery selector."
