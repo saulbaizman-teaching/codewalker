@@ -2,9 +2,11 @@ TO DO
 --
 + bookmarks to jump to a particular demo and step (via query string)
 
-+ how to handle demos with multiple files? One (bad) solution: just put everything in a single file. This is bad because there are lots of extraneous bits in the HTML that we don't care about.
-
 + Add code editability and preview / execution window.
+
++ Rewrite this application using 100% JavaScript/jQuery.
+
++ Get rid of explicit function calls in scripts.js; just use jQuery.
 
 FIXME
 --
