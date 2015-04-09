@@ -62,7 +62,7 @@ caption[] = "PHP excels at processing web form submissions. Once it receives the
 
 file[] = 1112.php
 download[] = ""
-caption[] = "PHP has many features that can be executed dynamically, or on-the-fly, such as creating and manipulating images. This examples dynamically creates a PNG file."
+caption[] = "PHP has many features that can be executed dynamically, or on-the-fly, such as creating and manipulating images. This example dynamically creates a PNG file."
 
 file[] = 1113.php
 download[] = ""
