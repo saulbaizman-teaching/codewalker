@@ -15,22 +15,24 @@ function loadSteps ( demo ) {
 
     function processData ( data ) {
 
+        var $steps_div = $('#steps') ;
+
         // set opacity to 0 for steps
-        $('#steps').css ({'opacity':'0'}) ;
+        $steps_div.css ({'opacity':'0'}) ;
 
         // if we are switching demos, blank out the source code
         $('#source_code').css ({'opacity':'0'}) ;
 
         // populate #steps div, fade it in ;
-        $('#steps').html(data).fadeTo(250,1) ;
+        $steps_div.html(data).fadeTo(250,1) ;
 
         // Add download link styles for steps.
-        var $steps = $('#steps ol li') ;
-        $steps.on ( 'mouseover', function () {
+        var $steps_li = $('#steps ol li') ;
+        $steps_li.on ( 'mouseover', function () {
             var dl_link = '#' + this.id + '-download' ;
             $(dl_link).css( {'visibility':'visible' }) ;
         }) ;
-        $steps.on ( 'mouseout', function () {
+        $steps_li.on ( 'mouseout', function () {
             var dl_link = '#' + this.id + '-download' ;
             $(dl_link).css( {'visibility':'hidden' }) ;
         }) ;
@@ -41,6 +43,11 @@ function loadSteps ( demo ) {
         // set the selected demo to have a new class
         var selected_demo = '#demo-' + demo ;
         $(selected_demo).addClass ( 'demo_selected' ) ;
+
+        // Scroll to the top of the steps.
+        if ( $steps_div.scrollTop() != 0 ) {
+            $steps_div.scrollTop(0) ;
+        }
 
     }
 
