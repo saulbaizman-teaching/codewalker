@@ -87,7 +87,7 @@ function print_demos ( $demo = false ) {
         echo '<h4><a href="javascript:loadSteps(' . $demo_index. ');">' . $demo_name . '</a></h4>' ;
         echo '<p><a href="javascript:loadSteps(' . $demo_index . ');">' . $demo_description . '</a></p>' ;
         if ( $demo_note ) {
-            echo '<p><small><em>' . $demo_note . '</em></small></p>' ;
+            echo '<p class="demo_note">' . $demo_note . '</p>' ;
         }
         echo '</div>' ;
     }
