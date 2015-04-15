@@ -1,15 +1,10 @@
-<?php
-
-    require 'php/functions.php' ;
-
-?>
+<!--Rename this file to index.html when the de-PHPing is over.-->
 <html>
 <head>
-    <title><?php echo get_program_name () ; ?></title>
+    <title></title>
 
     <!-- local styles -->
     <link rel="stylesheet" href="css/styles.css" type="text/css">
-
 
     <!-- Oswald and PT Mono typeface via Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
@@ -23,19 +18,11 @@
 <body>
 
 <header>
-<h1><?php echo get_program_name () ; ?></h1>
+<h1></h1>
 </header>
 
 <div id="demos">
 
-    <?php
-
-    // is the query string ?p=projectname present in the URL?
-    // perhaps the step should be included as well?
-
-    print_demos ( $_GET['p'] ) ;
-
-    ?>
 </div>
 
 <div id="steps">
@@ -55,7 +42,6 @@
 <!--</div>-->
 
 <footer>
-<small>&copy;<?php echo date ('Y') ; ?> <?php echo get_program_name () ; ?> v<?php echo get_program_version () ; ?>.</small>
 </footer>
 
 <!-- jQuery courtesy of Google -->

@@ -1,6 +1,62 @@
-/*
-TODO: replace native JS with jQuery methods in Ajax calls.
- */
+// Global configuration variables.
+var PROGRAM_NAME = 'codewalker' ;
+var PROGRAM_VERSION = '0.0.0.4' ;
+var DEMO_DIRECTORY = 'demo' ;
+var GLOBAL_CONFIG ;
+
+setup() ;
+
+load_demos () ;
+
+function setup ( ) {
+
+// Update browser window title
+    document.title = PROGRAM_NAME ;
+
+// Get the year of the current date.
+    var date = new Date();
+
+// Insert header text.
+    $('header h1').text(PROGRAM_NAME);
+
+// Insert footer text.
+    $('footer').html('<small>' + '&copy;' + date.getFullYear() + ' ' + PROGRAM_NAME + ' v' + PROGRAM_VERSION + '</small>');
+
+}
+
+function load_demos () {
+
+
+
+    $.getJSON( 'config.json', "", function ( response ) {
+        // console.log ( response )
+        var demo_html = '' ;
+        for ( demo = 0 ; demo < response.demos.length ; demo++ ) {
+            var $demo_id = demo ;
+            var $demo_name = response.demos[demo].DEMO_NAME;
+            var $demo_desc = response.demos[demo].DEMO_DESCRIPTION;
+            var $demo_note = response.demos[demo].DEMO_NOTE;
+            //var $demo_folder = response.demos[demo].DEMO_FOLDER;
+
+            demo_html += '<div id="demo-' + $demo_id + '">' ;
+            demo_html += '<h4><a href="javascript:loadSteps(' + $demo_id + ');">' + $demo_name + '</a></h4>' ;
+            demo_html += '<p><a href="javascript:loadSteps(' + $demo_id + ');">' + $demo_desc + '</a></p>' ;
+            if ( $demo_note != '' ) {
+                demo_html += '<p class="demo_note">' + $demo_note + '</p>' ;
+            }
+            demo_html += '</div>' ;
+
+        }
+
+        // Set the content of the #demos div to the demos.
+        $('#demos').html ( demo_html )
+    }) ;
+
+//    console.log ( 'loaded global config.' ) ;
+//        console.log ( GLOBAL_CONFIG )
+
+}
+
 function loadSteps ( demo ) {
 
     //console.log ( 'demo: ' + demo ) ;
