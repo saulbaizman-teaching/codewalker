@@ -2,13 +2,13 @@
 var PROGRAM_NAME = 'codewalker' ;
 var PROGRAM_VERSION = '0.0.0.4' ;
 var DEMO_DIRECTORY = 'demo' ;
-var GLOBAL_CONFIG ;
+// var GLOBAL_CONFIG ; // this is not explicitly defined here on purpose.
 
-setup() ;
+codewalker_init() ;
 
 load_demos () ;
 
-function setup ( ) {
+function codewalker_init ( ) {
 
 // Update browser window title
     document.title = PROGRAM_NAME ;
@@ -24,25 +24,25 @@ function setup ( ) {
 
 }
 
-function load_demos () {
-
-
+function load_demos ( ) {
 
     $.getJSON( 'config.json', "", function ( response ) {
+
+        GLOBAL_CONFIG = response ; // store this as a global variable for later
         // console.log ( response )
         var demo_html = '' ;
         for ( demo = 0 ; demo < response.demos.length ; demo++ ) {
-            var $demo_id = demo ;
-            var $demo_name = response.demos[demo].DEMO_NAME;
-            var $demo_desc = response.demos[demo].DEMO_DESCRIPTION;
-            var $demo_note = response.demos[demo].DEMO_NOTE;
-            //var $demo_folder = response.demos[demo].DEMO_FOLDER;
+            var demo_id = demo ;
+            var demo_name = response.demos[demo].DEMO_NAME;
+            var demo_desc = response.demos[demo].DEMO_DESCRIPTION;
+            var demo_note = response.demos[demo].DEMO_NOTE;
+            //var demo_folder = response.demos[demo].DEMO_FOLDER;
 
-            demo_html += '<div id="demo-' + $demo_id + '">' ;
-            demo_html += '<h4><a href="javascript:loadSteps(' + $demo_id + ');">' + $demo_name + '</a></h4>' ;
-            demo_html += '<p><a href="javascript:loadSteps(' + $demo_id + ');">' + $demo_desc + '</a></p>' ;
-            if ( $demo_note != '' ) {
-                demo_html += '<p class="demo_note">' + $demo_note + '</p>' ;
+            demo_html += '<div id="demo-' + demo_id + '">' ;
+            demo_html += '<h4><a href="javascript:loadSteps(' + demo_id + ');">' + demo_name + '</a></h4>' ;
+            demo_html += '<p><a href="javascript:loadSteps(' + demo_id + ');">' + demo_desc + '</a></p>' ;
+            if ( demo_note != '' ) {
+                demo_html += '<p class="demo_note">' + demo_note + '</p>' ;
             }
             demo_html += '</div>' ;
 
@@ -52,91 +52,88 @@ function load_demos () {
         $('#demos').html ( demo_html )
     }) ;
 
-//    console.log ( 'loaded global config.' ) ;
-//        console.log ( GLOBAL_CONFIG )
-
 }
 
 function loadSteps ( demo ) {
 
-    //console.log ( 'demo: ' + demo ) ;
+    var steps_html = '<ol>' ;
 
-    $.ajax({
-        type: "GET",
-        url: "/php/ajax.php",
-        data: { demo: demo, callback: "steps" },
-        success: processData,
-        fail: recover
-    });
+    target_demo = GLOBAL_CONFIG.demos[demo] ;
 
-    function processData ( data ) {
+    for ( step = 0 ; step < target_demo.demo_files.length ; step++ ) {
 
-        var $steps_div = $('#steps') ;
+        var li_id = 'li-' + demo + '-' + target_demo.demo_files[step].file.replace(/\./g, '-') ;
 
-        // set opacity to 0 for steps
-        $steps_div.css ({'opacity':'0'}) ;
-
-        // if we are switching demos, blank out the source code
-        $('#source_code').css ({'opacity':'0'}) ;
-
-        // populate #steps div, fade it in
-        $steps_div.html(data).fadeTo(250,1) ;
-
-        // add download link styles for steps
-        var $steps_li = $('#steps ol li') ;
-        $steps_li.on ( 'mouseover', function () {
-            var dl_link = '#' + this.id + '-download' ;
-            $(dl_link).css( {'visibility':'visible' }) ;
-        }) ;
-        $steps_li.on ( 'mouseout', function () {
-            var dl_link = '#' + this.id + '-download' ;
-            $(dl_link).css( {'visibility':'hidden' }) ;
-        }) ;
-
-        // set the previously selected demo to not be selected
-        $('.demo_selected').removeClass ('demo_selected') ;
-
-        // set the selected demo to have a new class
-        var selected_demo = '#demo-' + demo ;
-        $(selected_demo).addClass ( 'demo_selected' ) ;
-
-        // scroll to the top of the steps, if needed
-        if ( $steps_div.scrollTop() != 0 ) {
-            $steps_div.scrollTop(0) ;
+        // Is a download link specified in the config file? If so, use that. Otherwise, just use the filename that's being displayed.
+        if ( target_demo.demo_files[step].download != '' ) {
+            var $download_link = target_demo.demo_files[step].download  ;
+        }
+        else {
+            var $download_link = target_demo.demo_files[step].file ;
         }
 
+        steps_html += '<li id="' + li_id + '"><a id="step' + step + '" class="step" href="javascript:loadStepDetails(\'' + demo + '\',\'' + DEMO_DIRECTORY + '/'+ target_demo.DEMO_FOLDER + '\',\'' + target_demo.demo_files[step].file + '\');">' + target_demo.demo_files[step].caption + '</a>&nbsp;<a id="' + li_id + '-download" class="download" href="' + DEMO_DIRECTORY + '/'+ target_demo.DEMO_FOLDER + '/' + $download_link + '" title="Download ' + $download_link + '" >&ogt;</a></li>' ;
+        // Note: the download link will load the page in the browser. Users will need to option-click to download the file, unless it's ZIPped.
     }
 
-    function recover ( ) {
+    steps_html += '</ol>' ;
 
-        console.warn ( 'No data was returned from the server!' ) ;
-        $('#steps').html( '<strong>There was an error retrieving data from the server.</strong>' ) ;
+    var $steps_div = $('#steps') ;
 
+    // set opacity to 0 for steps
+    $steps_div.css ({'opacity':'0'}) ;
+
+    // if we are switching demos, blank out the source code
+    $('#source_code').css ({'opacity':'0'}) ;
+
+    // populate #steps div, fade it in
+    $steps_div.html(steps_html).fadeTo(250,1) ;
+
+    // add download link styles for steps
+    var $steps_li = $('#steps ol li') ;
+    $steps_li.on ( 'mouseover', function () {
+        var dl_link = '#' + this.id + '-download' ;
+        $(dl_link).css( {'visibility':'visible' }) ;
+    }) ;
+
+    $steps_li.on ( 'mouseout', function () {
+        var dl_link = '#' + this.id + '-download' ;
+        $(dl_link).css( {'visibility':'hidden' }) ;
+    }) ;
+
+    // set the previously selected demo to not be selected
+    $('.demo_selected').removeClass ('demo_selected') ;
+
+    // set the selected demo to have a new class
+    var selected_demo = '#demo-' + demo ;
+    $(selected_demo).addClass ( 'demo_selected' ) ;
+
+    // scroll to the top of the steps, if needed
+    if ( $steps_div.scrollTop() != 0 ) {
+        $steps_div.scrollTop(0) ;
     }
 
 }
 
-function loadStepDetails ( demo, step ) {
+function loadStepDetails ( demo, folder, file ) {
 
-    $.ajax({
-        type: "GET",
-        url: "/php/ajax.php",
-        data: { demo: demo, step_details: step, callback: "step_details" },
-        success: processData,
-        fail: recover
-    });
+    $.get ( folder + '/' + file, "", function ( response ) {
+        var source_html = '<pre>';
+        // This should be more dynamic; get the filename extension.
+        source_html += '<code data-language="html">' ;
 
-    function processData ( data ) {
-        // populate #source_code div
-        // NOTE: this will need to be more complicated if it is to return the
-        // language format automatically.
+        source_html += response.replace(/</g,"&lt;").replace(/>/g,"&gt;") ;
+
+        source_html += '</code>';
+        source_html += '</pre>';
+
         var $source_code = $('#source_code') ;
 
         // set opacity to 0
         $source_code.css ({'opacity':'0'}) ;
 
         // populate the #source_code div content, then fade it in
-        $source_code.html(data).fadeTo(250,1) ;
+        $source_code.html(source_html).fadeTo(250,1) ;
 
         // because we are loading rainbow'd content after the DOM has loaded, we need to manually invoke it here to style the content correctly
         Rainbow.color();
@@ -145,7 +142,7 @@ function loadStepDetails ( demo, step ) {
         $('.step_selected').removeClass ('step_selected') ;
 
         // set the selected demo to have a new class
-        var selected_step = 'li#li-' + demo + '-' + step.replace('.' ,'-') ;
+        var selected_step = 'li#li-' + demo + '-' + file.replace('.' ,'-') ;
         $(selected_step).addClass ( 'step_selected' ) ;
 
         // scroll to the top of the source code, if needed
@@ -153,13 +150,6 @@ function loadStepDetails ( demo, step ) {
             $source_code.scrollTop(0) ;
         }
 
-    }
-
-    function recover ( ) {
-
-        console.warn ( 'No data was returned from the server!' ) ;
-        $('#source_code').html( '<strong>There was an error retrieving data from the server.</strong>' ) ;
-
-    }
+    }) ;
 
 }
