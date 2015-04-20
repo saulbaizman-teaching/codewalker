@@ -112,7 +112,13 @@ function print_steps ( $demo ) {
             $download_link = $one_demo['file'][$step] ;
         }
 
-        echo '<li id="' . $li_id . '"><a id="step' . $step . '" class="step" href="javascript:loadStepDetails(\'' . $demo . '\',\'' . $one_demo['file'][$step] . '\');">' . $one_demo['caption'][$step] . '</a>&nbsp;<a id="' . $li_id . '-download" class="download" href="/php/download.php?demo=' . $demo . '&file=' . $download_link . '" title="Download ' . $download_link . '" >&ogt;</a></li>' . "\n" ;
+        echo '<li id="' . $li_id . '"><a id="step' . $step . '" class="step" href="javascript:loadStepDetails(\'' . $demo . '\',\'' . $one_demo['file'][$step] . '\');">' . $one_demo['caption'][$step] . '</a>&nbsp;<a id="' . $li_id . '-download" class="download" href="/php/download.php?demo=' . $demo . '&file=' . $download_link . '" title="Download ' . $download_link . '" ><svg class="download_icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 44.5 43.875" enable-background="new 0 0 44.5 43.875" xml:space="preserve" width="15" height="15">
+<circle id="circle" fill="#000000" cx="22.531" cy="22.094" r="20.844"/>
+<line fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="22.875" y1="10.625" x2="22.875" y2="33.625"/>
+<polyline fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+	32.577,23.819 22.531,33.91 12.485,23.819 "/>
+</svg></a></li>' . "\n" ;
     }
     echo '</ol>' ;
 
