@@ -85,12 +85,13 @@ h4 a:hover {
 }
 
 #demos .demo_note {
-    font-size: 0.8em ;
+    /*border-top: 1px dotted #bbb;*/
+    padding-top: 5px ;
+    font-family: 'Old Standard TT', serif;
+    font-size: 0.7em ;
     font-style: italic;
-    /*color: #ae997c ;*/
-    font-weight: 300;
-    /*line-height: 1.2em;*/
-    /*border-top: 1px dotted gray ;*/
+    font-weight: 400;
+    line-height: 1.4em;
 }
 
 /*

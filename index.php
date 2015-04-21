@@ -14,6 +14,7 @@
     <!-- Oswald and PT Mono typeface via Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Old+Standard+TT:400italic' rel='stylesheet' type='text/css'>
 
     <!-- syntax color highlighter styles -->
     <link rel="stylesheet" href="css/rainbow-theme.css" type="text/css">
