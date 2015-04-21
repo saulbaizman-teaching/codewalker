@@ -32,8 +32,13 @@
 
     // is the query string ?p=projectname present in the URL?
     // perhaps the step should be included as well?
-
-    print_demos ( $_GET['p'] ) ;
+    if ( isset ( $_GET['p'] ) ) {
+        print_demos ( $_GET['p'] ) ;
+    }
+    else
+    {
+        print_demos ( ) ;
+    }
 
     ?>
 </div>

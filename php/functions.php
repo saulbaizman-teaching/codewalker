@@ -16,9 +16,9 @@ else
 }
 
 // declare debugging state as a constant
-define ( 'DEBUG', $config[DEBUG] ) ;
+define ( 'DEBUG', $config['DEBUG'] ) ;
 
-define ('DEMO_DIRECTORY', $config[DEMO_DIRECTORY]) ;
+define ('DEMO_DIRECTORY', $config['DEMO_DIRECTORY']) ;
 
 if ( DEBUG )
     print_r ( $config ) ;
@@ -27,14 +27,14 @@ if ( DEBUG )
 function get_program_name ( )
 {
     global $config ;
-    return $config[PROGRAM_NAME] ;
+    return $config['PROGRAM_NAME'] ;
 }
 
 // Get program name.
 function get_program_version ( )
 {
     global $config ;
-    return $config[PROGRAM_VERSION] ;
+    return $config['PROGRAM_VERSION'] ;
 }
 
 // Get list of demos
@@ -80,7 +80,9 @@ function print_demos ( $demo = false ) {
 
         $demo_name = $demos_array[$demo_index]['DEMO_NAME'] ;
         $demo_description = $demos_array[$demo_index]['DEMO_DESCRIPTION'] ;
-        $demo_note = $demos_array[$demo_index]['DEMO_NOTE'] ;
+        if ( isset ( $demos_array[$demo_index]['DEMO_NOTE'] ) )  {
+            $demo_note = $demos_array[$demo_index]['DEMO_NOTE'] ;
+        }
 
         $div_id = 'demo-' . $demo_index ;
         echo '<div id="' . $div_id . '">' ;
