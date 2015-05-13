@@ -6,9 +6,15 @@
 
 ## about
 
-This is a simple file viewer for viewing the demos used in Intermediate Web Design (CMP 3011) at the School of the Museum of Fine Arts, Spring 2015.
+This is a simple file viewer for viewing the demos used in my classes at the School of the Museum of Fine Arts.
 
 The demos are stored in subfolders of the `demo` folder.
 
-To view the demos, this entire folder must be placed on a webserver that supports PHP. It should probably be located at the root of the web server, though it may work in subfolders. I recommend using a program like [MAMP](http://www.mamp.info) to furnish the correct environment.
+To view the demos, open Terminal and spin up a web server in the document root directory like so:
+
+`$ python -m SimpleHTTPServer`
+
+Then point a web browser to this address:
+
+`http://localhost:8000/`
 
