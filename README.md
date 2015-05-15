@@ -16,5 +16,5 @@ To view the demos, open Terminal and spin up a web server in the document root d
 
 Then point a web browser to this address:
 
-`http://localhost:8000/`
+http://localhost:8000/
 

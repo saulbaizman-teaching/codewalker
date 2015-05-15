@@ -34,7 +34,7 @@ imagestring ( $png_image, 5, 50, 50, $my_message, $text_color);
 imagepng ( $png_image ) ;
 
 // Free up the memory the png image resource was using.
-// Not necessary to explicitly call this function, but git is ood practice.
+// Not necessary to explicitly call this function, but it is good practice.
 imagedestroy ( $png_image ) ;
 
 ?>
