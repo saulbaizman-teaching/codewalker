@@ -1,0 +1,3 @@
+#php_flag engine off
+#AddType text/html .php
+AddHandler text/html .php
