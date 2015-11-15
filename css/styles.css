@@ -121,7 +121,7 @@ STEPS
 }
 #steps ol li {
     margin-bottom: 10px ;
-    color: orange ;
+    color: #777 ;
     font-size: 1.2em ;
 }
 
@@ -150,7 +150,7 @@ STEPS
 
 /* turn the selected li item orange */
 #steps li.step_selected a, #steps li.step_selected a:link {
-    color: orange;
+    color: #dd0000;
 }
 #steps ol li a.download {
     /*opacity: 0;*/
