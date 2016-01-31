@@ -1,6 +1,49 @@
 {
   "demos": [
     {
+      "DEMO_FOLDER": "20160130-css3",
+      "DEMO_NAME": "CSS3",
+      "DEMO_DESCRIPTION": "These demos are related to Dan Cederholm's \"CSS3 for Web Designers.\"",
+      "DEMO_NOTE": "",
+      "demo_files": [
+        {
+          "file": "0221-demo.html",
+          "download": "",
+          "caption": "This file demonstrates a transition with a delay when the links in the unordered list are hovered over. The syntax uses the long-form transition property names."
+        },
+        {
+          "file": "0222-demo.html",
+          "download": "",
+          "caption": "This file demonstrates a transition with a delay when the links in the unordered list are hovered over. The example uses the abbreviated transition property syntax."
+        },
+        {
+          "file": "0223-demo.html",
+          "download": "",
+          "caption": "This file demonstrates a transition when the links in the unordered list are hovered over. The example uses vendor prefixes and the abbreviated transition property syntax."
+        },
+        {
+          "file": "0224-demo.html",
+          "download": "",
+          "caption": "This file demonstrates a transition for multiple properties (color and background color). The example uses vendor prefixes and the abbreviated transition property syntax."
+        },
+        {
+          "file": "0225-demo.html",
+          "download": "",
+          "caption": "This file demonstrates a transition for all properties. The example uses vendor prefixes and the abbreviated transition property syntax."
+        },
+        {
+          "file": "0226-demo.html",
+          "download": "",
+          "caption": "This file demonstrates a transform. The example uses scale to increase the size of the list items in the unordered list when they are hovered over."
+        },
+        {
+          "file": "0227-demo.html",
+          "download": "",
+          "caption": "This file demonstrates a transition applied to a transform. The example uses scale to increase the size of the list items in the unordered list when they are hovered over, gently increasing in size."
+        }
+      ]
+    },
+    {
       "DEMO_FOLDER": "20150207-sass",
       "DEMO_NAME": "Sass (Syntactically Awesome Stylesheets)",
       "DEMO_DESCRIPTION": "These demos are related to Dan Cederholm's \"Sass for Web Designers.\"",
