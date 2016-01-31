@@ -1,347 +1,238 @@
 {
   "demos": [
     {
-      "DEMO_FOLDER": "20150418-wordpress",
-      "DEMO_NAME": "WordPress Themes",
-      "DEMO_DESCRIPTION": "These files comprise the WordPress theme based on Katie McGuinness' Love Pole Fitness website. The theme is based on a starter theme named underscores.",
-      "DEMO_NOTE": "Note: the downloads for this theme point to a single ZIP file that contains all of the theme files. The theme should be placed in \"wp-content/themes\" and activated in the WordPress dashboard.",
-      "demo_files": [
-        {
-          "file": "style.css",
-          "download": "cmp3011-theme.zip",
-          "caption": "The stylesheet is one of two required theme files. The comments at the top of the file describe the theme in the WordPress theme chooser interface."
-        },
-        {
-          "file": "index.php",
-          "download": "cmp3011-theme.zip",
-          "caption": "The index is the other of the two required theme files. If no other templates are matched, the fallback is always index.php. See the WordPress Template Hierarchy for details."
-        },
-        {
-          "file": "functions.php",
-          "download": "cmp3011-theme.zip",
-          "caption": "This file is recommended but not required. It contains all user-defined functions specific to the theme. It is customary to keep function definitions in this file and only put HTML and PHP function calls in the other template files. Note that this file has no visual output."
-        },
-        {
-          "file": "home.php",
-          "download": "cmp3011-theme.zip",
-          "caption": "We created this file based on an understanding of the WordPress Template Hierarchy. It replaced the default options for displaying content on the homepage."
-        },
-        {
-          "file": "header.php",
-          "download": "cmp3011-theme.zip",
-          "caption": "The underscores theme uses its own system to segregate and re-use content. Site-wide header information, for example, is stored in header.php. Some header information, particularly local stylesheets and JavaScript files, is defined dynamically in the cmp3011_scripts() function inside functions.php."
-        },
-        {
-          "file": "page.php",
-          "download": "cmp3011-theme.zip",
-          "caption": "All static pages use the page.php template file, in accordance with the WordPress Template Hierarchy."
-        },
-        {
-          "file": "content-page.php",
-          "download": "cmp3011-theme.zip",
-          "caption": "In underscores, the page.php file conditionally references the content-page.php file. (If that file is not present, it will look for a file named content.php.)"
-        },
-        {
-          "file": "footer.php",
-          "download": "cmp3011-theme.zip",
-          "caption": "Site-wide footer information is stored in footer.php."
-        }
-      ]
-    },
-    {
-      "DEMO_FOLDER": "20150404-php",
-      "DEMO_NAME": "PHP: PHP Hypertext Preprocessor",
-      "DEMO_DESCRIPTION": "These demos illustrate some basic functionality of the PHP server-side scripting language. The functionality that is highlighted was chosen for its syntactic similarity to JavaScript.",
-      "DEMO_NOTE": "Note: for the demo files to work properly, they must be run on a web server with PHP support (such as Apache).",
-      "demo_files": [
-        {
-          "file": "1100.php",
-          "download": "",
-          "caption": "PHP encapsulates its code betwen start and end tags, <?php and ?> respectively. The phpinfo( ) function outputs a ton of diagnostic information."
-        },
-        {
-          "file": "1101.php",
-          "download": "",
-          "caption": "The print( ) function prints strings on a webpage. Note that you can have a lot of whitespace around your PHP code."
-        },
-        {
-          "file": "1102.php",
-          "download": "",
-          "caption": "Comments are identical to those in JavaScript. PHP has both single and multi-line comments. PHP comments cannot be seen in a web browser."
-        },
-        {
-          "file": "1103.php",
-          "download": "",
-          "caption": "Create variables in PHP by prepending a \"$\" character and a name and then assigning it a value."
-        },
-        {
-          "file": "1104.php",
-          "download": "",
-          "caption": "When a programmer makes a syntactic error, PHP will not process any of the script and will instead report a \"parse error.\" PHP usually provides a brief explanation of the cause of the error, the file the error occurred in, and the line number. Here, the prit( ) function on line 8 does not exist."
-        },
-        {
-          "file": "1105.php",
-          "download": "",
-          "caption": "PHP uses lists, called arrays, extensively. Here are some common operations using numerically-indexed arrays."
-        },
-        {
-          "file": "1106.php",
-          "download": "",
-          "caption": "PHP also has associative arrays which use key/value pairings. They're more intuitive to use than numerically-indexed arrays."
-        },
-        {
-          "file": "1107.php",
-          "download": "",
-          "caption": "Conditional statements are nearly identical to JavaScript's syntax. The only difference is \"elseif\" instead of \"else if\"."
-        },
-        {
-          "file": "1108.php",
-          "download": "",
-          "caption": "PHP also supports 'for' and 'while' loops."
-        },
-        {
-          "file": "1109.php",
-          "download": "",
-          "caption": "User-defined functions are ubiquitous in PHP. They allow you to package snippets of code and re-use them."
-        },
-        {
-          "file": "1110.php",
-          "download": "",
-          "caption": "There are a number of special arrays, called superglobals, whose properties are accessible in every PHP script. This example uses the $_SERVER array to glean the browser name and operating system of the website's visitor."
-        },
-        {
-          "file": "1111.php",
-          "download": "",
-          "caption": "PHP excels at processing web form submissions. Once it receives the data, it can be stored in a server-side database, manipulated, emailed, etc."
-        },
-        {
-          "file": "1112.php",
-          "download": "",
-          "caption": "PHP has many features that can be executed dynamically, or on-the-fly, such as creating and manipulating images. This example dynamically creates a PNG file."
-        },
-        {
-          "file": "1113.php",
-          "download": "",
-          "caption": "Here we've combined the idea of passing arguments via the URL query string to dynamically generate different messages inside our dynamically generated PNG image."
-        }
-      ]
-    },
-    {
-      "DEMO_FOLDER": "20150328-apis_data_storage_error-handling",
-      "DEMO_NAME": "APIs, Data Storage, and Error Handling",
-      "DEMO_DESCRIPTION": "In these examples we look at the Google Maps API (440-447), data storage through HTML5 APIs (420-423) and Firebase, and advanced error handling with exceptions (480-483).",
-      "DEMO_NOTE": "Note: for the demo files to work properly, they must be run on a web server. Additionally, the Firebase examples require a free firebase.com account.",
-      "demo_files": [
-        {
-          "file": "1010.html",
-          "download": "",
-          "caption": "[Client-side databases] Session storage via the sessionStorage object. Data stored in session storage is retained only for the lifetime of the given tab/window. It's good for info that changes frequently and is personal and should not be used by other users of the device."
-        },
-        {
-          "file": "1011.html",
-          "download": "",
-          "caption": "[Client-side databases] Local Storage via the localStorage object. Data stored in local storage is retained more or less permanently. It's good for information that should be stored outside of the browsing session or reused at a later time."
-        },
-        {
-          "file": "10120.html",
-          "download": "",
-          "caption": "[Client-side databases] Write information to a Firebase database using its API methods. Note: the Firebase database name must be entered for the demo to work for you."
-        },
-        {
-          "file": "10121.html",
-          "download": "",
-          "caption": "[Client-side databases] Retrieve and show information from a Firebase database using its API methods. Note: the Firebase database name must be entered for the demo to work for you."
-        },
-        {
-          "file": "10122.html",
-          "download": "",
-          "caption": "[Client-side databases] Update information in a Firebase database using its API methods. Nothing will appear in the webpage itself, but if you're viewing the Firebase dashboard, you should see the information change. Note: the Firebase database name must be entered for the demo to work for you."
-        },
-        {
-          "file": "1020.html",
-          "download": "",
-          "caption": "[Google Maps] A simple Google Map using the Google Maps API. Every map needs at a minimum center and zoom properties."
-        },
-        {
-          "file": "1021.html",
-          "download": "1021.zip",
-          "caption": "[Google Maps] A more advanced Google Map. This one contains a custom marker and custom content in a dialog when the marker is clicked."
-        },
-        {
-          "file": "1030.html",
-          "download": "",
-          "caption": "[Exceptions] This file with trigger an exception and halt the execution of the script. The reason for the exception is dividing by a variable that has not been declared or defined."
-        },
-        {
-          "file": "1031.html",
-          "download": "",
-          "caption": "[Exceptions] The try / catch / finally block provides a way to gracefully recover from the six kinds of errors that normally stop the execution of a script dead in the water."
-        },
-        {
-          "file": "1032.html",
-          "download": "",
-          "caption": "[Exceptions] We're using a catch block to provide a default value for the undeclared variable. Our script continues to process even after encountering the error."
-        },
-        {
-          "file": "1033.html",
-          "download": "",
-          "caption": "[Exceptions] Create your own exceptions using the Exceptions object."
-        }
-      ]
-    },
-    {
-      "DEMO_FOLDER": "20150321-ajax",
-      "DEMO_NAME": "Ajax + JSON",
-      "DEMO_DESCRIPTION": "These demos focus on using jQuery's Ajax methods to process HTML, XML, and JSON. Please refer to chapter 8 in Jon Duckett's JavaScript and jQuery.",
-      "DEMO_NOTE": "Note: for the demo files to work properly, they must be run on a web server.",
-      "demo_files": [
-        {
-          "file": "0901-demo.html",
-          "download": "0901-demo.zip",
-          "caption": "This demo uses the $.get( ) method to request an HTML file from the server and display its contents on a webpage."
-        },
-        {
-          "file": "0902-demo.html",
-          "download": "0902-demo.zip",
-          "caption": "This demo uses the $.get( ) method to request an XML file from the server and display its contents on a webpage."
-        },
-        {
-          "file": "0903-demo.html",
-          "download": "0903-demo.zip",
-          "caption": "This demo uses the $.getJSON( ) method to request a JSON file from the server and display its contents on a webpage."
-        },
-        {
-          "file": "0904-demo.html",
-          "download": "0904-demo.zip",
-          "caption": "This demo uses the $.ajax( ) method to request an HTML file from the server and display its contents on a webpage."
-        },
-        {
-          "file": "0905-demo.html",
-          "download": "0905-demo.zip",
-          "caption": "This demo uses the .load( ) method to request an HTML file from the server and display a portion of that webpage's content based on a jQuery selector."
-        }
-      ]
-    },
-    {
-      "DEMO_FOLDER": "20150314-jquery-3",
-      "DEMO_NAME": "jQuery Plugins and jQuery UI",
-      "DEMO_DESCRIPTION": "These demos focus on jQuery plugins and extending jQuery through its built-in API. See pages 429-433 in Jon Duckett's JavaScript and jQuery.",
+      "DEMO_FOLDER": "20150207-sass",
+      "DEMO_NAME": "Sass (Syntactically Awesome Stylesheets)",
+      "DEMO_DESCRIPTION": "These demos are related to Dan Cederholm's \"Sass for Web Designers.\"",
       "DEMO_NOTE": "",
       "demo_files": [
         {
-          "file": "0801-demo.html",
-          "download": "0801-demo.zip",
-          "caption": "We're using the Cycle2 plugin to create a simple slideshow of images that cross-dissolve between each other. By default Cycle2 binds to an element with the class named 'cycle-slideshow.'"
+          "file": "03311-demo-regular-css.scss",
+          "download": "",
+          "caption": "SCSS is a superset of CSS, meaning that any valid CSS is also valid SCSS. This demo shows that compiling regular CSS will output CSS."
         },
         {
-          "file": "0802-demo.html",
-          "download": "0802-demo.zip",
-          "caption": "The fancyBox2 plugin creates image galleries in a modal window. This is often referred to as a 'lightbox' effect."
+          "file": "03312-demo-comments.scss",
+          "download": "",
+          "caption": "There are three styles of comments, one single-line style and two multi-line styles. Single line styles get stripped out when compiled. Multi-line styles do not get stripped out, except if the output format is compressed. Even if the output format is compressed, the /*! */ comment style will survive in the compiled CSS."
         },
         {
-          "file": "0803-demo.html",
-          "download": "0803-demo.zip",
-          "caption": "jQuery UI is a set of widgets and other user interface elements. This demo shows how to create a simple tabbed interface. The look of the interface can be customized via the jQuery UI ThemeRoller website: http://jqueryui.com/themeroller/. "
+          "file": "03313-demo-nesting.scss",
+          "download": "",
+          "caption": "CSS rules can be nested inside other rules. Note how the parent selector is repeated in the nested selector. This also mirrors the HTML structure of the document."
+        },
+        {
+          "file": "03314-demo-namespacing.scss",
+          "download": "",
+          "caption": "With namespacing, properties that have similar prefixes can be grouped in curly braces and SCSS will expand them."
+        },
+        {
+          "file": "03315-demo-parent-selector.scss",
+          "download": "",
+          "caption": "In nested rules, it may be necessary to reference the name of the parent selector. Useful for link styles and other situations."
+        },
+        {
+          "file": "03316-demo-mixins-simple.scss",
+          "download": "",
+          "caption": "Mixins allow you to reuse a block of styles. Very helpful for CSS3 and its bevy of vendor prefixes."
+        },
+        {
+          "file": "03317-demo-variables.scss",
+          "download": "",
+          "caption": "Variables let you use the same value in multiple places. Imagine choosing a color and then applying it to several properties in several rules (h1 foreground color, #main background color, etc.). See also the brighten() and darken() SCSS methods."
+        },
+        {
+          "file": "03318-demo-mixins-advanced.scss",
+          "download": "",
+          "caption": "Arguments can be passed to mixins."
+        },
+        {
+          "file": "03319-demo-extend.scss",
+          "download": "",
+          "caption": "Extend chains together styles shared among multiple selectors."
+        },
+        {
+          "file": "03411-demo-media-queries-with-sass.scss",
+          "download": "",
+          "caption": "Combine Sass with media queries for easier development of responsively designed experiences."
         }
       ]
     },
     {
-      "DEMO_FOLDER": "20150307-jquery-2",
-      "DEMO_NAME": "jQuery 2",
-      "DEMO_DESCRIPTION": "These demos are related to pages 332-366 in Jon Duckett's JavaScript and jQuery. They cover jQuery's capabilities for basic effects, DOM traversal, adding and filtering elements, finding elements by their order, cutting and copying elements, and getting and setting box dimensions, window and page dimensions, and the position of elements.",
+      "DEMO_FOLDER": "20150214-javascript-1",
+      "DEMO_NAME": "JavaScript 1",
+      "DEMO_DESCRIPTION": "These demos are related to chapters 1 - 3 in Jon Duckett's \"JavaScript and jQuery.\"",
       "DEMO_NOTE": "",
       "demo_files": [
         {
-          "file": "0701-demo-01.html",
+          "file": "0001.html",
           "download": "",
-          "caption": "Hide the h1 element with the hide( ) method. Note that the hide( ) method actually sets the CSS 'display' property to 'none.'"
+          "caption": "Use the write() method of the document object to output a couple of words on screen."
         },
         {
-          "file": "0701-demo-02.html",
+          "file": "0002.html",
           "download": "",
-          "caption": "Hide the h1 element, then fade it in over the duration of .5 seconds. Note the use of chaining multiple methods together."
+          "caption": "Define a variable whose contents are output on screen via document.write()."
         },
         {
-          "file": "0701-demo-03.html",
+          "file": "0003.html",
           "download": "",
-          "caption": "Create a link to toggle the appearance of the h1 element. Note the presence of several ____Toggle( ) methods in jQuery (fadeToggle, slideToggle, etc.)."
+          "caption": "Add two numbers together and output the result."
         },
         {
-          "file": "0701-demo-04.html",
+          "file": "0004.html",
           "download": "",
-          "caption": "An example of the slideDown( ) method. Note that elements must be hidden to use this method."
+          "caption": "Add / concatenate two strings together via the string operator and output the result."
         },
         {
-          "file": "0701-demo-05.html",
+          "file": "0005.html",
           "download": "",
-          "caption": "We've added a delay of 3 seconds via the delay( ) method. The method can be used in conjunction with any other time-based method."
+          "caption": "Use document.getElementById to get the contents of an HTML element, then display it via the alert() function."
         },
         {
-          "file": "0701-demo-06.html",
+          "file": "0006.html",
           "download": "",
-          "caption": "The animate( ) method enables us to transition any numerical property (except color, for which there's a jQuery plugin to give you that capability)."
+          "caption": "Use document.getElementById to get the contents of an HTML element, then display it in the console via the console.log() method. Handy for debugging."
         },
         {
-          "file": "0701-demo-07.html",
+          "file": "0007.html",
           "download": "",
-          "caption": "Find( ) lets us select an element or set of elements inside of an existing jQuery selection."
+          "caption": "Dynamically set the content of an HTML element via the innerHTML property."
         },
         {
-          "file": "0701-demo-08.html",
+          "file": "0008.html",
           "download": "",
-          "caption": "Several methods are available to find neighboring elements via DOM traversal. This is an example of finding the previous element in the DOM tree of a given selection."
+          "caption": "Create an array and output a value of the array based on the index."
         },
         {
-          "file": "0701-demo-09.html",
+          "file": "0009.html",
           "download": "",
-          "caption": "Add more elements to an existing selection via add( )."
+          "caption": "Define a function and execute that function twice."
         },
         {
-          "file": "0701-demo-10.html",
+          "file": "0010.html",
           "download": "",
-          "caption": "Filter elements within a selection via filter( )."
+          "caption": "Pass a variable to a function."
         },
         {
-          "file": "0701-demo-11.html",
+          "file": "0011.html",
           "download": "",
-          "caption": "Select an element or elements based on the index number."
+          "caption": "Return a value from a function."
         },
         {
-          "file": "0701-demo-12.html",
+          "file": "0012.html",
           "download": "",
-          "caption": "Completely remove an element from the DOM tree."
+          "caption": "The HTML file links to an external JavaScript file. In this demo, the link is in the HEAD section. Usually, the link is just above the closing body tag for performance reasons. Note: this demo won't run because it references an exernal file."
+        }
+      ]
+    },
+    {
+      "DEMO_FOLDER": "20150221-javascript-2",
+      "DEMO_NAME": "JavaScript 2",
+      "DEMO_DESCRIPTION": "These demos are related to chapters 4 - 6 in Jon Duckett's \"JavaScript and jQuery.\"",
+      "DEMO_NOTE": "",
+      "demo_files": [
+        {
+          "file": "0001.html",
+          "download": "",
+          "caption": "[CONDITIONALS] An if( ) statement."
         },
         {
-          "file": "0701-demo-13.html",
+          "file": "0002.html",
           "download": "",
-          "caption": "Copy an element or elements via clone( ). In this demo we copy the h1 element and add it to the end of the document."
+          "caption": "[CONDITIONALS] An if-else statement."
         },
         {
-          "file": "0701-demo-14.html",
+          "file": "0003.html",
           "download": "",
-          "caption": "Get, or set, the width of a box. Several methods are available that give you slightly different measurements. Some of them include the width of padding, the width of borders, and the width of margins."
+          "caption": "[CONDITIONALS] An if-else if-else statement."
         },
         {
-          "file": "0701-demo-15.html",
+          "file": "0004.html",
           "download": "",
-          "caption": "Obtain the width and height of the browser window and the document, which can be smaller or larger than the browser window."
+          "caption": "[CONDITIONALS + LOGICAL OPERATORS] An if statement combined with the && (and) logical operator. Multiple conditional expressions should be grouped in parentheses."
         },
         {
-          "file": "0701-demo-16.html",
+          "file": "0005.html",
           "download": "",
-          "caption": "Using the offset( ) method to move the h1 element to 100 pixels to the left and 100 pixels from the top of the page. Offset( ) always works with the 'top' and 'left' properties."
+          "caption": "[CONDITIONALS + LOGICAL OPERATORS] An if statement combined with the || (or) logical operator."
         },
         {
-          "file": "0701-demo-17.html",
+          "file": "0006.html",
           "download": "",
-          "caption": "When using jQuery with other libraries, you may wish to, or have to, assign jQuery a different name than '$.' The noConflict( ) method allows you to assign any name you want to the jQuery object."
+          "caption": "[CONDITIONALS + LOGICAL OPERATORS] Another if statement with the || (or) logical operator. The conditions are evaluated from left to right. When one expression evaluates to true, the code block is executed. Otherwise the next condition is evaluated."
+        },
+        {
+          "file": "0007.html",
+          "download": "",
+          "caption": "[CONDITIONALS + LOGICAL OPERATORS] Another if statement with the && (and) logical operator. All of the conditions must be met for if( ) the code block to be executed, otherwise the else{ } block is executed."
+        },
+        {
+          "file": "0008.html",
+          "download": "",
+          "caption": "[CONDITIONALS + LOGICAL OPERATORS] Using the ! (not) logical operator. The operator inverts, or reverses, the outcome of the conditional expression. Eg., true becomes false, and false becomes true."
+        },
+        {
+          "file": "0008b.html",
+          "download": "",
+          "caption": "This was an in-class challenge."
+        },
+        {
+          "file": "0009.html",
+          "download": "",
+          "caption": "The same response to the in-class challenge with an else statement."
+        },
+        {
+          "file": "0010.html",
+          "download": "",
+          "caption": "[CONDITIONALS] A switch statement, which can more easily accommodate multiple if-then statements."
+        },
+        {
+          "file": "0011.html",
+          "download": "",
+          "caption": "[LOOPS] An extensive example and explanation of a for( ) loop. There's also an excellent diagram on page 172-173 in the Duckett book. There are also examples of more assignment operators (+= -= /= *=) and incremental operators (++ --). There is also a modulo operator, which returns the remainder of two numbers divided together (5%2 would be 1)."
+        },
+        {
+          "file": "0012.html",
+          "download": "",
+          "caption": "[LOOPS] A while( ) loop in action. If the condition is true, the code block will execute. If the condition is false, the loop ends."
+        },
+        {
+          "file": "0013.html",
+          "download": "",
+          "caption": "[LOOPS] A do-while loop. The difference between a while loop and a do-while loop is a do-while loop always run the code block at least once, even if the condition is false."
+        },
+        {
+          "file": "0014.html",
+          "download": "",
+          "caption": "[DOM] To manipulate the Document Object Model, it is common practice to select the element you want to manipulate, then get or set the value of that element. The method document.getElementById( ) selects an HTML element based on the value of itsID attribute."
+        },
+        {
+          "file": "0015.html",
+          "download": "",
+          "caption": "[DOM] Use the .textContent property to get the text content of an element. Other properties are also available for similar ends: innerText and innerHTML. Avoid using innerText; innerHTML has security implications enumerated in the Duckett book."
+        },
+        {
+          "file": "0016.html",
+          "download": "",
+          "caption": "[DOM] The .textContent property can also be used to set the text content of an element."
+        },
+        {
+          "file": "0017.html",
+          "download": "",
+          "caption": "[DOM] The setAttribute( ) method can be used to change the attributes of an element. In this example, the class is changed from 'blue' to 'red', which changes the background color of the element based on the CSS styles."
+        },
+        {
+          "file": "0018.html",
+          "download": "",
+          "caption": "[EVENTS] Events are like hooks on which to hang your code, and when something happens (eg., a user clicks a link, the browser window is resized, etc.), the code will be executed. There are three ways to implement events. The most flexible way is an event listener. The addEventListener( ) method can attach to an element and specify what code to execute when a given event occurs."
         }
       ]
     },
     {
       "DEMO_FOLDER": "20150228-jquery-1",
       "DEMO_NAME": "jQuery 1",
-      "DEMO_DESCRIPTION": "These demos are related to pages 293-331 in Jon Duckett's JavaScript and jQuery. They cover the basic principles of selecting and manipulating HTML elements via jQuery.",
+      "DEMO_DESCRIPTION": "These demos are related to pages 293-331 in Jon Duckett's \"JavaScript and jQuery.\" They cover the basic principles of selecting and manipulating HTML elements via jQuery.",
       "DEMO_NOTE": "",
       "demo_files": [
         {
@@ -482,231 +373,340 @@
       ]
     },
     {
-      "DEMO_FOLDER": "20150221-javascript-2",
-      "DEMO_NAME": "JavaScript 2",
-      "DEMO_DESCRIPTION": "These demos are related to chapters 4 - 6 in Jon Duckett's JavaScript and jQuery.",
+      "DEMO_FOLDER": "20150307-jquery-2",
+      "DEMO_NAME": "jQuery 2",
+      "DEMO_DESCRIPTION": "These demos are related to pages 332-366 in Jon Duckett's \"JavaScript and jQuery.\" They cover jQuery's capabilities for basic effects, DOM traversal, adding and filtering elements, finding elements by their order, cutting and copying elements, and getting and setting box dimensions, window and page dimensions, and the position of elements.",
       "DEMO_NOTE": "",
       "demo_files": [
         {
-          "file": "0001.html",
+          "file": "0701-demo-01.html",
           "download": "",
-          "caption": "[CONDITIONALS] An if( ) statement."
+          "caption": "Hide the h1 element with the hide( ) method. Note that the hide( ) method actually sets the CSS 'display' property to 'none.'"
         },
         {
-          "file": "0002.html",
+          "file": "0701-demo-02.html",
           "download": "",
-          "caption": "[CONDITIONALS] An if-else statement."
+          "caption": "Hide the h1 element, then fade it in over the duration of .5 seconds. Note the use of chaining multiple methods together."
         },
         {
-          "file": "0003.html",
+          "file": "0701-demo-03.html",
           "download": "",
-          "caption": "[CONDITIONALS] An if-else if-else statement."
+          "caption": "Create a link to toggle the appearance of the h1 element. Note the presence of several ____Toggle( ) methods in jQuery (fadeToggle, slideToggle, etc.)."
         },
         {
-          "file": "0004.html",
+          "file": "0701-demo-04.html",
           "download": "",
-          "caption": "[CONDITIONALS + LOGICAL OPERATORS] An if statement combined with the && (and) logical operator. Multiple conditional expressions should be grouped in parentheses."
+          "caption": "An example of the slideDown( ) method. Note that elements must be hidden to use this method."
         },
         {
-          "file": "0005.html",
+          "file": "0701-demo-05.html",
           "download": "",
-          "caption": "[CONDITIONALS + LOGICAL OPERATORS] An if statement combined with the || (or) logical operator."
+          "caption": "We've added a delay of 3 seconds via the delay( ) method. The method can be used in conjunction with any other time-based method."
         },
         {
-          "file": "0006.html",
+          "file": "0701-demo-06.html",
           "download": "",
-          "caption": "[CONDITIONALS + LOGICAL OPERATORS] Another if statement with the || (or) logical operator. The conditions are evaluated from left to right. When one expression evaluates to true, the code block is executed. Otherwise the next condition is evaluated."
+          "caption": "The animate( ) method enables us to transition any numerical property (except color, for which there's a jQuery plugin to give you that capability)."
         },
         {
-          "file": "0007.html",
+          "file": "0701-demo-07.html",
           "download": "",
-          "caption": "[CONDITIONALS + LOGICAL OPERATORS] Another if statement with the && (and) logical operator. All of the conditions must be met for if( ) the code block to be executed, otherwise the else{ } block is executed."
+          "caption": "Find( ) lets us select an element or set of elements inside of an existing jQuery selection."
         },
         {
-          "file": "0008.html",
+          "file": "0701-demo-08.html",
           "download": "",
-          "caption": "[CONDITIONALS + LOGICAL OPERATORS] Using the ! (not) logical operator. The operator inverts, or reverses, the outcome of the conditional expression. Eg., true becomes false, and false becomes true."
+          "caption": "Several methods are available to find neighboring elements via DOM traversal. This is an example of finding the previous element in the DOM tree of a given selection."
         },
         {
-          "file": "0008b.html",
+          "file": "0701-demo-09.html",
           "download": "",
-          "caption": "This was an in-class challenge."
+          "caption": "Add more elements to an existing selection via add( )."
         },
         {
-          "file": "0009.html",
+          "file": "0701-demo-10.html",
           "download": "",
-          "caption": "The same response to the in-class challenge with an else statement."
+          "caption": "Filter elements within a selection via filter( )."
         },
         {
-          "file": "0010.html",
+          "file": "0701-demo-11.html",
           "download": "",
-          "caption": "[CONDITIONALS] A switch statement, which can more easily accommodate multiple if-then statements."
+          "caption": "Select an element or elements based on the index number."
         },
         {
-          "file": "0011.html",
+          "file": "0701-demo-12.html",
           "download": "",
-          "caption": "[LOOPS] An extensive example and explanation of a for( ) loop. There's also an excellent diagram on page 172-173 in the Duckett book. There are also examples of more assignment operators (+= -= /= *=) and incremental operators (++ --). There is also a modulo operator, which returns the remainder of two numbers divided together (5%2 would be 1)."
+          "caption": "Completely remove an element from the DOM tree."
         },
         {
-          "file": "0012.html",
+          "file": "0701-demo-13.html",
           "download": "",
-          "caption": "[LOOPS] A while( ) loop in action. If the condition is true, the code block will execute. If the condition is false, the loop ends."
+          "caption": "Copy an element or elements via clone( ). In this demo we copy the h1 element and add it to the end of the document."
         },
         {
-          "file": "0013.html",
+          "file": "0701-demo-14.html",
           "download": "",
-          "caption": "[LOOPS] A do-while loop. The difference between a while loop and a do-while loop is a do-while loop always run the code block at least once, even if the condition is false."
+          "caption": "Get, or set, the width of a box. Several methods are available that give you slightly different measurements. Some of them include the width of padding, the width of borders, and the width of margins."
         },
         {
-          "file": "0014.html",
+          "file": "0701-demo-15.html",
           "download": "",
-          "caption": "[DOM] To manipulate the Document Object Model, it is common practice to select the element you want to manipulate, then get or set the value of that element. The method document.getElementById( ) selects an HTML element based on the value of itsID attribute."
+          "caption": "Obtain the width and height of the browser window and the document, which can be smaller or larger than the browser window."
         },
         {
-          "file": "0015.html",
+          "file": "0701-demo-16.html",
           "download": "",
-          "caption": "[DOM] Use the .textContent property to get the text content of an element. Other properties are also available for similar ends: innerText and innerHTML. Avoid using innerText; innerHTML has security implications enumerated in the Duckett book."
+          "caption": "Using the offset( ) method to move the h1 element to 100 pixels to the left and 100 pixels from the top of the page. Offset( ) always works with the 'top' and 'left' properties."
         },
         {
-          "file": "0016.html",
+          "file": "0701-demo-17.html",
           "download": "",
-          "caption": "[DOM] The .textContent property can also be used to set the text content of an element."
-        },
-        {
-          "file": "0017.html",
-          "download": "",
-          "caption": "[DOM] The setAttribute( ) method can be used to change the attributes of an element. In this example, the class is changed from 'blue' to 'red', which changes the background color of the element based on the CSS styles."
-        },
-        {
-          "file": "0018.html",
-          "download": "",
-          "caption": "[EVENTS] Events are like hooks on which to hang your code, and when something happens (eg., a user clicks a link, the browser window is resized, etc.), the code will be executed. There are three ways to implement events. The most flexible way is an event listener. The addEventListener( ) method can attach to an element and specify what code to execute when a given event occurs."
+          "caption": "When using jQuery with other libraries, you may wish to, or have to, assign jQuery a different name than '$.' The noConflict( ) method allows you to assign any name you want to the jQuery object."
         }
       ]
     },
     {
-      "DEMO_FOLDER": "20150214-javascript-1",
-      "DEMO_NAME": "JavaScript 1",
-      "DEMO_DESCRIPTION": "These demos are related to chapters 1 - 3 in Jon Duckett's JavaScript and jQuery.",
+      "DEMO_FOLDER": "20150314-jquery-3",
+      "DEMO_NAME": "jQuery Plugins and jQuery UI",
+      "DEMO_DESCRIPTION": "These demos focus on jQuery plugins and extending jQuery through its built-in API. See pages 429-433 in Jon Duckett's \"JavaScript and jQuery.\"",
       "DEMO_NOTE": "",
       "demo_files": [
         {
-          "file": "0001.html",
-          "download": "",
-          "caption": "Use the write() method of the document object to output a couple of words on screen."
+          "file": "0801-demo.html",
+          "download": "0801-demo.zip",
+          "caption": "We're using the Cycle2 plugin to create a simple slideshow of images that cross-dissolve between each other. By default Cycle2 binds to an element with the class named 'cycle-slideshow.'"
         },
         {
-          "file": "0002.html",
-          "download": "",
-          "caption": "Define a variable whose contents are output on screen via document.write()."
+          "file": "0802-demo.html",
+          "download": "0802-demo.zip",
+          "caption": "The fancyBox2 plugin creates image galleries in a modal window. This is often referred to as a 'lightbox' effect."
         },
         {
-          "file": "0003.html",
-          "download": "",
-          "caption": "Add two numbers together and output the result."
-        },
-        {
-          "file": "0004.html",
-          "download": "",
-          "caption": "Add / concatenate two strings together via the string operator and output the result."
-        },
-        {
-          "file": "0005.html",
-          "download": "",
-          "caption": "Use document.getElementById to get the contents of an HTML element, then display it via the alert() function."
-        },
-        {
-          "file": "0006.html",
-          "download": "",
-          "caption": "Use document.getElementById to get the contents of an HTML element, then display it in the console via the console.log() method. Handy for debugging."
-        },
-        {
-          "file": "0007.html",
-          "download": "",
-          "caption": "Dynamically set the content of an HTML element via the innerHTML property."
-        },
-        {
-          "file": "0008.html",
-          "download": "",
-          "caption": "Create an array and output a value of the array based on the index."
-        },
-        {
-          "file": "0009.html",
-          "download": "",
-          "caption": "Define a function and execute that function twice."
-        },
-        {
-          "file": "0010.html",
-          "download": "",
-          "caption": "Pass a variable to a function."
-        },
-        {
-          "file": "0011.html",
-          "download": "",
-          "caption": "Return a value from a function."
-        },
-        {
-          "file": "0012.html",
-          "download": "",
-          "caption": "The HTML file links to an external JavaScript file. In this demo, the link is in the HEAD section. Usually, the link is just above the closing body tag for performance reasons. Note: this demo won't run because it references an exernal file."
+          "file": "0803-demo.html",
+          "download": "0803-demo.zip",
+          "caption": "jQuery UI is a set of widgets and other user interface elements. This demo shows how to create a simple tabbed interface. The look of the interface can be customized via the jQuery UI ThemeRoller website: http://jqueryui.com/themeroller/. "
         }
       ]
     },
     {
-      "DEMO_FOLDER": "20150207-sass",
-      "DEMO_NAME": "Sass (Syntactically Awesome Stylesheets)",
-      "DEMO_DESCRIPTION": "These demos are related to Dan Cederholm's Sass for Web Designers.",
-      "DEMO_NOTE": "",
+      "DEMO_FOLDER": "20150321-ajax",
+      "DEMO_NAME": "Ajax + JSON",
+      "DEMO_DESCRIPTION": "These demos focus on using jQuery's Ajax methods to process HTML, XML, and JSON. Please refer to chapter 8 in Jon Duckett's \"JavaScript and jQuery.\"",
+      "DEMO_NOTE": "Note: for the demo files to work properly, they must be run on a web server.",
       "demo_files": [
         {
-          "file": "03311-demo-regular-css.scss",
-          "download": "",
-          "caption": "SCSS is a superset of CSS, meaning that any valid CSS is also valid SCSS. This demo shows that compiling regular CSS will output CSS."
+          "file": "0901-demo.html",
+          "download": "0901-demo.zip",
+          "caption": "This demo uses the $.get( ) method to request an HTML file from the server and display its contents on a webpage."
         },
         {
-          "file": "03312-demo-comments.scss",
-          "download": "",
-          "caption": "There are three styles of comments, one single-line style and two multi-line styles. Single line styles get stripped out when compiled. Multi-line styles do not get stripped out, except if the output format is compressed. Even if the output format is compressed, the /*! */ comment style will survive in the compiled CSS."
+          "file": "0902-demo.html",
+          "download": "0902-demo.zip",
+          "caption": "This demo uses the $.get( ) method to request an XML file from the server and display its contents on a webpage."
         },
         {
-          "file": "03313-demo-nesting.scss",
-          "download": "",
-          "caption": "CSS rules can be nested inside other rules. Note how the parent selector is repeated in the nested selector. This also mirrors the HTML structure of the document."
+          "file": "0903-demo.html",
+          "download": "0903-demo.zip",
+          "caption": "This demo uses the $.getJSON( ) method to request a JSON file from the server and display its contents on a webpage."
         },
         {
-          "file": "03314-demo-namespacing.scss",
-          "download": "",
-          "caption": "With namespacing, properties that have similar prefixes can be grouped in curly braces and SCSS will expand them."
+          "file": "0904-demo.html",
+          "download": "0904-demo.zip",
+          "caption": "This demo uses the $.ajax( ) method to request an HTML file from the server and display its contents on a webpage."
         },
         {
-          "file": "03315-demo-parent-selector.scss",
+          "file": "0905-demo.html",
+          "download": "0905-demo.zip",
+          "caption": "This demo uses the .load( ) method to request an HTML file from the server and display a portion of that webpage's content based on a jQuery selector."
+        }
+      ]
+    },
+    {
+      "DEMO_FOLDER": "20150328-apis_data_storage_error-handling",
+      "DEMO_NAME": "APIs, Data Storage, and Error Handling",
+      "DEMO_DESCRIPTION": "In these examples we look at the Google Maps API (440-447), data storage through HTML5 APIs (420-423) and Firebase, and advanced error handling with exceptions (480-483).",
+      "DEMO_NOTE": "Note: for the demo files to work properly, they must be run on a web server. Additionally, the Firebase examples require a free firebase.com account.",
+      "demo_files": [
+        {
+          "file": "1010.html",
           "download": "",
-          "caption": "In nested rules, it may be necessary to reference the name of the parent selector. Useful for link styles and other situations."
+          "caption": "[Client-side databases] Session storage via the sessionStorage object. Data stored in session storage is retained only for the lifetime of the given tab/window. It's good for info that changes frequently and is personal and should not be used by other users of the device."
         },
         {
-          "file": "03316-demo-mixins-simple.scss",
+          "file": "1011.html",
           "download": "",
-          "caption": "Mixins allow you to reuse a block of styles. Very helpful for CSS3 and its bevy of vendor prefixes."
+          "caption": "[Client-side databases] Local Storage via the localStorage object. Data stored in local storage is retained more or less permanently. It's good for information that should be stored outside of the browsing session or reused at a later time."
         },
         {
-          "file": "03317-demo-variables.scss",
+          "file": "10120.html",
           "download": "",
-          "caption": "Variables let you use the same value in multiple places. Imagine choosing a color and then applying it to several properties in several rules (h1 foreground color, #main background color, etc.). See also the brighten() and darken() SCSS methods."
+          "caption": "[Client-side databases] Write information to a Firebase database using its API methods. Note: the Firebase database name must be entered for the demo to work for you."
         },
         {
-          "file": "03318-demo-mixins-advanced.scss",
+          "file": "10121.html",
           "download": "",
-          "caption": "Arguments can be passed to mixins."
+          "caption": "[Client-side databases] Retrieve and show information from a Firebase database using its API methods. Note: the Firebase database name must be entered for the demo to work for you."
         },
         {
-          "file": "03319-demo-extend.scss",
+          "file": "10122.html",
           "download": "",
-          "caption": "Extend chains together styles shared among multiple selectors."
+          "caption": "[Client-side databases] Update information in a Firebase database using its API methods. Nothing will appear in the webpage itself, but if you're viewing the Firebase dashboard, you should see the information change. Note: the Firebase database name must be entered for the demo to work for you."
         },
         {
-          "file": "03411-demo-media-queries-with-sass.scss",
+          "file": "1020.html",
           "download": "",
-          "caption": "Combine Sass with media queries for easier development of responsively designed experiences."
+          "caption": "[Google Maps] A simple Google Map using the Google Maps API. Every map needs at a minimum center and zoom properties."
+        },
+        {
+          "file": "1021.html",
+          "download": "1021.zip",
+          "caption": "[Google Maps] A more advanced Google Map. This one contains a custom marker and custom content in a dialog when the marker is clicked."
+        },
+        {
+          "file": "1030.html",
+          "download": "",
+          "caption": "[Exceptions] This file with trigger an exception and halt the execution of the script. The reason for the exception is dividing by a variable that has not been declared or defined."
+        },
+        {
+          "file": "1031.html",
+          "download": "",
+          "caption": "[Exceptions] The try / catch / finally block provides a way to gracefully recover from the six kinds of errors that normally stop the execution of a script dead in the water."
+        },
+        {
+          "file": "1032.html",
+          "download": "",
+          "caption": "[Exceptions] We're using a catch block to provide a default value for the undeclared variable. Our script continues to process even after encountering the error."
+        },
+        {
+          "file": "1033.html",
+          "download": "",
+          "caption": "[Exceptions] Create your own exceptions using the Exceptions object."
+        }
+      ]
+    },
+    {
+      "DEMO_FOLDER": "20150404-php",
+      "DEMO_NAME": "PHP: PHP Hypertext Preprocessor",
+      "DEMO_DESCRIPTION": "These demos illustrate some basic functionality of the PHP server-side scripting language. The functionality that is highlighted was chosen for its syntactic similarity to JavaScript.",
+      "DEMO_NOTE": "Note: for the demo files to work properly, they must be run on a web server with PHP support (such as Apache).",
+      "demo_files": [
+        {
+          "file": "1100.php",
+          "download": "",
+          "caption": "PHP encapsulates its code betwen start and end tags, <?php and ?> respectively. The phpinfo( ) function outputs a ton of diagnostic information."
+        },
+        {
+          "file": "1101.php",
+          "download": "",
+          "caption": "The print( ) function prints strings on a webpage. Note that you can have a lot of whitespace around your PHP code."
+        },
+        {
+          "file": "1102.php",
+          "download": "",
+          "caption": "Comments are identical to those in JavaScript. PHP has both single and multi-line comments. PHP comments cannot be seen in a web browser."
+        },
+        {
+          "file": "1103.php",
+          "download": "",
+          "caption": "Create variables in PHP by prepending a \"$\" character and a name and then assigning it a value."
+        },
+        {
+          "file": "1104.php",
+          "download": "",
+          "caption": "When a programmer makes a syntactic error, PHP will not process any of the script and will instead report a \"parse error.\" PHP usually provides a brief explanation of the cause of the error, the file the error occurred in, and the line number. Here, the prit( ) function on line 8 does not exist."
+        },
+        {
+          "file": "1105.php",
+          "download": "",
+          "caption": "PHP uses lists, called arrays, extensively. Here are some common operations using numerically-indexed arrays."
+        },
+        {
+          "file": "1106.php",
+          "download": "",
+          "caption": "PHP also has associative arrays which use key/value pairings. They're more intuitive to use than numerically-indexed arrays."
+        },
+        {
+          "file": "1107.php",
+          "download": "",
+          "caption": "Conditional statements are nearly identical to JavaScript's syntax. The only difference is \"elseif\" instead of \"else if\"."
+        },
+        {
+          "file": "1108.php",
+          "download": "",
+          "caption": "PHP also supports 'for' and 'while' loops."
+        },
+        {
+          "file": "1109.php",
+          "download": "",
+          "caption": "User-defined functions are ubiquitous in PHP. They allow you to package snippets of code and re-use them."
+        },
+        {
+          "file": "1110.php",
+          "download": "",
+          "caption": "There are a number of special arrays, called superglobals, whose properties are accessible in every PHP script. This example uses the $_SERVER array to glean the browser name and operating system of the website's visitor."
+        },
+        {
+          "file": "1111.php",
+          "download": "",
+          "caption": "PHP excels at processing web form submissions. Once it receives the data, it can be stored in a server-side database, manipulated, emailed, etc."
+        },
+        {
+          "file": "1112.php",
+          "download": "",
+          "caption": "PHP has many features that can be executed dynamically, or on-the-fly, such as creating and manipulating images. This example dynamically creates a PNG file."
+        },
+        {
+          "file": "1113.php",
+          "download": "",
+          "caption": "Here we've combined the idea of passing arguments via the URL query string to dynamically generate different messages inside our dynamically generated PNG image."
+        }
+      ]
+    },
+    {
+      "DEMO_FOLDER": "20150418-wordpress",
+      "DEMO_NAME": "WordPress Themes",
+      "DEMO_DESCRIPTION": "These files comprise the WordPress theme based on Katie McGuinness' Love Pole Fitness website. The theme is based on a starter theme named underscores.",
+      "DEMO_NOTE": "Note: the downloads for this theme point to a single ZIP file that contains all of the theme files. The theme should be placed in \"wp-content/themes\" and activated in the WordPress dashboard.",
+      "demo_files": [
+        {
+          "file": "style.css",
+          "download": "cmp3011-theme.zip",
+          "caption": "The stylesheet is one of two required theme files. The comments at the top of the file describe the theme in the WordPress theme chooser interface."
+        },
+        {
+          "file": "index.php",
+          "download": "cmp3011-theme.zip",
+          "caption": "The index is the other of the two required theme files. If no other templates are matched, the fallback is always index.php. See the WordPress Template Hierarchy for details."
+        },
+        {
+          "file": "functions.php",
+          "download": "cmp3011-theme.zip",
+          "caption": "This file is recommended but not required. It contains all user-defined functions specific to the theme. It is customary to keep function definitions in this file and only put HTML and PHP function calls in the other template files. Note that this file has no visual output."
+        },
+        {
+          "file": "home.php",
+          "download": "cmp3011-theme.zip",
+          "caption": "We created this file based on an understanding of the WordPress Template Hierarchy. It replaced the default options for displaying content on the homepage."
+        },
+        {
+          "file": "header.php",
+          "download": "cmp3011-theme.zip",
+          "caption": "The underscores theme uses its own system to segregate and re-use content. Site-wide header information, for example, is stored in header.php. Some header information, particularly local stylesheets and JavaScript files, is defined dynamically in the cmp3011_scripts() function inside functions.php."
+        },
+        {
+          "file": "page.php",
+          "download": "cmp3011-theme.zip",
+          "caption": "All static pages use the page.php template file, in accordance with the WordPress Template Hierarchy."
+        },
+        {
+          "file": "content-page.php",
+          "download": "cmp3011-theme.zip",
+          "caption": "In underscores, the page.php file conditionally references the content-page.php file. (If that file is not present, it will look for a file named content.php.)"
+        },
+        {
+          "file": "footer.php",
+          "download": "cmp3011-theme.zip",
+          "caption": "Site-wide footer information is stored in footer.php."
         }
       ]
     }
