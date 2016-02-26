@@ -119,6 +119,7 @@ STEPS
 #steps ol {
     line-height: 1.8em ;
 }
+
 #steps ol li {
     margin-bottom: 10px ;
     color: #777 ;
@@ -156,6 +157,56 @@ STEPS
     /*opacity: 0;*/
     visibility: hidden;
 }
+
+
+#steps dl {
+    counter-reset: counter ;
+    line-height: 1.7em ;
+}
+
+#steps dl dt:before {
+    content: counter(counter) "." ;
+    counter-increment: counter;
+    position: absolute;
+    left: 20px;
+    top: 0;
+}
+
+#steps dl dt {
+    margin-bottom: 10px ;
+    color: #777 ;
+    font-size: 1.2em ;
+    position: relative ;
+    padding-left: 40px ;
+}
+
+#steps dl dt, #steps dl dt a {
+    -webkit-transition-property: color ;
+    -webkit-transition-duration: .3s ;
+    -webkit-transition-timing-function: ease ;
+    transition-property: color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease ;
+    text-decoration: none;
+}
+
+#steps dl dt a:link, #steps ol li a:visited {
+    color: #777;
+}
+
+#steps dl dt a:hover {
+    color: #000000;
+}
+
+/* turn the selected li item red */
+#steps dt.step_selected, #steps dt.step_selected a, #steps dt.step_selected a:link {
+    color: #dd0000;
+}
+#steps dl dt a.download {
+    /*opacity: 0;*/
+    visibility: hidden;
+}
+
 
 #source_code {
     float: left;
