@@ -37,15 +37,17 @@ function load_demos ( ) {
             var demo_name = response.demos[demo].DEMO_NAME;
             var demo_desc = response.demos[demo].DEMO_DESCRIPTION;
             var demo_note = response.demos[demo].DEMO_NOTE;
-            //var demo_folder = response.demos[demo].DEMO_FOLDER;
+            var demo_visibility = response.demos[demo].DEMO_VISIBILITY;
 
-            demo_html += '<div id="demo-' + demo_id + '">' ;
-            demo_html += '<h4><a href="javascript:loadSteps(' + demo_id + ');">' + demo_name + '</a></h4>' ;
-            demo_html += '<p><a href="javascript:loadSteps(' + demo_id + ');">' + demo_desc + '</a></p>' ;
-            if ( demo_note != '' ) {
-                demo_html += '<p class="demo_note">' + demo_note + '</p>' ;
+            if ( demo_visibility == 'true' ) {
+                demo_html += '<div id="demo-' + demo_id + '">' ;
+                demo_html += '<h4><a href="javascript:loadSteps(' + demo_id + ');">' + demo_name + '</a></h4>' ;
+                demo_html += '<p><a href="javascript:loadSteps(' + demo_id + ');">' + demo_desc + '</a></p>' ;
+                if ( demo_note != '' ) {
+                    demo_html += '<p class="demo_note">' + demo_note + '</p>' ;
+                }
+                demo_html += '</div>' ;
             }
-            demo_html += '</div>' ;
 
         }
 

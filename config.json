@@ -5,6 +5,7 @@
       "DEMO_NAME": "CSS3",
       "DEMO_DESCRIPTION": "These demos are related to Dan Cederholm's \"CSS3 for Web Designers.\"",
       "DEMO_NOTE": "",
+      "DEMO_VISIBILITY": "true",
       "demo_files": [
         {
           "file": "0221-demo.html",
@@ -48,6 +49,7 @@
       "DEMO_NAME": "Sass (Syntactically Awesome Stylesheets)",
       "DEMO_DESCRIPTION": "These demos are related to Dan Cederholm's \"Sass for Web Designers.\"",
       "DEMO_NOTE": "",
+      "DEMO_VISIBILITY": "true",
       "demo_files": [
         {
           "file": "03311-demo-regular-css.scss",
@@ -106,6 +108,7 @@
       "DEMO_NAME": "JavaScript 1",
       "DEMO_DESCRIPTION": "These demos are related to chapters 1 - 3 in Jon Duckett's \"JavaScript and jQuery.\"",
       "DEMO_NOTE": "",
+      "DEMO_VISIBILITY": "true",
       "demo_files": [
         {
           "file": "0001.html",
@@ -174,6 +177,7 @@
       "DEMO_NAME": "JavaScript 2",
       "DEMO_DESCRIPTION": "These demos are related to chapters 4 - 6 in Jon Duckett's \"JavaScript and jQuery.\"",
       "DEMO_NOTE": "",
+      "DEMO_VISIBILITY": "true",
       "demo_files": [
         {
           "file": "0001.html",
@@ -277,6 +281,7 @@
       "DEMO_NAME": "jQuery 1",
       "DEMO_DESCRIPTION": "These demos are related to pages 293-331 in Jon Duckett's \"JavaScript and jQuery.\" They cover the basic principles of selecting and manipulating HTML elements via jQuery.",
       "DEMO_NOTE": "",
+      "DEMO_VISIBILITY": "true",
       "demo_files": [
         {
           "file": "0601-demo-001.html",
@@ -420,6 +425,7 @@
       "DEMO_NAME": "jQuery 2",
       "DEMO_DESCRIPTION": "These demos are related to pages 332-366 in Jon Duckett's \"JavaScript and jQuery.\" They cover jQuery's capabilities for basic effects, DOM traversal, adding and filtering elements, finding elements by their order, cutting and copying elements, and getting and setting box dimensions, window and page dimensions, and the position of elements.",
       "DEMO_NOTE": "",
+      "DEMO_VISIBILITY": "true",
       "demo_files": [
         {
           "file": "0701-demo-01.html",
@@ -513,6 +519,7 @@
       "DEMO_NAME": "jQuery Plugins and jQuery UI",
       "DEMO_DESCRIPTION": "These demos focus on jQuery plugins and extending jQuery through its built-in API. See pages 429-433 in Jon Duckett's \"JavaScript and jQuery.\"",
       "DEMO_NOTE": "",
+      "DEMO_VISIBILITY": "true",
       "demo_files": [
         {
           "file": "0801-demo.html",
@@ -536,6 +543,7 @@
       "DEMO_NAME": "Ajax + JSON",
       "DEMO_DESCRIPTION": "These demos focus on using jQuery's Ajax methods to process HTML, XML, and JSON. Please refer to chapter 8 in Jon Duckett's \"JavaScript and jQuery.\"",
       "DEMO_NOTE": "Note: for the demo files to work properly, they must be run on a web server.",
+      "DEMO_VISIBILITY": "true",
       "demo_files": [
         {
           "file": "0901-demo.html",
@@ -569,6 +577,7 @@
       "DEMO_NAME": "APIs, Data Storage, and Error Handling",
       "DEMO_DESCRIPTION": "In these examples we look at the Google Maps API (440-447), data storage through HTML5 APIs (420-423) and Firebase, and advanced error handling with exceptions (480-483).",
       "DEMO_NOTE": "Note: for the demo files to work properly, they must be run on a web server. Additionally, the Firebase examples require a free firebase.com account.",
+      "DEMO_VISIBILITY": "true",
       "demo_files": [
         {
           "file": "1010.html",
@@ -632,6 +641,7 @@
       "DEMO_NAME": "PHP: PHP Hypertext Preprocessor",
       "DEMO_DESCRIPTION": "These demos illustrate some basic functionality of the PHP server-side scripting language. The functionality that is highlighted was chosen for its syntactic similarity to JavaScript.",
       "DEMO_NOTE": "Note: for the demo files to work properly, they must be run on a web server with PHP support (such as Apache).",
+      "DEMO_VISIBILITY": "true",
       "demo_files": [
         {
           "file": "1100.php",
@@ -710,6 +720,7 @@
       "DEMO_NAME": "WordPress Themes",
       "DEMO_DESCRIPTION": "These files comprise the WordPress theme based on Katie McGuinness' Love Pole Fitness website. The theme is based on a starter theme named underscores.",
       "DEMO_NOTE": "Note: the downloads for this theme point to a single ZIP file that contains all of the theme files. The theme should be placed in \"wp-content/themes\" and activated in the WordPress dashboard.",
+      "DEMO_VISIBILITY": "true",
       "demo_files": [
         {
           "file": "style.css",
