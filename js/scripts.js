@@ -57,13 +57,13 @@ function load_demos ( ) {
 
 function loadSteps ( demo ) {
 
-    var steps_html = '<ol>' ;
+    var steps_html = '<dl>' ;
 
     target_demo = GLOBAL_CONFIG.demos[demo] ;
 
     for ( step = 0 ; step < target_demo.demo_files.length ; step++ ) {
 
-        var li_id = 'li-' + demo + '-' + target_demo.demo_files[step].file.replace(/\./g, '-') ;
+        var dt_id = 'dt-' + demo + '-' + target_demo.demo_files[step].file.replace(/\./g, '-') ;
 
         // Is a download link specified in the config file? If so, use that. Otherwise, just use the filename that's being displayed.
         if ( target_demo.demo_files[step].download != '' ) {
@@ -73,11 +73,11 @@ function loadSteps ( demo ) {
             var $download_link = target_demo.demo_files[step].file ;
         }
 
-        steps_html += '<li id="' + li_id + '"><a id="step' + step + '" class="step" href="javascript:loadStepDetails(\'' + demo + '\',\'' + DEMO_DIRECTORY + '/'+ target_demo.DEMO_FOLDER + '\',\'' + target_demo.demo_files[step].file + '\');">' + target_demo.demo_files[step].caption + '</a>&nbsp;<a id="' + li_id + '-download" class="download" href="' + DEMO_DIRECTORY + '/'+ target_demo.DEMO_FOLDER + '/' + $download_link + '" title="Download ' + $download_link + ' " download><svg class="download_icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 44.5 43.875" enable-background="new 0 0 44.5 43.875" xml:space="preserve" width="15" height="15">        <circle id="circle" fill="#000000" cx="22.531" cy="22.094" r="20.844"/> <line fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="22.875" y1="10.625" x2="22.875" y2="33.625"/> <polyline fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="32.577,23.819 22.531,33.91 12.485,23.819 "/> </svg></a></li>' ;
+        steps_html += '<dt id="' + dt_id + '"><a id="step' + step + '" class="step" href="javascript:loadStepDetails(\'' + demo + '\',\'' + DEMO_DIRECTORY + '/'+ target_demo.DEMO_FOLDER + '\',\'' + target_demo.demo_files[step].file + '\');">' + target_demo.demo_files[step].caption + '</a>&nbsp;<a id="' + dt_id + '-download" class="download" href="' + DEMO_DIRECTORY + '/'+ target_demo.DEMO_FOLDER + '/' + $download_link + '" title="Download ' + $download_link + ' " download><svg class="download_icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 44.5 43.875" enable-background="new 0 0 44.5 43.875" xml:space="preserve" width="15" height="15">        <circle id="circle" fill="#000000" cx="22.531" cy="22.094" r="20.844"/> <line fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="22.875" y1="10.625" x2="22.875" y2="33.625"/> <polyline fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="32.577,23.819 22.531,33.91 12.485,23.819 "/> </svg></a></dt>' ;
         // Note: the download link will load the page in the browser. Users will need to option-click to download the file, unless it's ZIPped.
     }
 
-    steps_html += '</ol>' ;
+    steps_html += '</dl>' ;
 
     var $steps_div = $('#steps') ;
 
@@ -91,13 +91,13 @@ function loadSteps ( demo ) {
     $steps_div.html(steps_html).fadeTo(250,1) ;
 
     // add download link styles for steps
-    var $steps_li = $('#steps ol li') ;
-    $steps_li.on ( 'mouseover', function () {
+    var $steps_dt = $('#steps dl dt') ;
+    $steps_dt.on ( 'mouseover', function () {
         var dl_link = '#' + this.id + '-download' ;
         $(dl_link).css( {'visibility':'visible' }) ;
     }) ;
 
-    $steps_li.on ( 'mouseout', function () {
+    $steps_dt.on ( 'mouseout', function () {
         var dl_link = '#' + this.id + '-download' ;
         $(dl_link).css( {'visibility':'hidden' }) ;
     }) ;
@@ -143,7 +143,7 @@ function loadStepDetails ( demo, folder, file ) {
         $('.step_selected').removeClass ('step_selected') ;
 
         // set the selected demo to have a new class
-        var selected_step = 'li#li-' + demo + '-' + file.replace('.' ,'-') ;
+        var selected_step = 'dt#dt-' + demo + '-' + file.replace('.' ,'-') ;
         $(selected_step).addClass ( 'step_selected' ) ;
 
         // scroll to the top of the source code, if needed
