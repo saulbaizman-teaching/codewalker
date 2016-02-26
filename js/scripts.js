@@ -1,4 +1,5 @@
 // Global configuration variables.
+var PAGE_TITLE = 'intermediate web design (cmp 3011) demo files &mdash; sp16' ;
 var PROGRAM_NAME = 'codewalker' ;
 var PROGRAM_VERSION = '0.0.0.4' ;
 var DEMO_DIRECTORY = 'demo' ;
@@ -11,13 +12,13 @@ load_demos () ;
 function codewalker_init ( ) {
 
 // Update browser window title
-    document.title = PROGRAM_NAME ;
+    document.title = PAGE_TITLE ;
 
 // Get the year of the current date.
     var date = new Date();
 
 // Insert header text.
-    $('header h1').text(PROGRAM_NAME);
+    $('header h1').html(PAGE_TITLE);
 
 // Insert footer text.
     $('footer').html('<small>' + '&copy;' + date.getFullYear() + ' ' + PROGRAM_NAME + ' v' + PROGRAM_VERSION + '</small>');
