@@ -127,10 +127,10 @@ STEPS
 }
 
 #steps dl dt:before {
-    content: counter(counter) "." ;
+    content: counter(counter, decimal-leading-zero) "." ;
     counter-increment: counter;
     position: absolute;
-    left: 20px;
+    left: 30px;
     top: 0;
 }
 
@@ -139,7 +139,7 @@ STEPS
     color: #777 ;
     font-size: 1.2em ;
     position: relative ;
-    padding-left: 40px ;
+    padding-left: 60px ;
 }
 
 #steps dl dt, #steps dl dt a {
