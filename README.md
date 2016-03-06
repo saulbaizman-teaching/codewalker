@@ -10,11 +10,6 @@ This is a simple file viewer for viewing the demos used in my classes at the Sch
 
 The demos are stored in subfolders of the `demo` folder.
 
-To view the demos, open Terminal and spin up a web server in the document root directory like so:
+To view the demos, open index.html in a web browser.
 
-`$ python -m SimpleHTTPServer`
-
-Then point a web browser to this address:
-
-[http://localhost:8000/](http://localhost:8000/)
-
+If you want to use codewalker for your own purposes, customize `config.json`.
