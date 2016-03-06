@@ -4,8 +4,6 @@ TO DO
 
 + Add code editability and preview / execution window.
 
-+ Rewrite this application using 100% JavaScript/jQuery.
-
 + Get rid of explicit function calls in scripts.js; just use jQuery.
 
 FIXME
