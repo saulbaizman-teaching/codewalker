@@ -1,6 +1,7 @@
 // Global configuration variables.
 var PAGE_TITLE = 'intermediate web design (cmp 3011) demo files &mdash; sp16' ;
 var PROGRAM_NAME = 'codewalker' ;
+var PROGRAM_URL = 'https://github.com/saulbaizman/codewalker' ;
 var PROGRAM_VERSION = '0.0.0.4' ;
 var DEMO_DIRECTORY = 'demo' ;
 // var GLOBAL_CONFIG ; // this is not explicitly defined here on purpose.
@@ -21,7 +22,7 @@ function codewalker_init ( ) {
     $('header h1').html(PAGE_TITLE);
 
 // Insert footer text.
-    $('footer').html('<small>' + '&copy;' + date.getFullYear() + ' ' + PROGRAM_NAME + ' v' + PROGRAM_VERSION + '</small>');
+    $('footer').html('<small>' + '&copy;' + date.getFullYear() + ' ' + '<a href="' + PROGRAM_URL + '" target="_blank">' + PROGRAM_NAME + '</a>' + ' v' + PROGRAM_VERSION + '</small>');
 
 }
 
