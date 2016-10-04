@@ -123,7 +123,7 @@ STEPS
 
 #steps dl {
     counter-reset: counter ;
-    line-height: 1.7em ;
+    line-height: 1.5em ;
 }
 
 #steps dl dt:before {
